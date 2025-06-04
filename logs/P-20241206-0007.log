@@ -1,0 +1,78 @@
+[P-20241206-0007] Start with default.json
+[P-20241206-0007] → OPEN URL - https://example.com
+[P-20241206-0007] → ❌ input_text //input[@name='username'] => Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=129.0.6668.59)
+Stacktrace:
+	GetHandleVerifier [0x00567233+25571]
+	(No symbol) [0x004FA364]
+	(No symbol) [0x003F1D73]
+	(No symbol) [0x003CE23B]
+	(No symbol) [0x0046143F]
+	(No symbol) [0x004748D9]
+	(No symbol) [0x0045A5E6]
+	(No symbol) [0x0042B726]
+	(No symbol) [0x0042C17D]
+	GetHandleVerifier [0x00835063+2966035]
+	GetHandleVerifier [0x00885E89+3297337]
+	GetHandleVerifier [0x005F7232+615394]
+	GetHandleVerifier [0x005FE9BC+645996]
+	(No symbol) [0x00502F5D]
+	(No symbol) [0x004FFE68]
+	(No symbol) [0x00500005]
+	(No symbol) [0x004F24F6]
+	BaseThreadInitThunk [0x7608FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x775A82AE+286]
+	RtlGetAppContainerNamedObjectPath [0x775A827E+238]
+
+[P-20241206-0007] → ❌ input_text //input[@name='password'] => Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=129.0.6668.59)
+Stacktrace:
+	GetHandleVerifier [0x00567233+25571]
+	(No symbol) [0x004FA364]
+	(No symbol) [0x003F1D73]
+	(No symbol) [0x003CE23B]
+	(No symbol) [0x0046143F]
+	(No symbol) [0x004748D9]
+	(No symbol) [0x0045A5E6]
+	(No symbol) [0x0042B726]
+	(No symbol) [0x0042C17D]
+	GetHandleVerifier [0x00835063+2966035]
+	GetHandleVerifier [0x00885E89+3297337]
+	GetHandleVerifier [0x005F7232+615394]
+	GetHandleVerifier [0x005FE9BC+645996]
+	(No symbol) [0x00502F5D]
+	(No symbol) [0x004FFE68]
+	(No symbol) [0x00500005]
+	(No symbol) [0x004F24F6]
+	BaseThreadInitThunk [0x7608FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x775A82AE+286]
+	RtlGetAppContainerNamedObjectPath [0x775A827E+238]
+
+[P-20241206-0007] → ❌ click //button[@type='submit'] => Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=129.0.6668.59)
+Stacktrace:
+	GetHandleVerifier [0x00567233+25571]
+	(No symbol) [0x004FA364]
+	(No symbol) [0x003F1D73]
+	(No symbol) [0x003CE23B]
+	(No symbol) [0x0046143F]
+	(No symbol) [0x004748D9]
+	(No symbol) [0x0045A5E6]
+	(No symbol) [0x0042B726]
+	(No symbol) [0x0042C17D]
+	GetHandleVerifier [0x00835063+2966035]
+	GetHandleVerifier [0x00885E89+3297337]
+	GetHandleVerifier [0x005F7232+615394]
+	GetHandleVerifier [0x005FE9BC+645996]
+	(No symbol) [0x00502F5D]
+	(No symbol) [0x004FFE68]
+	(No symbol) [0x00500005]
+	(No symbol) [0x004F24F6]
+	BaseThreadInitThunk [0x7608FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x775A82AE+286]
+	RtlGetAppContainerNamedObjectPath [0x775A827E+238]
+
+[P-20241206-0007] ✅ DONE

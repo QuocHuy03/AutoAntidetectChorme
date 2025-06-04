@@ -1,0 +1,22 @@
+[
+  {
+    "action": "open_url",
+    "xpath": "",
+    "value": "https://example.com"
+  },
+  {
+    "action": "input_text",
+    "xpath": "//input[@name='username']",
+    "value": "admin"
+  },
+  {
+    "action": "input_text",
+    "xpath": "//input[@name='password']",
+    "value": "123456"
+  },
+  {
+    "action": "click",
+    "xpath": "//button[@type='submit']",
+    "value": ""
+  }
+]
