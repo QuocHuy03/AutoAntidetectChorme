@@ -1,22 +1,15 @@
 [
+  { "action": "open_url", "value": "https://example.com" },
   {
-    "action": "open_url",
-    "xpath": "",
-    "value": "https://example.com"
+    "action": "element_exists",
+    "xpath": "//div[@id='popup']",
+    "if_true": [
+      { "action": "click", "xpath": "//button[text()='Close']" }
+    ],
+    "if_false": [
+      { "action": "screenshot" }
+    ],
+    "stop_on_false": true
   },
-  {
-    "action": "input_text",
-    "xpath": "//input[@name='username']",
-    "value": "admin"
-  },
-  {
-    "action": "input_text",
-    "xpath": "//input[@name='password']",
-    "value": "123456"
-  },
-  {
-    "action": "click",
-    "xpath": "//button[@type='submit']",
-    "value": ""
-  }
+  { "action": "click", "xpath": "//a[@id='start']" }
 ]

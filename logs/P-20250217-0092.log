@@ -1,0 +1,11 @@
+[P-20250217-0092] Start with search.json
+[P-20250217-0092] → OPEN URL - https://google.com
+[P-20250217-0092] → ELEMENT TỒN TẠI => //*[@id='APjFqb']
+[P-20250217-0092] → NHẬP => //*[@id='APjFqb']
+[P-20250217-0092] → PRESS KEY ENTER tại //*[@id='APjFqb']
+[P-20250217-0092] 🕒 WAIT 1.0 giây
+[P-20250217-0092] 🔍 Scroll tới element: (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[5]
+[P-20250217-0092] → CLICK => (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[5]
+[P-20250217-0092] ↓ Scroll xuống 300px
+[P-20250217-0092] ↓ Scroll xuống cuối trang
+[P-20250217-0092] ✅ DONE

@@ -158,7 +158,7 @@ class MainWindow(QMainWindow):
         y = row * (win_h + vgap)
         print(f"[Screen] {screen_w}x{screen_h} → Cols: {cols}, Count: {index}")
 
-        for _ in range(10):
+        for _ in range(10):  # chờ cửa sổ hiện ra
             windows = [w for w in gw.getWindowsWithTitle(profile_name) if w.visible and profile_name.lower() in w.title.lower()]
             if windows:
                 try:

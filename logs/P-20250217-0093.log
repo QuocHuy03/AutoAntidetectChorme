@@ -1,0 +1,59 @@
+[P-20250217-0093] Start with search.json
+[P-20250217-0093] → OPEN URL - https://google.com
+[P-20250217-0093] → ELEMENT TỒN TẠI => //*[@id='APjFqb']
+[P-20250217-0093] → NHẬP => //*[@id='APjFqb']
+[P-20250217-0093] → PRESS KEY ENTER tại //*[@id='APjFqb']
+[P-20250217-0093] 🕒 WAIT 1.0 giây
+[P-20250217-0093] 🔍 Scroll tới element: (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[5]
+[P-20250217-0093] → CLICK => (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[5]
+[P-20250217-0093] → ❌ scroll  => Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=129.0.6668.59)
+Stacktrace:
+	GetHandleVerifier [0x00FC7233+25571]
+	(No symbol) [0x00F5A364]
+	(No symbol) [0x00E51D73]
+	(No symbol) [0x00E2E23B]
+	(No symbol) [0x00EC143F]
+	(No symbol) [0x00ED48D9]
+	(No symbol) [0x00EBA5E6]
+	(No symbol) [0x00E8B726]
+	(No symbol) [0x00E8C17D]
+	GetHandleVerifier [0x01295063+2966035]
+	GetHandleVerifier [0x012E5E89+3297337]
+	GetHandleVerifier [0x01057232+615394]
+	GetHandleVerifier [0x0105E9BC+645996]
+	(No symbol) [0x00F62F5D]
+	(No symbol) [0x00F5FE68]
+	(No symbol) [0x00F60005]
+	(No symbol) [0x00F524F6]
+	BaseThreadInitThunk [0x7608FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x775A82AE+286]
+	RtlGetAppContainerNamedObjectPath [0x775A827E+238]
+
+[P-20250217-0093] → ❌ scroll  => Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=129.0.6668.59)
+Stacktrace:
+	GetHandleVerifier [0x00FC7233+25571]
+	(No symbol) [0x00F5A364]
+	(No symbol) [0x00E51D73]
+	(No symbol) [0x00E2E23B]
+	(No symbol) [0x00EC143F]
+	(No symbol) [0x00ED48D9]
+	(No symbol) [0x00EBA5E6]
+	(No symbol) [0x00E8B726]
+	(No symbol) [0x00E8C17D]
+	GetHandleVerifier [0x01295063+2966035]
+	GetHandleVerifier [0x012E5E89+3297337]
+	GetHandleVerifier [0x01057232+615394]
+	GetHandleVerifier [0x0105E9BC+645996]
+	(No symbol) [0x00F62F5D]
+	(No symbol) [0x00F5FE68]
+	(No symbol) [0x00F60005]
+	(No symbol) [0x00F524F6]
+	BaseThreadInitThunk [0x7608FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x775A82AE+286]
+	RtlGetAppContainerNamedObjectPath [0x775A827E+238]
+
+[P-20250217-0093] ✅ DONE
