@@ -8,6 +8,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 import random
+import re
 
 
 def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, profile_name):
@@ -23,15 +24,83 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
     service = Service(driver_path)
     driver = webdriver.Chrome(service=service, options=chrome_options)
 
-    def execute_block(block):
+    variables = {}
+    loop_flags = []  # stack of loop control flags
+
+    def render(text, local_vars):
+        if isinstance(text, str):
+            # Replace {{var}} with real value
+            for key, val in local_vars.items():
+                text = text.replace(f"{{{{{key}}}}}", str(val))
+            return text
+        return text
+
+    def execute_block(block, local_vars):
+        nonlocal variables, loop_flags
         action = block.get('action')
-        xpath = block.get('xpath', '')
-        value = block.get('value', '')
+        xpath = render(block.get('xpath', ''), local_vars)
+        value = render(block.get('value', ''), local_vars)
 
         try:
             if action == 'open_url':
                 driver.get(value)
                 logger(f"[{profile_name}] → OPEN URL - {value}")
+
+            elif action == 'loop':
+                count = int(block.get('count', 1))
+                start = int(block.get('start', 0))
+                var_name = block.get('variable', 'i')
+                loop_blocks = block.get('do', [])
+                for i in range(start, start + count):
+                    variables[var_name] = i  # Cập nhật biến toàn cục
+                    loop_vars = variables.copy()  # Thay vì local_vars.copy()
+                    loop_flags.append({'break': False, 'continue': False})
+                    for lb in loop_blocks:
+                        if loop_flags[-1]['break']:
+                            break
+                        if loop_flags[-1]['continue']:
+                            loop_flags[-1]['continue'] = False
+                            break
+                        execute_block(lb, loop_vars)
+                    loop_flags.pop()
+
+            elif action == 'while':
+                condition = block.get('condition')
+                var_name = block.get('variable', 'i')
+                loop_blocks = block.get('do', [])
+                while eval(condition, {}, variables):
+                    loop_vars = local_vars.copy()
+                    loop_vars.update(variables)
+                    loop_flags.append({'break': False, 'continue': False})
+                    for lb in loop_blocks:
+                        if loop_flags[-1]['break']:
+                            break
+                        if loop_flags[-1]['continue']:
+                            loop_flags[-1]['continue'] = False
+                            break
+                        execute_block(lb, loop_vars)
+                    loop_flags.pop()
+
+            elif action == 'break_loop':
+                if loop_flags:
+                    loop_flags[-1]['break'] = True
+
+            elif action == 'next_loop':
+                if loop_flags:
+                    loop_flags[-1]['continue'] = True
+
+            elif action == 'set_variable':
+                variables[block['name']] = block['value']
+
+            elif action == 'increase_variable':
+                name = block['name']
+                by = int(block.get('by', 1))
+                variables[name] = variables.get(name, 0) + by
+
+            elif action == 'decrease_variable':
+                name = block['name']
+                by = int(block.get('by', 1))
+                variables[name] = variables.get(name, 0) - by
 
             elif action == 'input_text':
                 elem = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
@@ -42,26 +111,20 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
             elif action == 'click':
                 WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, xpath))).click()
                 logger(f"[{profile_name}] → CLICK => {xpath}")
-            
+
             elif action == 'click_coords':
-                try:
-                    x, y = map(int, value.strip().split(','))
-                    webdriver.ActionChains(driver).move_by_offset(x, y).click().perform()
-                    logger(f"[{profile_name}] 🖱️ CLICK theo tọa độ: ({x}, {y})")
-                    webdriver.ActionChains(driver).move_by_offset(-x, -y).perform()  # Reset lại offset
-                except Exception as e:
-                    logger(f"[{profile_name}] ❌ CLICK theo tọa độ thất bại: {value} => {e}")
+                x, y = map(int, value.strip().split(','))
+                webdriver.ActionChains(driver).move_by_offset(x, y).click().perform()
+                logger(f"[{profile_name}] 🖱️ CLICK theo tọa độ: ({x}, {y})")
+                webdriver.ActionChains(driver).move_by_offset(-x, -y).perform()
 
             elif action == 'input_press_key':
                 elem = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
                 key = getattr(Keys, value.upper(), None)
                 if key:
-                    try:
-                        elem.click()  # 👉 Đảm bảo focus vào element
-                        elem.send_keys(key)
-                        logger(f"[{profile_name}] → PRESS KEY {value.upper()} tại {xpath}")
-                    except Exception as e:
-                        logger(f"[{profile_name}] ❌ Không gửi được key {value.upper()} tại {xpath}: {e}")
+                    elem.click()
+                    elem.send_keys(key)
+                    logger(f"[{profile_name}] → PRESS KEY {value.upper()} tại {xpath}")
                 else:
                     logger(f"[{profile_name}] ❌ Phím không hợp lệ: {value}")
 
@@ -69,23 +132,20 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                 elements = driver.find_elements(By.XPATH, xpath)
                 exists = len(elements) > 0
                 logger(f"[{profile_name}] → ELEMENT {'TỒN TẠI' if exists else 'KHÔNG TỒN TẠI'} => {xpath}")
-
                 if exists and 'if_true' in block:
-                    for inner_block in block['if_true']:
-                        execute_block(inner_block)
+                    for inner in block['if_true']:
+                        execute_block(inner, local_vars)
                 elif not exists and 'if_false' in block:
-                    for inner_block in block['if_false']:
-                        execute_block(inner_block)
-
+                    for inner in block['if_false']:
+                        execute_block(inner, local_vars)
                 if not exists and block.get("stop_on_fail", False):
                     logger(f"[{profile_name}] 🛑 DỪNG SCRIPT do element không tồn tại và 'stop_on_fail: true'")
                     driver.quit()
                     exit()
 
             elif action == 'wait':
-                delay = float(value)
-                time.sleep(delay)
-                logger(f"[{profile_name}] 🕒 WAIT {delay} giây")
+                time.sleep(float(value))
+                logger(f"[{profile_name}] 🕒 WAIT {value} giây")
 
             elif action == 'scroll':
                 if value == "down":
@@ -105,35 +165,34 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                         elem = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
                         driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", elem)
                         logger(f"[{profile_name}] 🔍 Scroll tới element: {xpath}")
-                    else:
-                        logger(f"[{profile_name}] ❌ scroll: cần chỉ định 'xpath' khi dùng value='element'")
                 elif value == "random":
-                    direction = random.choice([-1, 1])  # -1 = scroll up, 1 = scroll down
+                    direction = random.choice([-1, 1])
                     pixels = random.randint(100, 600)
                     driver.execute_script(f"window.scrollBy(0, {direction * pixels});")
                     logger(f"[{profile_name}] 🎲 Scroll ngẫu nhiên {('↓' if direction == 1 else '↑')} {pixels}px")
                 else:
-                    try:
-                        pixels = int(value)
-                        driver.execute_script(f"window.scrollBy(0, {pixels});")
-                        logger(f"[{profile_name}] ↕ Scroll theo pixel: {pixels}")
-                    except ValueError:
-                        logger(f"[{profile_name}] ❌ scroll: Giá trị '{value}' không hợp lệ")
-            
+                    pixels = int(value)
+                    driver.execute_script(f"window.scrollBy(0, {pixels});")
+                    logger(f"[{profile_name}] ↕ Scroll theo pixel: {pixels}")
+
             elif action == 'screenshot':
                 os.makedirs('screenshots', exist_ok=True)
                 path = f'screenshots/{profile_name}_{int(time.time())}.png'
                 driver.save_screenshot(path)
                 logger(f"[{profile_name}] 📸 Screenshot lưu tại: {path}")
 
+            elif action == 'stop_script':
+                logger(f"[{profile_name}] 🛑 SCRIPT DỪNG LẠI: {value or block.get('reason', 'Không có lý do cụ thể')}")
+                driver.quit()
+                exit()
+
             time.sleep(1)
 
         except Exception as e:
             logger(f"[{profile_name}] → ❌ {action} {xpath} => {e}")
 
-    # Run each block
     for block in blocks:
-        execute_block(block)
+        execute_block(block, variables)
 
     driver.quit()
     logger(f"[{profile_name}] ✅ DONE")
