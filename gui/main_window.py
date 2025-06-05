@@ -333,8 +333,8 @@ class MainWindow(QMainWindow):
         excel_mode = self.mode_combo.currentText()
         excel_path = self.excel_input.text().strip()
         # 🔒 Bắt buộc phải chọn file Excel nếu ở chế độ 'profile'
-        if excel_mode == "profile" and not os.path.exists(excel_path):
-            QMessageBox.warning(self, "Thiếu file Excel", "Vui lòng chọn file Excel khi ở chế độ 'profile'.")
+        if excel_mode == "profile" or excel_mode == "row" and not os.path.exists(excel_path):
+            QMessageBox.warning(self, "Lỗi Thiếu Excel", "Vui lòng chọn file Excel khi ở chế độ 'PROFILE'.")
             return
         
         selected_rows = self.table.selectionModel().selectedRows()
