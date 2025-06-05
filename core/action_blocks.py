@@ -8,10 +8,9 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 import random
-import re
+from core.api_bridge import close_profile 
 
-
-def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, profile_name):
+def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, profile, provider, base_url, stop_flag):
     with open(json_path, 'r', encoding='utf-8') as f:
         blocks = json.load(f)
 
@@ -44,7 +43,7 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
         try:
             if action == 'open_url':
                 driver.get(value)
-                logger(f"[{profile_name}] → OPEN URL - {value}")
+                logger(f"[{profile['name']}] → OPEN URL - {value}")
 
             elif action == 'loop':
                 count = int(block.get('count', 1))
@@ -106,16 +105,16 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                 elem = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
                 elem.clear()
                 elem.send_keys(value)
-                logger(f"[{profile_name}] → NHẬP => {xpath}")
+                logger(f"[{profile['name']}] → NHẬP => {xpath}")
 
             elif action == 'click':
                 WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, xpath))).click()
-                logger(f"[{profile_name}] → CLICK => {xpath}")
+                logger(f"[{profile['name']}] → CLICK => {xpath}")
 
             elif action == 'click_coords':
                 x, y = map(int, value.strip().split(','))
                 webdriver.ActionChains(driver).move_by_offset(x, y).click().perform()
-                logger(f"[{profile_name}] 🖱️ CLICK theo tọa độ: ({x}, {y})")
+                logger(f"[{profile['name']}] 🖱️ CLICK theo tọa độ: ({x}, {y})")
                 webdriver.ActionChains(driver).move_by_offset(-x, -y).perform()
 
             elif action == 'input_press_key':
@@ -124,75 +123,97 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                 if key:
                     elem.click()
                     elem.send_keys(key)
-                    logger(f"[{profile_name}] → PRESS KEY {value.upper()} tại {xpath}")
+                    logger(f"[{profile['name']}] → PRESS KEY {value.upper()} tại {xpath}")
                 else:
-                    logger(f"[{profile_name}] ❌ Phím không hợp lệ: {value}")
+                    logger(f"[{profile['name']}] ❌ Phím không hợp lệ: {value}")
 
             elif action == 'element_exists':
                 elements = driver.find_elements(By.XPATH, xpath)
                 exists = len(elements) > 0
-                logger(f"[{profile_name}] → ELEMENT {'TỒN TẠI' if exists else 'KHÔNG TỒN TẠI'} => {xpath}")
+                logger(f"[{profile['name']}] → ELEMENT {'TỒN TẠI' if exists else 'KHÔNG TỒN TẠI'} => {xpath}")
+                
+                # Nếu phần tử tồn tại, thực hiện các hành động trong if_true
                 if exists and 'if_true' in block:
                     for inner in block['if_true']:
                         execute_block(inner, local_vars)
+                
+                # Nếu phần tử không tồn tại, thực hiện các hành động trong if_false
                 elif not exists and 'if_false' in block:
                     for inner in block['if_false']:
                         execute_block(inner, local_vars)
+                
+                # Nếu phần tử không tồn tại và stop_on_fail = true, dừng script
                 if not exists and block.get("stop_on_fail", False):
-                    logger(f"[{profile_name}] 🛑 DỪNG SCRIPT do element không tồn tại và 'stop_on_fail: true'")
-                    driver.quit()
-                    exit()
+                    logger(f"[{profile['name']}] 🛑 DỪNG SCRIPT do element không tồn tại và 'stop_on_fail: true'")
+                    
+                    # Gọi API để đóng profile
+                    close_profile(provider, base_url, profile['id'])  # Đóng profile thông qua API
+                    
+                    # Đảm bảo đóng trình duyệt và thoát khỏi script
+                    try:
+                        driver.quit()  # Đóng trình duyệt
+                    except Exception as e:
+                        logger(f"❌ Lỗi khi đóng trình duyệt: {e}")
+                    
+                    exit()  # Dừng script hoàn toàn
 
             elif action == 'wait':
                 time.sleep(float(value))
-                logger(f"[{profile_name}] 🕒 WAIT {value} giây")
+                logger(f"[{profile['name']}] 🕒 WAIT {value} giây")
 
             elif action == 'scroll':
                 if value == "down":
                     driver.execute_script("window.scrollBy(0, 300);")
-                    logger(f"[{profile_name}] ↓ Scroll xuống 300px")
+                    logger(f"[{profile['name']}] ↓ Scroll xuống 300px")
                 elif value == "up":
                     driver.execute_script("window.scrollBy(0, -300);")
-                    logger(f"[{profile_name}] ↑ Scroll lên 300px")
+                    logger(f"[{profile['name']}] ↑ Scroll lên 300px")
                 elif value == "to_bottom":
                     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-                    logger(f"[{profile_name}] ↓ Scroll xuống cuối trang")
+                    logger(f"[{profile['name']}] ↓ Scroll xuống cuối trang")
                 elif value == "to_top":
                     driver.execute_script("window.scrollTo(0, 0);")
-                    logger(f"[{profile_name}] ↑ Scroll lên đầu trang")
+                    logger(f"[{profile['name']}] ↑ Scroll lên đầu trang")
                 elif value == "element":
                     if xpath:
                         elem = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
                         driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", elem)
-                        logger(f"[{profile_name}] 🔍 Scroll tới element: {xpath}")
+                        logger(f"[{profile['name']}] 🔍 Scroll tới element: {xpath}")
                 elif value == "random":
                     direction = random.choice([-1, 1])
                     pixels = random.randint(100, 600)
                     driver.execute_script(f"window.scrollBy(0, {direction * pixels});")
-                    logger(f"[{profile_name}] 🎲 Scroll ngẫu nhiên {('↓' if direction == 1 else '↑')} {pixels}px")
+                    logger(f"[{profile['name']}] 🎲 Scroll ngẫu nhiên {('↓' if direction == 1 else '↑')} {pixels}px")
                 else:
                     pixels = int(value)
                     driver.execute_script(f"window.scrollBy(0, {pixels});")
-                    logger(f"[{profile_name}] ↕ Scroll theo pixel: {pixels}")
+                    logger(f"[{profile['name']}] ↕ Scroll theo pixel: {pixels}")
 
             elif action == 'screenshot':
                 os.makedirs('screenshots', exist_ok=True)
-                path = f'screenshots/{profile_name}_{int(time.time())}.png'
+                path = f'screenshots/{profile['name']}_{int(time.time())}.png'
                 driver.save_screenshot(path)
-                logger(f"[{profile_name}] 📸 Screenshot lưu tại: {path}")
+                logger(f"[{profile['name']}] 📸 Screenshot lưu tại: {path}")
 
             elif action == 'stop_script':
-                logger(f"[{profile_name}] 🛑 SCRIPT DỪNG LẠI: {value or block.get('reason', 'Không có lý do cụ thể')}")
+                logger(f"[{profile['name']}] 🛑 SCRIPT DỪNG LẠI: {value or block.get('reason', 'Không có lý do cụ thể')}")
+                close_profile(provider, base_url, profile['id'])
                 driver.quit()
                 exit()
 
             time.sleep(1)
 
         except Exception as e:
-            logger(f"[{profile_name}] → ❌ {action} {xpath} => {e}")
+            logger(f"[{profile['name']}] → ❌ {action} {xpath} => {e}")
 
     for block in blocks:
+        if stop_flag.is_set():
+            logger(f"[{profile['name']}] ⛔ Đã nhấn STOP – dừng script ngay lập tức.")
+            close_profile(provider, base_url, profile['id'])
+            try:
+                driver.quit()
+            except Exception as e:
+                logger(f"[{profile['name']}] ⚠️ Lỗi khi đóng trình duyệt: {e}")
+            return
         execute_block(block, variables)
 
-    driver.quit()
-    logger(f"[{profile_name}] ✅ DONE")

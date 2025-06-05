@@ -8,6 +8,6 @@
   "xpath": "//*[@id='input']",
   "if_true": [{ "action": "click", "xpath": "//*[@id='input']" }],
   "if_false": [{ "action": "screenshot" }],
-  "stop_on_false": true
+  "stop_on_fail": true
 }
 ```

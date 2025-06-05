@@ -286,15 +286,6 @@ class MainWindow(QMainWindow):
     def open_log(self, profile_name):
         LogDialog(profile_name).exec_()
 
-    def stop_all_threads(self):
-        self.stop_flag.set()
-        base_url = self.config['base_url']
-        provider = self.provider_combo.currentText()
-        for profile in self.running_profiles:
-            close_profile(provider, base_url, profile['id'])
-        self.start_btn.setVisible(True)
-        self.stop_btn.setVisible(False)
-
     def move_single_window(self, profile_name, index):
         screen_w, screen_h = pyautogui.size()
         win_w, win_h = 220, 200
@@ -335,6 +326,16 @@ class MainWindow(QMainWindow):
             t.start()
             self.threads.append(t)
 
+    def stop_all_threads(self):
+        self.stop_flag.set()
+        base_url = self.config['base_url']
+        provider = self.provider_combo.currentText()
+        for profile in self.running_profiles:
+            close_profile(provider, base_url, profile['id'])
+        self.start_btn.setVisible(True)
+        self.stop_btn.setVisible(False)
+        print("🛑 All profiles were flagged to stop.")
+
     def run_profile(self, provider, base_url, profile, json_file, index):
         log_path = f"logs/{profile['name']}.log"
         os.makedirs("logs", exist_ok=True)
@@ -342,14 +343,11 @@ class MainWindow(QMainWindow):
         def logger(msg):
             with open(log_path, 'a', encoding='utf-8') as f:
                 f.write(msg + "\n")
-            row = self.profile_row_map.get(profile['name'])
 
         with open(log_path, 'w', encoding='utf-8') as f:
             f.write(f"[{profile['name']}] Start with {json_file}\n")
 
         profile_data = start_profile(provider, base_url, profile['id'])
-        print(f"[DEBUG] profile_data: {profile_data}")
-
         if not profile_data or not profile_data.get("debugger_address"):
             logger(f"{profile['name']} ❌ Không lấy được debugger_address.")
             return
@@ -358,14 +356,16 @@ class MainWindow(QMainWindow):
         self.move_single_window(profile['name'], index)
 
         if self.stop_flag.is_set():
-            logger(f"{profile['name']} 🚑 Bị huỷ.")
+            logger(f"{profile['name']} 🚫 Dừng bởi người dùng.")
             close_profile(provider, base_url, profile['id'])
             return
 
-        execute_blocks_from_json(f"actions/{json_file}", logger,
-                                 profile_data.get('webdriver_path'),
-                                 profile_data.get('debugger_address'),
-                                 profile['name'])
+        execute_blocks_from_json(
+            f"actions/{json_file}", logger,
+            profile_data.get('webdriver_path'),
+            profile_data.get('debugger_address'),
+            profile, provider, base_url, self.stop_flag
+        )
 
         if not any(t.is_alive() for t in self.threads):
             self.stop_btn.setVisible(False)

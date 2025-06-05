@@ -25,10 +25,17 @@
             "value": "enter"
           }
         ],
-        "if_false": [{ "action": "screenshot" }],
-        "stop_on_false": true
+        "if_false": [
+          {
+            "action": "screenshot"
+          }
+        ],
+        "stop_on_fail": true
       },
-      { "action": "wait", "value": "1" },
+      {
+        "action": "wait",
+        "value": "1"
+      },
       {
         "action": "scroll",
         "value": "element",
@@ -38,7 +45,14 @@
         "action": "click",
         "xpath": "(//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[{{huydev}}]"
       },
-      { "action": "scroll", "value": "random" }
+      {
+        "action": "scroll",
+        "value": "random"
+      }
     ]
+  },
+  {
+    "action": "stop_script",
+    "value": "Dừng"
   }
 ]
