@@ -44,6 +44,47 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
             if action == 'open_url':
                 driver.get(value)
                 logger(f"[{profile['name']}] → OPEN URL - {value}")
+            
+            elif action == 'switch_tab_by_index':
+                    tab_index = int(value)
+                    tabs = driver.window_handles
+                    if 0 <= tab_index < len(tabs):
+                        driver.switch_to.window(tabs[tab_index])
+                        logger(f"[{profile['name']}] 🔄 Chuyển sang tab {tab_index + 1}")
+                    else:
+                        logger(f"[{profile['name']}] ❌ Tab chỉ số {tab_index} không hợp lệ")
+
+            elif action == 'switch_tab_next':
+                    tabs = driver.window_handles
+                    current_tab = driver.current_window_handle
+                    current_index = tabs.index(current_tab)
+                    next_index = (current_index + 1) % len(tabs)
+                    driver.switch_to.window(tabs[next_index])
+                    logger(f"[{profile['name']}] 🔄 Chuyển sang tab tiếp theo")
+
+            elif action == 'switch_tab_prev':
+                    tabs = driver.window_handles
+                    current_tab = driver.current_window_handle
+                    current_index = tabs.index(current_tab)
+                    prev_index = (current_index - 1) % len(tabs)  # Lùi lại một tab
+                    driver.switch_to.window(tabs[prev_index])
+                    logger(f"[{profile['name']}] 🔄 Chuyển sang tab trước đó")
+
+            elif action == 'navigate_back':
+                driver.back()
+                logger(f"[{profile['name']}] ⬅️ Quay lại trang trước")
+            
+            elif action == 'navigate_forward':
+                driver.forward()
+                logger(f"[{profile['name']}] ➡️ Tiến tới trang tiếp theo")
+            
+            elif action == 'refresh_page':
+                driver.refresh()
+                logger(f"[{profile['name']}] 🔄 Tải lại trang")
+
+            elif action == 'active_tab':
+                driver.switch_to.window(driver.current_window_handle)
+                logger(f"[{profile['name']}] 🔄 Kích hoạt tab hiện tại")
 
             elif action == 'loop':
                 count = int(block.get('count', 1))
@@ -156,11 +197,35 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                         logger(f"❌ Lỗi khi đóng trình duyệt: {e}")
                     
                     exit()  # Dừng script hoàn toàn
+            
+            elif action == 'upload_file':
+                file_input = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
+                file_input.send_keys(value)
+                logger(f"[{profile['name']}] 📤 Đã tải lên file: {value}")
 
             elif action == 'wait':
                 time.sleep(float(value))
                 logger(f"[{profile['name']}] 🕒 WAIT {value} giây")
 
+            elif action == 'switch_iframe':
+                iframe_elem = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
+                driver.switch_to.frame(iframe_elem)
+                logger(f"[{profile['name']}] 🔄 Chuyển vào iframe với xpath: {xpath}")
+
+            elif action == 'switch_to_default_content':
+                driver.switch_to.default_content()
+                logger(f"[{profile['name']}] 🔄 Quay lại nội dung chính của trang")
+            
+            elif action == 'switch_popup_window':
+                popup_window = driver.window_handles[-1]  # Chọn cửa sổ popup cuối cùng trong danh sách
+                driver.switch_to.window(popup_window)
+                logger(f"[{profile['name']}] 🔄 Chuyển sang cửa sổ popup")
+
+            elif action == 'close_popup_window':
+                driver.close()  # Đóng cửa sổ popup hiện tại
+                driver.switch_to.window(driver.window_handles[0])  # Quay lại cửa sổ chính
+                logger(f"[{profile['name']}] 🔒 Đã đóng cửa sổ popup")
+                
             elif action == 'scroll':
                 if value == "down":
                     driver.execute_script("window.scrollBy(0, 300);")
@@ -194,6 +259,18 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                 path = f'screenshots/{profile['name']}_{int(time.time())}.png'
                 driver.save_screenshot(path)
                 logger(f"[{profile['name']}] 📸 Screenshot lưu tại: {path}")
+            
+            elif action == 'eval_script':
+                try:
+                    result = driver.execute_script(value)
+                    if 'store_as' in block:
+                        var_name = block['store_as']
+                        variables[var_name] = result
+                        logger(f"[{profile['name']}] 🧠 JS Eval → Lưu '{var_name}' = {result}")
+                    else:
+                        logger(f"[{profile['name']}] 🧠 JS Eval → {result}")
+                except Exception as e:
+                    logger(f"[{profile['name']}] ❌ eval_script lỗi: {e}")
 
             elif action == 'stop_script':
                 logger(f"[{profile['name']}] 🛑 SCRIPT DỪNG LẠI: {value or block.get('reason', 'Không có lý do cụ thể')}")
