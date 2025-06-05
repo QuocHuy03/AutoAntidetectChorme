@@ -9,6 +9,10 @@
     "value": "1"
   },
   {
+    "action": "click",
+    "xpath": "//*[@id='root']/div[1]/header/div/div[5]/a[2]"
+  },
+  {
     "action": "element_exists",
     "xpath": "//input[@id='identifierId']",
     "if_true": [
@@ -64,7 +68,7 @@
     ],
     "stop_on_fail": true
   },
-   {
+  {
     "action": "wait",
     "value": "5"
   },

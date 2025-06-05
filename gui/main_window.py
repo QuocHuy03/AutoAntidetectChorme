@@ -330,9 +330,32 @@ class MainWindow(QMainWindow):
         selected_json = self.json_combo.currentText()
         provider = self.provider_combo.currentText()
         base_url = self.config['base_url']
+        excel_mode = self.mode_combo.currentText()
+        excel_path = self.excel_input.text().strip()
+        # 🔒 Bắt buộc phải chọn file Excel nếu ở chế độ 'profile'
+        if excel_mode == "profile" and not os.path.exists(excel_path):
+            QMessageBox.warning(self, "Thiếu file Excel", "Vui lòng chọn file Excel khi ở chế độ 'profile'.")
+            return
+        
         selected_rows = self.table.selectionModel().selectedRows()
         selected_names = [self.table.item(r.row(), 0).text() for r in selected_rows]
+
+        # ✅ Nếu đang ở mode 'profile' → lọc trùng giữa UI và Excel
+        if excel_mode == "profile" and os.path.exists(excel_path):
+            try:
+                import pandas as pd
+                df = pd.read_excel(excel_path)
+                excel_names = df['PROFILE'].astype(str).str.strip().tolist()
+                selected_names = [name for name in selected_names if name in excel_names]
+            except Exception as e:
+                QMessageBox.critical(self, "Lỗi Excel", f"Không thể đọc file Excel:\n{e}")
+                return
+
         self.running_profiles = [p for p in self.profiles if p['name'] in selected_names]
+
+        if not self.running_profiles:
+            QMessageBox.information(self, "Thông báo", "Không có profile nào hợp lệ để chạy.")
+            return
 
         self.stop_flag.clear()
         self.start_btn.setVisible(False)
@@ -340,7 +363,8 @@ class MainWindow(QMainWindow):
         self.threads.clear()
 
         for idx, profile in enumerate(self.running_profiles):
-            t = threading.Thread(target=self.run_profile, args=(provider, base_url, profile, selected_json, idx))
+            t = threading.Thread(target=self.run_profile, args=(
+                provider, base_url, profile, selected_json, idx))
             t.start()
             self.threads.append(t)
 

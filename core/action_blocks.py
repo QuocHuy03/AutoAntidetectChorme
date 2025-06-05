@@ -45,22 +45,39 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
     with open(json_path, 'r', encoding='utf-8') as f:
         blocks = json.load(f)
 
+    profile = profile_input
+    variables = {}
     # Nếu không chạy từ Excel thì chỉ dùng profile_input
-    if excel_mode == 'manual':
-        profiles_data = [{"profile": profile_input, "variables": {}}]
-    else:
-        profiles_data = load_excel_data(excel_path, excel_mode)
+    if excel_mode == 'profile' and excel_path:
+            try:
+                df = pd.read_excel(excel_path)
+                matched_rows = df[df['PROFILE'].astype(str).str.strip() == profile['name']]
+                if matched_rows.empty:
+                    logger(f"[{profile['name']}] ⚠️ Bỏ qua vì không trùng với Excel.")
+                    return  # Ngắt luôn không chạy profile này
+                variables = matched_rows.iloc[0].to_dict()
+            except Exception as e:
+                logger(f"[{profile['name']}] ⚠️ Lỗi đọc Excel (mode=profile): {e}")
+                return
 
-    for p in profiles_data:
-        profile = p["profile"]
-        variables = p["variables"]
+    elif excel_mode == 'row' and excel_path:
+        try:
+            df = pd.read_excel(excel_path)
+            index = int(profile['name'].replace("Row-", "")) - 1
+            if 0 <= index < len(df):
+                row_data = df.iloc[index]
+                if row_data.dropna(how='all').empty:
+                    logger(f"[{profile['name']}] ⚠️ Dòng {index + 1} không có dữ liệu. Bỏ qua.")
+                    return
+                variables = {"row_data": row_data.to_dict()}
+            else:
+                logger(f"[{profile['name']}] ⚠️ Dòng {index + 1} vượt quá số dòng của Excel.")
+                return
+        except Exception as e:
+            logger(f"[{profile['name']}] ⚠️ Lỗi đọc Excel (mode=row): {e}")
+            return
 
-        # ✅ Đồng bộ lại toàn bộ dữ liệu từ profile_input nếu trùng tên
-        if profile_input and 'name' in profile and profile['name'] == profile_input.get('name'):
-            profile.update(profile_input)
-            print("profile1", profile)
-
-        
+    try:
         chrome_options = Options()
         if isinstance(debugger_address, str):
             chrome_options.debugger_address = debugger_address
@@ -69,16 +86,18 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
 
         service = Service(driver_path)
         driver = webdriver.Chrome(service=service, options=chrome_options)
+    except Exception as e:
+        logger(f"[{profile['name']}] ❌ Không mở được trình duyệt: {e}")
+        return
+    loop_flags = []
 
-        loop_flags = []
-
-        def render(text, local_vars):
+    def render(text, local_vars):
             if isinstance(text, str):
                 for key, val in local_vars.items():
                     text = text.replace(f"{{{{{key}}}}}", str(val))
             return text
 
-        def execute_block(block, local_vars):
+    def execute_block(block, local_vars):
             nonlocal variables, loop_flags
             action = block.get('action')
             xpath = render(block.get('xpath', ''), local_vars)
@@ -331,7 +350,7 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
             except Exception as e:
                 logger(f"[{profile['name']}] → ❌ {action} {xpath} => {e}")
 
-        for block in blocks:
+    for block in blocks:
             if stop_flag.is_set():
                 logger(f"[{profile['name']}] ⛔ Đã nhấn STOP – dừng script ngay lập tức.")
                 if 'id' in profile:
