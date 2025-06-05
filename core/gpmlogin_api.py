@@ -18,7 +18,7 @@ def get_profiles(base_url, group_id=None):
     page = 1
     try:
         while True:
-            params = {"page": page, "page_size": 1000}
+            params = {"page": page, "page_size": 500}
             if group_id:
                 params["group_id"] = group_id
             url = f"{base_url}/api/v3/profiles"

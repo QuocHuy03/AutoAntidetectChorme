@@ -9,7 +9,7 @@ import json, os, threading, time
 import pygetwindow as gw
 import pyautogui
 from qt_material import apply_stylesheet
-
+from PyQt5.QtWidgets import QFileDialog
 
 class LogDialog(QDialog):
     def __init__(self, profile_name):
@@ -77,6 +77,11 @@ class MainWindow(QMainWindow):
                 font-weight: bold;
             }
         """)
+    
+    def browse_excel_file(self):
+        file_path, _ = QFileDialog.getOpenFileName(self, "Chọn file Excel", "", "Excel Files (*.xlsx *.xls)")
+        if file_path:
+            self.excel_input.setText(file_path)
 
     def __init__(self):
         super().__init__()
@@ -128,6 +133,19 @@ class MainWindow(QMainWindow):
         self.load_json_files()
         top_bar.addWidget(QLabel("Tasks"))
         top_bar.addWidget(self.json_combo)
+
+        self.mode_combo = QComboBox()
+        self.mode_combo.addItems(["manual", "profile", "row"])
+        top_bar.addWidget(QLabel("Excel Mode"))
+        top_bar.addWidget(self.mode_combo)
+
+        self.excel_input = QLineEdit()
+        self.excel_input.setPlaceholderText("Chọn file Excel (.xlsx)...")
+        top_bar.addWidget(self.excel_input)
+
+        self.select_excel_btn = QPushButton("📂")
+        self.select_excel_btn.clicked.connect(self.browse_excel_file)
+        top_bar.addWidget(self.select_excel_btn)
 
         self.start_btn = QPushButton("▶️ Start")
         self.start_btn.clicked.connect(self.run_selected_profiles)
@@ -361,12 +379,16 @@ class MainWindow(QMainWindow):
             return
 
         execute_blocks_from_json(
-            f"actions/{json_file}", logger,
+            f"actions/{json_file}",
+            logger,
             profile_data.get('webdriver_path'),
             profile_data.get('debugger_address'),
-            profile, provider, base_url, self.stop_flag
+            profile, provider, base_url, self.stop_flag,
+            excel_mode=self.mode_combo.currentText(),
+            excel_path=self.excel_input.text() if self.excel_input.text() else None
         )
 
-        if not any(t.is_alive() for t in self.threads):
+        alive_threads = [t for t in self.threads if t.is_alive()]
+        if not alive_threads:
             self.stop_btn.setVisible(False)
-
+            self.start_btn.setVisible(True)
