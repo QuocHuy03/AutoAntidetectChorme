@@ -23,7 +23,7 @@
       {
         "action": "input_text",
         "xpath": "//input[@id='identifierId']",
-        "value": "{{EMAIL}}"
+        "value": "{{MAIL}}"
       },
       {
         "action": "input_press_key",

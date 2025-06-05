@@ -1,75 +1,44 @@
 [
   {
-    "action": "open_url",
-    "xpath": "",
-    "value": "https://workspace.google.com/intl/en-US/gmail/"
-  },
-  {
-    "action": "wait",
-    "value": "1"
-  },
-  {
-    "action": "element_exists",
-    "xpath": "//input[@id='identifierId']",
-    "if_true": [
+    "action": "loop",
+    "start": 1,
+    "count": 4,
+    "variable": "huydev",
+    "do": [
+      {
+        "action": "open_url",
+        "xpath": "",
+        "value": "https://google.com"
+      },
+      {
+        "action": "element_exists",
+        "xpath": "//*[@id='APjFqb']",
+        "if_true": [
+          {
+            "action": "input_text",
+            "xpath": "//*[@id='APjFqb']",
+            "value": "shop acc game"
+          },
+          {
+            "action": "input_press_key",
+            "xpath": "//*[@id='APjFqb']",
+            "value": "enter"
+          }
+        ],
+        "if_false": [{ "action": "screenshot" }],
+        "stop_on_false": true
+      },
+      { "action": "wait", "value": "1" },
+      {
+        "action": "scroll",
+        "value": "element",
+        "xpath": "(//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[{{huydev}}]"
+      },
       {
         "action": "click",
-        "xpath": "//input[@id='identifierId']"
+        "xpath": "(//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[{{huydev}}]"
       },
-      {
-        "action": "input_text",
-        "xpath": "//input[@id='identifierId']",
-        "value": "{{EMAIL}}"
-      },
-      {
-        "action": "input_press_key",
-        "xpath": "//input[@id='identifierId']",
-        "value": "enter"
-      }
-    ],
-    "if_false": [
-      {
-        "action": "screenshot"
-      }
-    ],
-    "stop_on_fail": true
-  },
-  {
-    "action": "wait",
-    "value": "1"
-  },
-  {
-    "action": "element_exists",
-    "xpath": "//input[@name='Passwd']",
-    "if_true": [
-      {
-        "action": "click",
-        "xpath": "//input[@name='Passwd']"
-      },
-      {
-        "action": "input_text",
-        "xpath": "//input[@name='Passwd']",
-        "value": "{{PASS}}"
-      },
-      {
-        "action": "input_press_key",
-        "xpath": "//input[@name='Passwd']",
-        "value": "enter"
-      }
-    ],
-    "if_false": [
-      {
-        "action": "screenshot"
-      }
-    ],
-    "stop_on_fail": true
-  },
-   {
-    "action": "wait",
-    "value": "5"
-  },
-  {
-    "action": "stop_script",
-    "value": "Dừng"
+      { "action": "scroll", "value": "random" }
+    ]
   }
 ]

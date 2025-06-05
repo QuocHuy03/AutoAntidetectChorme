@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 import random
 import pandas as pd
-from core.api_bridge import close_profile 
+from core.api_bridge import close_profile
 
 def load_excel_data(excel_path: str, mode: str):
     df = pd.read_excel(excel_path)
@@ -38,6 +38,22 @@ def load_excel_data(excel_path: str, mode: str):
 
     return result
 
+def render(text, local_vars):
+    if not isinstance(text, str):
+        return text
+
+    combined_vars = {}
+    if "row_data" in local_vars:
+        combined_vars.update(local_vars["row_data"])
+    else:
+        combined_vars.update(local_vars)
+
+    for key, val in combined_vars.items():
+        if pd.notna(val):
+            text = text.replace(f"{{{{{key}}}}}", str(val))
+
+    return text
+
 
 def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, profile_input, provider, base_url, stop_flag,
                              excel_mode='manual', excel_path=None):
@@ -47,18 +63,18 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
 
     profile = profile_input
     variables = {}
-    # Nếu không chạy từ Excel thì chỉ dùng profile_input
+
     if excel_mode == 'profile' and excel_path:
-            try:
-                df = pd.read_excel(excel_path)
-                matched_rows = df[df['PROFILE'].astype(str).str.strip() == profile['name']]
-                if matched_rows.empty:
-                    logger(f"[{profile['name']}] ⚠️ Bỏ qua vì không trùng với Excel.")
-                    return  # Ngắt luôn không chạy profile này
-                variables = matched_rows.iloc[0].to_dict()
-            except Exception as e:
-                logger(f"[{profile['name']}] ⚠️ Lỗi đọc Excel (mode=profile): {e}")
+        try:
+            df = pd.read_excel(excel_path)
+            matched_rows = df[df['PROFILE'].astype(str).str.strip() == profile['name']]
+            if matched_rows.empty:
+                logger(f"[{profile['name']}] ⚠️ Bỏ qua vì không trùng với Excel.")
                 return
+            variables = matched_rows.iloc[0].to_dict()
+        except Exception as e:
+            logger(f"[{profile['name']}] ⚠️ Lỗi đọc Excel (mode=profile): {e}")
+            return
 
     elif excel_mode == 'row' and excel_path:
         try:
@@ -89,29 +105,20 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
     except Exception as e:
         logger(f"[{profile['name']}] ❌ Không mở được trình duyệt: {e}")
         return
-    loop_flags = []
 
-    def render(text, local_vars):
-            if isinstance(text, str):
-                for key, val in local_vars.items():
-                    text = text.replace(f"{{{{{key}}}}}", str(val))
-            return text
+    loop_flags = []
+    print(f"[{profile['name']}] 📥 VARS: {variables}")
 
     def execute_block(block, local_vars):
-            nonlocal variables, loop_flags
-            action = block.get('action')
-            xpath = render(block.get('xpath', ''), local_vars)
-            value = render(block.get('value', ''), local_vars)
-
-            try:
+        nonlocal variables, loop_flags
+        action = block.get('action')
+        xpath = render(block.get('xpath', ''), local_vars)
+        value = render(block.get('value', ''), local_vars)
+        try:
                 if action == 'open_url':
                     driver.get(value)
                     logger(f"[{profile['name']}] → OPEN URL - {value}")
-                elif action == 'stop_script':
-                    logger(f"[{profile['name']}] 🛑 SCRIPT DỪNG LẠI: {value or block.get('reason', 'Không có lý do cụ thể')}")
-                    close_profile(provider, base_url, profile['id'])
-                    driver.quit()
-                    exit()
+
                 elif action == 'switch_tab_by_index':
                         tab_index = int(value)
                         tabs = driver.window_handles
@@ -213,7 +220,7 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                     elem = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
                     elem.clear()
                     elem.send_keys(value)
-                    logger(f"[{profile['name']}] → NHẬP => {xpath}")
+                    logger(f"[{profile['name']}] → NHẬP => {xpath} | VALUE = {value}")
 
                 elif action == 'click':
                     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, xpath))).click()
@@ -347,7 +354,7 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
 
                 time.sleep(1)
 
-            except Exception as e:
+        except Exception as e:
                 logger(f"[{profile['name']}] → ❌ {action} {xpath} => {e}")
 
     for block in blocks:
