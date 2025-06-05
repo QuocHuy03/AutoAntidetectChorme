@@ -1,0 +1,80 @@
+[P-20250529-0008] Start with search.json
+[P-20250529-0008] → OPEN URL - https://google.com
+[P-20250529-0008] → ELEMENT TỒN TẠI => //*[@id='APjFqb']
+[P-20250529-0008] → NHẬP => //*[@id='APjFqb']
+[P-20250529-0008] → PRESS KEY ENTER tại //*[@id='APjFqb']
+[P-20250529-0008] 🕒 WAIT 1 giây
+[P-20250529-0008] 🔍 Scroll tới element: (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[1]
+[P-20250529-0008] → CLICK => (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[1]
+[P-20250529-0008] 🎲 Scroll ngẫu nhiên ↓ 350px
+[P-20250529-0008] → OPEN URL - https://google.com
+[P-20250529-0008] → ELEMENT TỒN TẠI => //*[@id='APjFqb']
+[P-20250529-0008] → NHẬP => //*[@id='APjFqb']
+[P-20250529-0008] → PRESS KEY ENTER tại //*[@id='APjFqb']
+[P-20250529-0008] 🕒 WAIT 1 giây
+[P-20250529-0008] 🔍 Scroll tới element: (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[2]
+[P-20250529-0008] → CLICK => (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[2]
+[P-20250529-0008] 🎲 Scroll ngẫu nhiên ↑ 260px
+[P-20250529-0008] → OPEN URL - https://google.com
+[P-20250529-0008] → ELEMENT TỒN TẠI => //*[@id='APjFqb']
+[P-20250529-0008] → NHẬP => //*[@id='APjFqb']
+[P-20250529-0008] → PRESS KEY ENTER tại //*[@id='APjFqb']
+[P-20250529-0008] 🕒 WAIT 1 giây
+[P-20250529-0008] 🔍 Scroll tới element: (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[3]
+[P-20250529-0008] → CLICK => (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[3]
+[P-20250529-0008] 🎲 Scroll ngẫu nhiên ↓ 409px
+[P-20250529-0008] → OPEN URL - https://google.com
+[P-20250529-0008] → ELEMENT TỒN TẠI => //*[@id='APjFqb']
+[P-20250529-0008] → NHẬP => //*[@id='APjFqb']
+[P-20250529-0008] → PRESS KEY ENTER tại //*[@id='APjFqb']
+[P-20250529-0008] 🕒 WAIT 1 giây
+[P-20250529-0008] → ❌ scroll (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[4] => Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF738E80405+26629]
+	(No symbol) [0x00007FF738DE65C0]
+	(No symbol) [0x00007FF738C78E9A]
+	(No symbol) [0x00007FF738CCF467]
+	(No symbol) [0x00007FF738CCF69C]
+	(No symbol) [0x00007FF738D23027]
+	(No symbol) [0x00007FF738CF766F]
+	(No symbol) [0x00007FF738D1FCE9]
+	(No symbol) [0x00007FF738CF7403]
+	(No symbol) [0x00007FF738CC00D0]
+	(No symbol) [0x00007FF738CC1383]
+	GetHandleVerifier [0x00007FF7391D9BDD+3538909]
+	GetHandleVerifier [0x00007FF7391F0342+3630914]
+	GetHandleVerifier [0x00007FF7391E4DF3+3584499]
+	GetHandleVerifier [0x00007FF738F4BDBA+860602]
+	(No symbol) [0x00007FF738DF0E3F]
+	(No symbol) [0x00007FF738DED174]
+	(No symbol) [0x00007FF738DED316]
+	(No symbol) [0x00007FF738DDC869]
+	BaseThreadInitThunk [0x00007FF9B0097374+20]
+	RtlUserThreadStart [0x00007FF9B0CDCC91+33]
+
+[P-20250529-0008] → ❌ click (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[4] => Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF738E80405+26629]
+	(No symbol) [0x00007FF738DE65C0]
+	(No symbol) [0x00007FF738C78E9A]
+	(No symbol) [0x00007FF738CCF467]
+	(No symbol) [0x00007FF738CCF69C]
+	(No symbol) [0x00007FF738D23027]
+	(No symbol) [0x00007FF738CF766F]
+	(No symbol) [0x00007FF738D1FCE9]
+	(No symbol) [0x00007FF738CF7403]
+	(No symbol) [0x00007FF738CC00D0]
+	(No symbol) [0x00007FF738CC1383]
+	GetHandleVerifier [0x00007FF7391D9BDD+3538909]
+	GetHandleVerifier [0x00007FF7391F0342+3630914]
+	GetHandleVerifier [0x00007FF7391E4DF3+3584499]
+	GetHandleVerifier [0x00007FF738F4BDBA+860602]
+	(No symbol) [0x00007FF738DF0E3F]
+	(No symbol) [0x00007FF738DED174]
+	(No symbol) [0x00007FF738DED316]
+	(No symbol) [0x00007FF738DDC869]
+	BaseThreadInitThunk [0x00007FF9B0097374+20]
+	RtlUserThreadStart [0x00007FF9B0CDCC91+33]
+
+[P-20250529-0008] 🎲 Scroll ngẫu nhiên ↑ 124px
+[P-20250529-0008] ✅ DONE

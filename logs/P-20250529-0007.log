@@ -1,0 +1,34 @@
+[P-20250529-0007] Start with search.json
+[P-20250529-0007] → OPEN URL - https://google.com
+[P-20250529-0007] → ELEMENT TỒN TẠI => //*[@id='APjFqb']
+[P-20250529-0007] → NHẬP => //*[@id='APjFqb']
+[P-20250529-0007] → PRESS KEY ENTER tại //*[@id='APjFqb']
+[P-20250529-0007] 🕒 WAIT 1 giây
+[P-20250529-0007] 🔍 Scroll tới element: (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[1]
+[P-20250529-0007] → CLICK => (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[1]
+[P-20250529-0007] 🎲 Scroll ngẫu nhiên ↓ 348px
+[P-20250529-0007] → OPEN URL - https://google.com
+[P-20250529-0007] → ELEMENT TỒN TẠI => //*[@id='APjFqb']
+[P-20250529-0007] → NHẬP => //*[@id='APjFqb']
+[P-20250529-0007] → PRESS KEY ENTER tại //*[@id='APjFqb']
+[P-20250529-0007] 🕒 WAIT 1 giây
+[P-20250529-0007] 🔍 Scroll tới element: (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[2]
+[P-20250529-0007] → CLICK => (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[2]
+[P-20250529-0007] 🎲 Scroll ngẫu nhiên ↓ 293px
+[P-20250529-0007] → OPEN URL - https://google.com
+[P-20250529-0007] → ELEMENT TỒN TẠI => //*[@id='APjFqb']
+[P-20250529-0007] → NHẬP => //*[@id='APjFqb']
+[P-20250529-0007] → PRESS KEY ENTER tại //*[@id='APjFqb']
+[P-20250529-0007] 🕒 WAIT 1 giây
+[P-20250529-0007] 🔍 Scroll tới element: (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[3]
+[P-20250529-0007] → CLICK => (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[3]
+[P-20250529-0007] 🎲 Scroll ngẫu nhiên ↓ 470px
+[P-20250529-0007] → OPEN URL - https://google.com
+[P-20250529-0007] → ELEMENT TỒN TẠI => //*[@id='APjFqb']
+[P-20250529-0007] → NHẬP => //*[@id='APjFqb']
+[P-20250529-0007] → PRESS KEY ENTER tại //*[@id='APjFqb']
+[P-20250529-0007] 🕒 WAIT 1 giây
+[P-20250529-0007] 🔍 Scroll tới element: (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[4]
+[P-20250529-0007] → CLICK => (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[4]
+[P-20250529-0007] 🎲 Scroll ngẫu nhiên ↓ 541px
+[P-20250529-0007] ✅ DONE

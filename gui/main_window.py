@@ -8,6 +8,8 @@ from core.action_blocks import execute_blocks_from_json
 import json, os, threading, time
 import pygetwindow as gw
 import pyautogui
+from qt_material import apply_stylesheet
+
 
 class LogDialog(QDialog):
     def __init__(self, profile_name):
@@ -38,16 +40,36 @@ class LogDialog(QDialog):
             self.text_edit.setPlainText("⚠️ Chưa có log cho profile này.")
 
 class MainWindow(QMainWindow):
+    def style_table(self):
+        table_style = """
+            QTableWidget::item:selected {
+                background-color: #cfe3ff;
+                color: black;
+            }
+            QTableWidget {
+                gridline-color: #d0d7e2;
+                border-radius: 8px;
+            }
+            QHeaderView::section {
+                background-color: #e3edf7;
+                padding: 3x;
+                border: none;
+                font-weight: bold;
+            }
+        """
+        self.table.setStyleSheet(table_style)
+
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("GPMLogin Profile Launcher")
+        apply_stylesheet(self, theme='light_blue.xml', extra={'pushbutton.icon.size': '0px'})
+        self.setWindowTitle("Chrome Antidetect API By @huyit32")
         self.setGeometry(100, 100, 1200, 700)
         with open('config/config.json') as f:
             self.config = json.load(f)
         self.groups, self.threads, self.running_profiles = [], [], []
         self.stop_flag = threading.Event()
         self.init_ui()
-
+        
     def init_ui(self):
         layout = QVBoxLayout()
         top_bar = QHBoxLayout()
@@ -61,6 +83,12 @@ class MainWindow(QMainWindow):
         self.provider_combo.currentIndexChanged.connect(self.load_groups)
         top_bar.addWidget(QLabel("Profile Type"))
         top_bar.addWidget(self.provider_combo)
+
+        self.sort_combo = QComboBox()
+        self.sort_combo.addItems(["Sort A-Z", "Sort Z-A"])
+        self.sort_combo.currentIndexChanged.connect(self.load_profiles)
+        top_bar.addWidget(self.sort_combo)
+
 
         self.group_combo = QComboBox()
         self.group_combo.currentIndexChanged.connect(self.load_profiles)
@@ -95,6 +123,7 @@ class MainWindow(QMainWindow):
         self.table.setSelectionBehavior(QTableWidget.SelectRows)
         self.table.setSelectionMode(QTableWidget.MultiSelection)
         layout.addWidget(self.table)
+        self.style_table()
 
         container = QWidget()
         container.setLayout(layout)
@@ -124,6 +153,13 @@ class MainWindow(QMainWindow):
         keyword = self.search_box.text().lower()
         self.profiles = get_profiles(provider, base_url, group_id)
 
+        # 👉 Áp dụng sắp xếp
+        sort_order = self.sort_combo.currentText()
+        if sort_order == "Sort A-Z":
+            self.profiles.sort(key=lambda x: x['name'].lower())
+        elif sort_order == "Sort Z-A":
+            self.profiles.sort(key=lambda x: x['name'].lower(), reverse=True)
+
         for profile in self.profiles:
             if keyword and keyword not in profile['name'].lower(): continue
             row = self.table.rowCount()
@@ -145,7 +181,8 @@ class MainWindow(QMainWindow):
         provider = self.provider_combo.currentText()
         for profile in self.running_profiles:
             close_profile(provider, base_url, profile['id'])
-        self.stop_btn.setVisible(False)
+        self.start_btn.setVisible(True)     # 👉 Hiện lại Start
+        self.stop_btn.setVisible(False)     # 👉 Ẩn Stop
 
     def move_single_window(self, profile_name, index):
         screen_w, screen_h = pyautogui.size()
@@ -180,7 +217,8 @@ class MainWindow(QMainWindow):
         self.running_profiles = [p for p in self.profiles if p['name'] in selected_names]
 
         self.stop_flag.clear()
-        self.stop_btn.setVisible(True)
+        self.start_btn.setVisible(False)    # 👉 Ẩn Start
+        self.stop_btn.setVisible(True)      # 👉 Hiện Stop
         self.threads.clear()
 
         for idx, profile in enumerate(self.running_profiles):
@@ -216,3 +254,5 @@ class MainWindow(QMainWindow):
 
         if not any(t.is_alive() for t in self.threads):
             self.stop_btn.setVisible(False)
+
+
