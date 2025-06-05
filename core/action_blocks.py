@@ -58,7 +58,7 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
         # ✅ Đồng bộ lại toàn bộ dữ liệu từ profile_input nếu trùng tên
         if profile_input and 'name' in profile and profile['name'] == profile_input.get('name'):
             profile.update(profile_input)
-            print("profile", profile)
+            print("profile1", profile)
 
         
         chrome_options = Options()
@@ -334,11 +334,11 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
         for block in blocks:
             if stop_flag.is_set():
                 logger(f"[{profile['name']}] ⛔ Đã nhấn STOP – dừng script ngay lập tức.")
-                close_profile(provider, base_url, profile['id'])
+                if 'id' in profile:
+                    close_profile(provider, base_url, profile['id'])
                 try:
                     driver.quit()
                 except Exception as e:
                     logger(f"[{profile['name']}] ⚠️ Lỗi khi đóng trình duyệt: {e}")
                 return
             execute_block(block, variables)
-
