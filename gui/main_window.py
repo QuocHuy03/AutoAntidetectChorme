@@ -369,3 +369,4 @@ class MainWindow(QMainWindow):
 
         if not any(t.is_alive() for t in self.threads):
             self.stop_btn.setVisible(False)
+
