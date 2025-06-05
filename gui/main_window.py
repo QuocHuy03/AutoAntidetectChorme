@@ -1,4 +1,4 @@
-from PyQt5.QtCore import Qt, QTimer
+from PyQt5.QtCore import Qt, QTimer, QThread, pyqtSignal
 from PyQt5.QtWidgets import (
     QMainWindow, QPushButton, QVBoxLayout, QWidget, QLabel,
     QComboBox, QLineEdit, QHBoxLayout, QTableWidget, QTableWidgetItem, QHeaderView, QDialog, QTextEdit, QMessageBox, QApplication
@@ -39,9 +39,29 @@ class LogDialog(QDialog):
         else:
             self.text_edit.setPlainText("⚠️ Chưa có log cho profile này.")
 
+
+class ProfileLoaderThread(QThread):
+    profiles_loaded = pyqtSignal(list)
+
+    def __init__(self, provider, base_url, group_id):
+        super().__init__()
+        self.provider = provider
+        self.base_url = base_url
+        self.group_id = group_id
+
+    def run(self):
+        if not self.group_id:
+            self.profiles_loaded.emit([])
+            return
+
+        profiles = get_profiles(self.provider, self.base_url, self.group_id)
+        print(f"[Thread] Fetched {len(profiles)} profiles")
+        self.profiles_loaded.emit(profiles)
+
+
 class MainWindow(QMainWindow):
     def style_table(self):
-        table_style = """
+        self.table.setStyleSheet("""
             QTableWidget::item:selected {
                 background-color: #cfe3ff;
                 color: black;
@@ -52,12 +72,11 @@ class MainWindow(QMainWindow):
             }
             QHeaderView::section {
                 background-color: #e3edf7;
-                padding: 3x;
+                padding: 3px;
                 border: none;
                 font-weight: bold;
             }
-        """
-        self.table.setStyleSheet(table_style)
+        """)
 
     def __init__(self):
         super().__init__()
@@ -68,8 +87,14 @@ class MainWindow(QMainWindow):
             self.config = json.load(f)
         self.groups, self.threads, self.running_profiles = [], [], []
         self.stop_flag = threading.Event()
+        self.active_threads = []
+        self.profile_row_map = {}
+        self.realtime_logs = {}
         self.init_ui()
-        
+        self.log_timer = QTimer(self)
+        self.log_timer.timeout.connect(self.update_log_column_runtime)
+        self.log_timer.start(500)
+
     def init_ui(self):
         layout = QVBoxLayout()
         top_bar = QHBoxLayout()
@@ -88,7 +113,6 @@ class MainWindow(QMainWindow):
         self.sort_combo.addItems(["Sort A-Z", "Sort Z-A"])
         self.sort_combo.currentIndexChanged.connect(self.load_profiles)
         top_bar.addWidget(self.sort_combo)
-
 
         self.group_combo = QComboBox()
         self.group_combo.currentIndexChanged.connect(self.load_profiles)
@@ -117,11 +141,24 @@ class MainWindow(QMainWindow):
         layout.addLayout(top_bar)
 
         self.table = QTableWidget()
-        self.table.setColumnCount(4)
-        self.table.setHorizontalHeaderLabels(["Profile Name", "Group", "Source", "Log"])
+        self.table.setColumnCount(6)
+        self.table.setHorizontalHeaderLabels(["Profile Name", "Group", "Source", "Proxy", "Log", "View"])
         self.table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.table.setSelectionBehavior(QTableWidget.SelectRows)
         self.table.setSelectionMode(QTableWidget.MultiSelection)
+
+        self.loading_overlay = QLabel("🔄 <b>Loading profiles...</b>", self.table)
+        self.loading_overlay.setAlignment(Qt.AlignCenter)
+        self.loading_overlay.setStyleSheet("""
+            background-color: rgba(255, 255, 255, 240);
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            font-size: 16px;
+            padding: 20px;
+            color: #222;
+        """)
+        self.loading_overlay.setVisible(False)
+
         layout.addWidget(self.table)
         self.style_table()
 
@@ -129,6 +166,45 @@ class MainWindow(QMainWindow):
         container.setLayout(layout)
         self.setCentralWidget(container)
         self.load_groups()
+
+    def update_log_column_runtime(self):
+        for profile in self.running_profiles:
+            name = profile['name']
+            log_path = f"logs/{name}.log"
+
+            if os.path.exists(log_path):
+                try:
+                    with open(log_path, 'r', encoding='utf-8') as f:
+                        lines = f.readlines()
+                        last_line = lines[-1].strip() if lines else "⏳ Đang chạy..."
+                except Exception as e:
+                    last_line = f"⚠️ Lỗi đọc log: {e}"
+
+                # Loại bỏ tên profile khỏi log (ví dụ: "[Profile_01] ✅ DONE" -> "✅ DONE")
+                prefix = f"[{name}]"
+                if last_line.startswith(prefix):
+                    last_line = last_line[len(prefix):].strip()
+
+                # Cập nhật log nếu có sự thay đổi
+                if self.realtime_logs.get(name) != last_line:
+                    row = self.profile_row_map.get(name)
+                    if row is not None:
+                        # Hiển thị thông báo log vào cột
+                        item = QTableWidgetItem(last_line)
+                        
+                        # Phân biệt màu sắc dựa trên trạng thái
+                        if "❌" in last_line:
+                            item.setForeground(Qt.red)
+                        elif "✅" in last_line or "Done" in last_line:
+                            item.setForeground(Qt.darkGreen)
+                        elif "⚠️" in last_line:
+                            item.setForeground(Qt.darkYellow)
+                        elif "⏳" in last_line:
+                            item.setForeground(Qt.blue)
+                        
+                        # Cập nhật vào bảng
+                        self.table.setItem(row, 4, item)
+                    self.realtime_logs[name] = last_line
 
     def load_json_files(self):
         self.json_combo.clear()
@@ -143,34 +219,69 @@ class MainWindow(QMainWindow):
         self.group_combo.clear()
         for group in self.groups:
             self.group_combo.addItem(group['name'], userData=group['id'])
-        self.load_profiles()
 
     def load_profiles(self):
-        self.table.setRowCount(0)
+        self.loading_overlay.setFixedSize(300, 80)
+        x = (self.table.width() - self.loading_overlay.width()) // 2
+        y = (self.table.height() - self.loading_overlay.height()) // 2
+        self.loading_overlay.move(x, y)
+        self.loading_overlay.show()
+        QApplication.processEvents()
+
         provider = self.provider_combo.currentText()
         base_url = self.config['base_url']
         group_id = self.group_combo.currentData()
-        keyword = self.search_box.text().lower()
-        self.profiles = get_profiles(provider, base_url, group_id)
 
-        # 👉 Áp dụng sắp xếp
+        search_text = self.search_box.text().lower()
+
+        thread = ProfileLoaderThread(provider, base_url, group_id)
+        self.active_threads.append(thread)
+        thread.profiles_loaded.connect(lambda profiles: self.populate_profiles(profiles, search_text))
+        thread.start()
+
+    def populate_profiles(self, profiles, search_text):
+        self.loading_overlay.hide()  # Ẩn overlay sau khi load xong
+        self.table.setRowCount(0)  # Xóa tất cả các dòng trong bảng trước khi thêm mới
+        provider = self.provider_combo.currentText()
+        self.profiles = profiles
+
+        # Lọc profiles theo từ khoá tìm kiếm
+        if search_text:
+            profiles = [profile for profile in profiles if search_text in profile['name'].lower()]
+
+        # Lấy giá trị sắp xếp từ dropdown
         sort_order = self.sort_combo.currentText()
-        if sort_order == "Sort A-Z":
-            self.profiles.sort(key=lambda x: x['name'].lower())
-        elif sort_order == "Sort Z-A":
-            self.profiles.sort(key=lambda x: x['name'].lower(), reverse=True)
 
-        for profile in self.profiles:
-            if keyword and keyword not in profile['name'].lower(): continue
+        # Sắp xếp các profile A-Z hoặc Z-A
+        if sort_order == "Sort A-Z":
+            profiles.sort(key=lambda x: x['name'].lower())  # Sắp xếp tên theo A-Z
+        elif sort_order == "Sort Z-A":
+            profiles.sort(key=lambda x: x['name'].lower(), reverse=True)  # Sắp xếp tên theo Z-A
+
+        # Điền thông tin các profile vào bảng
+        for profile in profiles:
             row = self.table.rowCount()
+            self.profile_row_map[profile['name']] = row
             self.table.insertRow(row)
             self.table.setItem(row, 0, QTableWidgetItem(profile['name']))
             group_name = next((g['name'] for g in self.groups if g['id'] == profile.get('group_id')), str(profile.get('group_id')))
             self.table.setItem(row, 1, QTableWidgetItem(group_name))
             self.table.setItem(row, 2, QTableWidgetItem(provider))
+            self.table.setItem(row, 3, QTableWidgetItem(profile.get('raw_proxy', '')))
+            self.table.setItem(row, 4, QTableWidgetItem(""))
+
+            # Tạo nút log cho profile
             btn = QPushButton("≡")
             btn.clicked.connect(lambda _, p=profile['name']: self.open_log(p))
-            self.table.setCellWidget(row, 3, btn)
+            self.table.setCellWidget(row, 5, btn)
+
+        # Dọn dẹp thread sau khi hoàn thành
+        sender_thread = self.sender()
+        if sender_thread in self.active_threads:
+            self.active_threads.remove(sender_thread)
+            sender_thread.quit()
+            sender_thread.wait()
+            sender_thread.deleteLater()
 
     def open_log(self, profile_name):
         LogDialog(profile_name).exec_()
@@ -181,21 +292,19 @@ class MainWindow(QMainWindow):
         provider = self.provider_combo.currentText()
         for profile in self.running_profiles:
             close_profile(provider, base_url, profile['id'])
-        self.start_btn.setVisible(True)     # 👉 Hiện lại Start
-        self.stop_btn.setVisible(False)     # 👉 Ẩn Stop
+        self.start_btn.setVisible(True)
+        self.stop_btn.setVisible(False)
 
     def move_single_window(self, profile_name, index):
         screen_w, screen_h = pyautogui.size()
         win_w, win_h = 220, 200
-        hgap, vgap = 0, 0
-        cols = max(1, screen_w // (win_w + hgap))
+        cols = max(1, screen_w // win_w)
         col = index % cols
         row = index // cols
-        x = col * (win_w + hgap)
-        y = row * (win_h + vgap)
-        print(f"[Screen] {screen_w}x{screen_h} → Cols: {cols}, Count: {index}")
+        x = col * win_w
+        y = row * win_h
 
-        for _ in range(10):  # chờ cửa sổ hiện ra
+        for _ in range(10):
             windows = [w for w in gw.getWindowsWithTitle(profile_name) if w.visible and profile_name.lower() in w.title.lower()]
             if windows:
                 try:
@@ -217,29 +326,35 @@ class MainWindow(QMainWindow):
         self.running_profiles = [p for p in self.profiles if p['name'] in selected_names]
 
         self.stop_flag.clear()
-        self.start_btn.setVisible(False)    # 👉 Ẩn Start
-        self.stop_btn.setVisible(True)      # 👉 Hiện Stop
+        self.start_btn.setVisible(False)
+        self.stop_btn.setVisible(True)
         self.threads.clear()
 
         for idx, profile in enumerate(self.running_profiles):
-            t = threading.Thread(target=self.run_profile, args=(provider, base_url, profile, selected_json, idx, len(self.running_profiles)))
+            t = threading.Thread(target=self.run_profile, args=(provider, base_url, profile, selected_json, idx))
             t.start()
             self.threads.append(t)
 
-    def run_profile(self, provider, base_url, profile, json_file, index, total):
+    def run_profile(self, provider, base_url, profile, json_file, index):
         log_path = f"logs/{profile['name']}.log"
         os.makedirs("logs", exist_ok=True)
 
         def logger(msg):
             with open(log_path, 'a', encoding='utf-8') as f:
                 f.write(msg + "\n")
+            row = self.profile_row_map.get(profile['name'])
 
         with open(log_path, 'w', encoding='utf-8') as f:
             f.write(f"[{profile['name']}] Start with {json_file}\n")
 
         profile_data = start_profile(provider, base_url, profile['id'])
-        time.sleep(2)
+        print(f"[DEBUG] profile_data: {profile_data}")
 
+        if not profile_data or not profile_data.get("debugger_address"):
+            logger(f"{profile['name']} ❌ Không lấy được debugger_address.")
+            return
+
+        time.sleep(2)
         self.move_single_window(profile['name'], index)
 
         if self.stop_flag.is_set():
@@ -254,5 +369,3 @@ class MainWindow(QMainWindow):
 
         if not any(t.is_alive() for t in self.threads):
             self.stop_btn.setVisible(False)
-
-

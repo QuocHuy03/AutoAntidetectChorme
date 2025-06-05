@@ -6,7 +6,7 @@
 [P-20250529-0006] 🕒 WAIT 1 giây
 [P-20250529-0006] 🔍 Scroll tới element: (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[1]
 [P-20250529-0006] → CLICK => (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[1]
-[P-20250529-0006] 🎲 Scroll ngẫu nhiên ↓ 523px
+[P-20250529-0006] 🎲 Scroll ngẫu nhiên ↓ 444px
 [P-20250529-0006] → OPEN URL - https://google.com
 [P-20250529-0006] → ELEMENT TỒN TẠI => //*[@id='APjFqb']
 [P-20250529-0006] → NHẬP => //*[@id='APjFqb']
@@ -14,7 +14,7 @@
 [P-20250529-0006] 🕒 WAIT 1 giây
 [P-20250529-0006] 🔍 Scroll tới element: (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[2]
 [P-20250529-0006] → CLICK => (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[2]
-[P-20250529-0006] 🎲 Scroll ngẫu nhiên ↓ 430px
+[P-20250529-0006] 🎲 Scroll ngẫu nhiên ↓ 359px
 [P-20250529-0006] → OPEN URL - https://google.com
 [P-20250529-0006] → ELEMENT TỒN TẠI => //*[@id='APjFqb']
 [P-20250529-0006] → NHẬP => //*[@id='APjFqb']
@@ -22,7 +22,7 @@
 [P-20250529-0006] 🕒 WAIT 1 giây
 [P-20250529-0006] 🔍 Scroll tới element: (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[3]
 [P-20250529-0006] → CLICK => (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[3]
-[P-20250529-0006] 🎲 Scroll ngẫu nhiên ↑ 266px
+[P-20250529-0006] 🎲 Scroll ngẫu nhiên ↑ 505px
 [P-20250529-0006] → OPEN URL - https://google.com
 [P-20250529-0006] → ELEMENT TỒN TẠI => //*[@id='APjFqb']
 [P-20250529-0006] → NHẬP => //*[@id='APjFqb']
@@ -30,5 +30,5 @@
 [P-20250529-0006] 🕒 WAIT 1 giây
 [P-20250529-0006] 🔍 Scroll tới element: (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[4]
 [P-20250529-0006] → CLICK => (//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[4]
-[P-20250529-0006] 🎲 Scroll ngẫu nhiên ↓ 327px
+[P-20250529-0006] 🎲 Scroll ngẫu nhiên ↓ 181px
 [P-20250529-0006] ✅ DONE

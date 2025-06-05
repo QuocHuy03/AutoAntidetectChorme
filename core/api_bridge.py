@@ -8,11 +8,13 @@ def get_groups(provider, base_url):
     return []
 
 def get_profiles(provider, base_url, group_id=None):
+    print(f"[API_BRIDGE] get_profiles → provider: {provider}, base_url: {base_url}, group_id: {group_id}")
     if provider == "gpmlogin":
         return gpm_get_profiles(base_url, group_id)
     if provider == "hidemyacc":
         return hma_get_profiles(base_url)
     return []
+
 
 def start_profile(provider, base_url, profile_id, win_scale=0.3, win_pos=None):
     if provider == 'gpmlogin':

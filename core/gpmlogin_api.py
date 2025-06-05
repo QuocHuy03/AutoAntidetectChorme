@@ -14,20 +14,27 @@ def get_groups(base_url):
     return []
 
 def get_profiles(base_url, group_id=None):
+    all_profiles = []
+    page = 1
     try:
-        params = {"page_size": 100}
-        if group_id:
-            params["group_id"] = group_id
-        res = requests.get(f"{base_url}/api/v3/profiles", params=params, timeout=5)
-        if res.status_code == 200:
-            return res.json().get("data", [])
-        else:
-            print(f"[GPM get_profiles] ⚠️ Status {res.status_code} - {res.text}")
-    except requests.exceptions.RequestException as e:
-        print(f"[GPM get_profiles] ❌ Connection Error: {e}")
-    except ValueError:
-        print(f"[GPM get_profiles] ❌ Invalid JSON response")
-    return []
+        while True:
+            params = {"page": page, "page_size": 1000}
+            if group_id:
+                params["group_id"] = group_id
+            url = f"{base_url}/api/v3/profiles"
+            res = requests.get(url, params=params, timeout=5)
+            if res.status_code == 200:
+                data = res.json().get("data", [])
+                if not data:
+                    break
+                all_profiles.extend(data)
+                page += 1
+            else:
+                print(f"[GPM_API] ⚠️ Status {res.status_code} - {res.text}")
+                break
+    except Exception as e:
+        print(f"[GPM_API] ❌ Exception: {e}")
+    return all_profiles
 
 def start_profile(base_url, profile_id, win_scale=0.3, win_pos=None):
     try:
