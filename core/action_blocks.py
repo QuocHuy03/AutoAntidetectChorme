@@ -86,13 +86,12 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
 
 
                 else:  # mode == 'row'
-                    for idx, row in df.iterrows():
+                    df_valid = df[df.apply(lambda row: any(str(cell).strip() for cell in row), axis=1)]
+                    logger(f"[{profile_input.get('name')}] 🧮 Tìm thấy {len(df_valid)} dòng có dữ liệu hợp lệ.")
+                    for idx, row in df_valid.iterrows():
                         if stop_flag.is_set():
                             logger(f"[{profile_input.get('name')}] ⛔ Dừng theo yêu cầu trong Excel block.")
                             return
-
-                        if row.dropna().empty:
-                            continue  # Bỏ qua dòng hoàn toàn trống
 
                         row_vars = row.to_dict()
                         row_vars["row_data"] = row_vars.copy()
