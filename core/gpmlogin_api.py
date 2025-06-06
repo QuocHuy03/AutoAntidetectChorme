@@ -36,11 +36,13 @@ def get_profiles(base_url, group_id=None):
         print(f"[GPM_API] ❌ Exception: {e}")
     return all_profiles
 
-def start_profile(base_url, profile_id, win_scale=0.3, win_pos=None):
+def start_profile(base_url, profile_id, window_config):
+    print(window_config)
     try:
-        params = {"win_scale": win_scale}
-        if win_pos:
-            params["win_pos"] = f"{win_pos[0]},{win_pos[1]}"
+        additional_args = f"--disable-gpu --window-size={window_config['width']},{window_config['height']} --force-device-scale-factor={window_config['scale']}"
+        params = {
+            "addination_args": additional_args
+        }
         res = requests.get(f"{base_url}/api/v3/profiles/start/{profile_id}", params=params, timeout=5)
         if res.status_code == 200:
             data = res.json().get("data", {})

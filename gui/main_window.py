@@ -10,6 +10,7 @@ import pygetwindow as gw
 import pyautogui
 from qt_material import apply_stylesheet
 from PyQt5.QtWidgets import QFileDialog
+from core.api_bridge import normalize_profile
 
 class LogDialog(QDialog):
     def __init__(self, profile_name):
@@ -82,14 +83,38 @@ class MainWindow(QMainWindow):
         file_path, _ = QFileDialog.getOpenFileName(self, "Chọn file Excel", "", "Excel Files (*.xlsx *.xls)")
         if file_path:
             self.excel_input.setText(file_path)
+    
+    def get_base_url(self, provider):
+        for cfg in self.config_list:
+            if cfg.get("provider") == provider:
+                return cfg.get("base_url")
+        return ""
+
+    def get_window_config(self):
+        try:
+            width = int(self.width_input.text())
+        except ValueError:
+            width = 230
+
+        try:
+            height = int(self.height_input.text())
+        except ValueError:
+            height = 260
+
+        try:
+            scale = float(self.scale_input.text())
+        except ValueError:
+            scale = 0.3
+
+        return {"width": width, "height": height, "scale": scale}
 
     def __init__(self):
         super().__init__()
         apply_stylesheet(self, theme='light_blue.xml', extra={'pushbutton.icon.size': '0px'})
         self.setWindowTitle("Chrome Antidetect API By @huyit32")
         self.setGeometry(100, 100, 1200, 700)
-        with open('config/config.json') as f:
-            self.config = json.load(f)
+        with open('config/config.json', encoding='utf-8') as f:
+            self.config_list = json.load(f)
         self.groups, self.threads, self.running_profiles = [], [], []
         self.stop_flag = threading.Event()
         self.active_threads = []
@@ -102,62 +127,91 @@ class MainWindow(QMainWindow):
 
     def init_ui(self):
         layout = QVBoxLayout()
-        top_bar = QHBoxLayout()
+
+        # === HÀNG 1: Cấu hình & tìm kiếm ===
+        row1 = QHBoxLayout()
 
         self.refresh_btn = QPushButton("🔁 Refresh")
         self.refresh_btn.clicked.connect(self.load_profiles)
-        top_bar.addWidget(self.refresh_btn)
+        row1.addWidget(self.refresh_btn)
 
         self.provider_combo = QComboBox()
-        self.provider_combo.addItems(["gpmlogin", "hidemyacc"])
+        provider_names = [cfg.get("provider", "unknown") for cfg in self.config_list]
+        self.provider_combo.addItems(provider_names)
         self.provider_combo.currentIndexChanged.connect(self.load_groups)
-        top_bar.addWidget(QLabel("Profile Type"))
-        top_bar.addWidget(self.provider_combo)
+        row1.addWidget(QLabel("Provider:"))
+        row1.addWidget(self.provider_combo)
+
+        self.group_combo = QComboBox()
+        self.group_combo.currentIndexChanged.connect(self.load_profiles)
+        row1.addWidget(QLabel("Group:"))
+        row1.addWidget(self.group_combo)
+
+        self.json_combo = QComboBox()
+        self.load_json_files()
+        row1.addWidget(QLabel("Tasks:"))
+        row1.addWidget(self.json_combo)
 
         self.sort_combo = QComboBox()
         self.sort_combo.addItems(["Sort A-Z", "Sort Z-A"])
         self.sort_combo.currentIndexChanged.connect(self.load_profiles)
-        top_bar.addWidget(self.sort_combo)
-
-        self.group_combo = QComboBox()
-        self.group_combo.currentIndexChanged.connect(self.load_profiles)
-        top_bar.addWidget(QLabel("Group"))
-        top_bar.addWidget(self.group_combo)
-
-        self.search_box = QLineEdit()
-        self.search_box.setPlaceholderText("Search profile name...")
-        self.search_box.textChanged.connect(self.load_profiles)
-        top_bar.addWidget(self.search_box)
-
-        self.json_combo = QComboBox()
-        self.load_json_files()
-        top_bar.addWidget(QLabel("Tasks"))
-        top_bar.addWidget(self.json_combo)
+        row1.addWidget(QLabel("Sort:"))
+        row1.addWidget(self.sort_combo)
 
         self.mode_combo = QComboBox()
         self.mode_combo.addItems(["manual", "profile", "row"])
-        top_bar.addWidget(QLabel("Excel Mode"))
-        top_bar.addWidget(self.mode_combo)
+        row1.addWidget(QLabel("Excel Mode:"))
+        row1.addWidget(self.mode_combo)
 
         self.excel_input = QLineEdit()
-        self.excel_input.setPlaceholderText("Chọn file Excel (.xlsx)...")
-        top_bar.addWidget(self.excel_input)
+        self.excel_input.setPlaceholderText("File Excel (.xlsx)")
+        self.excel_input.setFixedWidth(150)
+        row1.addWidget(self.excel_input)
 
         self.select_excel_btn = QPushButton("📂")
         self.select_excel_btn.clicked.connect(self.browse_excel_file)
-        top_bar.addWidget(self.select_excel_btn)
+        row1.addWidget(self.select_excel_btn)
+
+        self.search_box = QLineEdit()
+        self.search_box.setPlaceholderText("🔍 Search...")
+        self.search_box.setFixedWidth(160)
+        self.search_box.textChanged.connect(self.load_profiles)
+        row1.addWidget(self.search_box)
+
+        layout.addLayout(row1)
+
+        # === HÀNG 2: Window Config + Nút Start/Stop ===
+        row2 = QHBoxLayout()
+
+        row2.addWidget(QLabel("W:"))
+        self.width_input = QLineEdit("230")
+        self.width_input.setFixedWidth(50)
+        row2.addWidget(self.width_input)
+
+        row2.addWidget(QLabel("H:"))
+        self.height_input = QLineEdit("260")
+        self.height_input.setFixedWidth(50)
+        row2.addWidget(self.height_input)
+
+        row2.addWidget(QLabel("Scale:"))
+        self.scale_input = QLineEdit("0.4")
+        self.scale_input.setFixedWidth(50)
+        row2.addWidget(self.scale_input)
+
+        row2.addStretch()
 
         self.start_btn = QPushButton("▶️ Start")
         self.start_btn.clicked.connect(self.run_selected_profiles)
-        top_bar.addWidget(self.start_btn)
+        row2.addWidget(self.start_btn)
 
         self.stop_btn = QPushButton("🕑 Stop")
         self.stop_btn.clicked.connect(self.stop_all_threads)
         self.stop_btn.setVisible(False)
-        top_bar.addWidget(self.stop_btn)
+        row2.addWidget(self.stop_btn)
 
-        layout.addLayout(top_bar)
+        layout.addLayout(row2)
 
+        # === BẢNG ===
         self.table = QTableWidget()
         self.table.setColumnCount(6)
         self.table.setHorizontalHeaderLabels(["Profile Name", "Group", "Source", "Proxy", "Log", "View"])
@@ -232,7 +286,7 @@ class MainWindow(QMainWindow):
 
     def load_groups(self):
         provider = self.provider_combo.currentText()
-        base_url = self.config['base_url']
+        base_url = base_url = self.get_base_url(provider)
         self.groups = get_groups(provider, base_url)
         self.group_combo.clear()
         for group in self.groups:
@@ -247,7 +301,7 @@ class MainWindow(QMainWindow):
         QApplication.processEvents()
 
         provider = self.provider_combo.currentText()
-        base_url = self.config['base_url']
+        base_url = base_url = self.get_base_url(provider)
         group_id = self.group_combo.currentData()
 
         search_text = self.search_box.text().lower()
@@ -261,7 +315,7 @@ class MainWindow(QMainWindow):
         self.loading_overlay.hide()  # Ẩn overlay sau khi load xong
         self.table.setRowCount(0)  # Xóa tất cả các dòng trong bảng trước khi thêm mới
         provider = self.provider_combo.currentText()
-        self.profiles = profiles
+        self.profiles = [normalize_profile(p, provider, self.groups) for p in profiles]
 
         # Lọc profiles theo từ khoá tìm kiếm
         if search_text:
@@ -278,20 +332,22 @@ class MainWindow(QMainWindow):
 
         # Điền thông tin các profile vào bảng
         for profile in profiles:
+            normalized = normalize_profile(profile, provider, self.groups)
+
             row = self.table.rowCount()
-            self.profile_row_map[profile['name']] = row
+            self.profile_row_map[normalized["name"]] = row
             self.table.insertRow(row)
-            self.table.setItem(row, 0, QTableWidgetItem(profile['name']))
-            group_name = next((g['name'] for g in self.groups if g['id'] == profile.get('group_id')), str(profile.get('group_id')))
-            self.table.setItem(row, 1, QTableWidgetItem(group_name))
-            self.table.setItem(row, 2, QTableWidgetItem(provider))
-            self.table.setItem(row, 3, QTableWidgetItem(profile.get('raw_proxy', '')))
+
+            self.table.setItem(row, 0, QTableWidgetItem(normalized["name"]))
+            self.table.setItem(row, 1, QTableWidgetItem(normalized["group_name"]))
+            self.table.setItem(row, 2, QTableWidgetItem(normalized["provider"]))
+            self.table.setItem(row, 3, QTableWidgetItem(normalized["proxy"]))
             self.table.setItem(row, 4, QTableWidgetItem(""))
 
-            # Tạo nút log cho profile
             btn = QPushButton("≡")
-            btn.clicked.connect(lambda _, p=profile['name']: self.open_log(p))
+            btn.clicked.connect(lambda _, p=normalized["name"]: self.open_log(p))
             self.table.setCellWidget(row, 5, btn)
+
 
         # Dọn dẹp thread sau khi hoàn thành
         sender_thread = self.sender()
@@ -306,12 +362,17 @@ class MainWindow(QMainWindow):
 
     def move_single_window(self, profile_name, index):
         screen_w, screen_h = pyautogui.size()
-        win_w, win_h = 220, 200
-        cols = max(1, screen_w // win_w)
+
+        config = self.get_window_config()
+        width = config["width"]
+        height = config["height"]
+        scale = config["scale"]
+
+        cols = max(1, screen_w // width)
         col = index % cols
         row = index // cols
-        x = col * win_w
-        y = row * win_h
+        x = col * width
+        y = row * height
 
         for _ in range(10):
             windows = [w for w in gw.getWindowsWithTitle(profile_name) if w.visible and profile_name.lower() in w.title.lower()]
@@ -320,7 +381,7 @@ class MainWindow(QMainWindow):
                     win = windows[0]
                     win.restore()
                     win.moveTo(x, y)
-                    win.resizeTo(win_w, win_h)
+                    win.resizeTo(width, height)
                     return
                 except Exception as e:
                     print(f"⚠️ Không thể sắp xếp cửa sổ {profile_name}: {e}")
@@ -329,7 +390,7 @@ class MainWindow(QMainWindow):
     def run_selected_profiles(self):
         selected_json = self.json_combo.currentText()
         provider = self.provider_combo.currentText()
-        base_url = self.config['base_url']
+        base_url = base_url = self.get_base_url(provider)
         excel_mode = self.mode_combo.currentText()
         excel_path = self.excel_input.text().strip()
         # 🔒 Bắt buộc phải chọn file Excel nếu ở chế độ 'profile'
@@ -370,8 +431,8 @@ class MainWindow(QMainWindow):
 
     def stop_all_threads(self):
         self.stop_flag.set()
-        base_url = self.config['base_url']
-        provider = self.provider_combo.currentText()
+        provider = self.provider_combo.currentText()  # ✅ Lấy provider trước
+        base_url = self.get_base_url(provider)        # ✅ Rồi mới dùng
         for profile in self.running_profiles:
             close_profile(provider, base_url, profile['id'])
         self.start_btn.setVisible(True)
@@ -389,7 +450,9 @@ class MainWindow(QMainWindow):
         with open(log_path, 'w', encoding='utf-8') as f:
             f.write(f"[{profile['name']}] Start with {json_file}\n")
 
-        profile_data = start_profile(provider, base_url, profile['id'])
+              
+        window_config = self.get_window_config()
+        profile_data = start_profile(provider, base_url, profile['id'], window_config)
         if not profile_data or not profile_data.get("debugger_address"):
             logger(f"{profile['name']} ❌ Không lấy được debugger_address.")
             return

@@ -1,4 +1,10 @@
-{
-  "provider": "gpmlogin", 
-  "base_url": "http://127.0.0.1:19995"
-}
+[
+  {
+    "provider": "hidemyacc",
+    "base_url": "http://127.0.0.1:2268"
+  },
+  {
+    "provider": "gpmlogin",
+    "base_url": "http://127.0.0.1:19995"
+  }
+]

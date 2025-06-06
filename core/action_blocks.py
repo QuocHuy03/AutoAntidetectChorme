@@ -38,6 +38,7 @@ def load_excel_data(excel_path: str, mode: str):
 
     return result
 
+
 def render(text, local_vars):
     if not isinstance(text, str):
         return text
