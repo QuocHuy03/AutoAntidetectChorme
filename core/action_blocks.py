@@ -101,6 +101,8 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
         else:
             raise ValueError(f"⚠️ debugger_address không hợp lệ: {debugger_address}")
 
+        driver_dir = os.path.abspath("chromedriver")
+        driver_path = os.path.join(driver_dir, "chromedriver.exe")
         service = Service(driver_path)
         driver = webdriver.Chrome(service=service, options=chrome_options)
     except Exception as e:

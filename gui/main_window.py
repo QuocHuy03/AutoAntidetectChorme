@@ -3,14 +3,13 @@ from PyQt5.QtWidgets import (
     QMainWindow, QPushButton, QVBoxLayout, QWidget, QLabel,
     QComboBox, QLineEdit, QHBoxLayout, QTableWidget, QTableWidgetItem, QHeaderView, QDialog, QTextEdit, QMessageBox, QApplication
 )
-from core.api_bridge import get_profiles, get_groups, start_profile, close_profile
+from core.api_bridge import get_profiles, get_groups, start_profile, close_profile , normalize_profile, update_profile
 from core.action_blocks import execute_blocks_from_json
 import json, os, threading, time
 import pygetwindow as gw
 import pyautogui
 from qt_material import apply_stylesheet
 from PyQt5.QtWidgets import QFileDialog
-from core.api_bridge import normalize_profile
 
 class LogDialog(QDialog):
     def __init__(self, profile_name):
@@ -431,8 +430,8 @@ class MainWindow(QMainWindow):
 
     def stop_all_threads(self):
         self.stop_flag.set()
-        provider = self.provider_combo.currentText()  # ✅ Lấy provider trước
-        base_url = self.get_base_url(provider)        # ✅ Rồi mới dùng
+        provider = self.provider_combo.currentText()  
+        base_url = self.get_base_url(provider)        
         for profile in self.running_profiles:
             close_profile(provider, base_url, profile['id'])
         self.start_btn.setVisible(True)
@@ -452,10 +451,12 @@ class MainWindow(QMainWindow):
 
               
         window_config = self.get_window_config()
+  
         profile_data = start_profile(provider, base_url, profile['id'], window_config)
         if not profile_data or not profile_data.get("debugger_address"):
             logger(f"{profile['name']} ❌ Không lấy được debugger_address.")
             return
+
 
         time.sleep(2)
         self.move_single_window(profile['name'], index)

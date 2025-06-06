@@ -48,7 +48,7 @@ def start_profile(base_url, profile_id, window_config):
             data = res.json().get("data", {})
             return {
                 "debugger_address": data.get("remote_debugging_address"),
-                "webdriver_path": data.get("driver_path")
+                "webdriver_path": 'chromedriver.exe'
             }
         else:
             print(f"[GPM start_profile] ⚠️ Status {res.status_code} - {res.text}")
@@ -57,6 +57,36 @@ def start_profile(base_url, profile_id, window_config):
     except ValueError:
         print(f"[GPM start_profile] ❌ Invalid JSON response")
     return {}
+
+def update_profile(base_url, profile_id, data_update):
+    try:
+        # Đảm bảo có trường name, nếu không có thì báo lỗi
+        name = data_update.get("name") or data_update.get("profile_name")
+        if not name:
+            print(f"[GPM update_profile] ❌ Thiếu 'name' trong data_update")
+            return False
+
+        update_data = {
+            "profile_name": name,
+            "chromiumVersion": "135.0.0.0"
+        }
+
+        res = requests.post(
+            f"{base_url}/api/v3/profiles/update/{profile_id}",
+            json=update_data,
+            timeout=5
+        )
+
+        if res.status_code == 200:
+            print(f"[{name}] ✅ Đã ép về Chrome 129 thành công.")
+            return True
+        else:
+            print(f"[{name}] ❌ Lỗi update: {res.status_code} - {res.text}")
+    except requests.exceptions.RequestException as e:
+        print(f"[GPM update_profile] ❌ Connection Error: {e}")
+    except Exception as e:
+        print(f"[GPM update_profile] ❌ Unknown error: {e}")
+    return False
 
 def close_profile(base_url, profile_id):
     try:

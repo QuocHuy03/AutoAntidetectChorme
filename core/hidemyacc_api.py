@@ -39,12 +39,13 @@ def start_profile(base_url, profile_id, window_config):
         res = requests.post(
             f"{base_url}/profiles/start/{profile_id}",
             json=json_data,
-            timeout=5
+            timeout=10
         )
         if res.status_code == 200:
             data = res.json().get("data", {})
+            print("HMA", data)
             return {
-                "debugger_address": '127.0.0.1:' + str(data.get("port")),
+                "debugger_address": f"127.0.0.1:{data.get("port")}",
                 "webdriver_path": "chromedriver.exe"
             }
         else:
@@ -55,11 +56,41 @@ def start_profile(base_url, profile_id, window_config):
         print(f"[HMA start_profile] ❌ Invalid JSON response")
     return {}
 
+def update_profile(base_url, profile_id, data_update):
+    try:
+        # Đảm bảo có trường name, nếu không có thì báo lỗi
+        name = data_update.get("name") or data_update.get("profile_name")
+        if not name:
+            print(f"[HMA update_profile] ❌ Thiếu 'name' trong data_update")
+            return False
+
+        update_data = {
+            "profile_name": name,
+            "majorVersion": "135.0.0.0"
+        }
+
+        res = requests.put(
+            f"{base_url}/profiles/{profile_id}",
+            json=update_data,
+            timeout=10
+        )
+
+        if res.status_code == 200:
+            print(f"[{name}] ✅ Đã ép về Chrome 135 thành công.")
+            return True
+        else:
+            print(f"[{name}] ❌ Lỗi update: {res.status_code} - {res.text}")
+    except requests.exceptions.RequestException as e:
+        print(f"[HMA update_profile] ❌ Connection Error: {e}")
+    except Exception as e:
+        print(f"[HMA update_profile] ❌ Unknown error: {e}")
+    return False
+
 def close_profile(base_url, profile_id):
     try:
         res = requests.post(
             f"{base_url}/profiles/stop/{profile_id}",
-            timeout=5
+            timeout=10
         )
         if res.status_code == 200:
             return res.json()

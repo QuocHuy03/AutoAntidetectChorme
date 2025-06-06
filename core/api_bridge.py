@@ -1,6 +1,18 @@
-from core.gpmlogin_api import get_groups as gpm_get_groups, get_profiles as gpm_get_profiles, start_profile as gpm_start_profile, close_profile as gpm_close_profile
-from core.hidemyacc_api import get_groups as hma_get_groups, get_profiles as hma_get_profiles, start_profile as hma_start_profile, close_profile as hma_close_profile
+from core.gpmlogin_api import (
+    get_groups as gpm_get_groups,
+    get_profiles as gpm_get_profiles,
+    start_profile as gpm_start_profile,
+    close_profile as gpm_close_profile,
+    update_profile as gpm_update_profile,
+)
 
+from core.hidemyacc_api import (
+    get_groups as hma_get_groups,
+    get_profiles as hma_get_profiles,
+    start_profile as hma_start_profile,
+    close_profile as hma_close_profile,
+    update_profile as hma_update_profile,
+)
 
 def get_groups(provider, base_url):
     if provider == "gpmlogin":
@@ -8,7 +20,6 @@ def get_groups(provider, base_url):
     if provider == "hidemyacc":
         return hma_get_groups(base_url)
     return []
-
 
 def get_profiles(provider, base_url, group_id=None):
     print(f"[API_BRIDGE] get_profiles → provider: {provider}, base_url: {base_url}, group_id: {group_id}")
@@ -18,9 +29,8 @@ def get_profiles(provider, base_url, group_id=None):
         return hma_get_profiles(base_url, group_id)
     return []
 
-
 def start_profile(provider, base_url, profile_id, window_config):
-    if provider == 'gpmlogin':
+    if provider == "gpmlogin":
         return gpm_start_profile(base_url, profile_id, window_config)
     if provider == "hidemyacc":
         return hma_start_profile(base_url, profile_id, window_config)
@@ -33,7 +43,12 @@ def close_profile(provider, base_url, profile_id):
         return hma_close_profile(base_url, profile_id)
     return {}
 
-
+def update_profile(provider, base_url, profile):
+    if provider == "gpmlogin":
+        return gpm_update_profile(base_url, profile["id"], profile)
+    if provider == "hidemyacc":
+        return hma_update_profile(base_url, profile["id"], profile)
+    return {}
 
 def normalize_profile(profile, provider, groups=None):
     """
