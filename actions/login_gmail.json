@@ -2,7 +2,7 @@
   {
     "action": "excel",
     "mode": "profile",
-    "path": "data.xlsx",
+    "path": "LOGIN_GMAIL.xlsx",
     "do": [
       {
         "action": "open_url",

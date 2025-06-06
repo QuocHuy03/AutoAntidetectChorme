@@ -1,9 +1,8 @@
 [
   {
-    "action": "loop",
-    "start": 1,
-    "count": 4,
-    "variable": "huydev",
+    "action": "excel",
+    "mode": "row",
+    "path": "PROFILE_TRAFFIC.xlsx",
     "do": [
       {
         "action": "open_url",
@@ -17,7 +16,7 @@
           {
             "action": "input_text",
             "xpath": "//*[@id='APjFqb']",
-            "value": "shop acc game"
+            "value": "{{KEYWORD}}"
           },
           {
             "action": "input_press_key",
@@ -29,15 +28,6 @@
         "stop_on_false": true
       },
       { "action": "wait", "value": "1" },
-      {
-        "action": "scroll",
-        "value": "element",
-        "xpath": "(//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[{{huydev}}]"
-      },
-      {
-        "action": "click",
-        "xpath": "(//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[{{huydev}}]"
-      },
       { "action": "scroll", "value": "random" }
     ]
   }

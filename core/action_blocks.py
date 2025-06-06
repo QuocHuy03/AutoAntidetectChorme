@@ -57,35 +57,52 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                 df = pd.read_excel(excel_path)
                 if mode == 'profile':
                     current_name = profile_input.get("name", "").strip().lower()
+                    matched = False
+
+                    for idx, row in df.iterrows():
+                        if stop_flag.is_set():
+                            logger(f"[{current_name}] ⛔ Dừng theo yêu cầu trong Excel block.")
+                            return
+
+                        row_profile = str(row.get("PROFILE", "")).strip().lower()
+                        if row_profile != current_name:
+                            continue
+
+                        matched = True
+                        row_vars = row.to_dict()
+                        row_vars["row_data"] = row_vars.copy()
+
+                        for inner in inner_blocks:
+                            if stop_flag.is_set():
+                                logger(f"[{current_name}] ⛔ Dừng giữa block Excel.")
+                                return
+                            execute_block(inner, row_vars)
+                        break  # Dừng sau khi chạy đúng dòng trùng
+
+                    if not matched:
+                        logger(f"[{current_name}] ❌ Không tìm thấy dòng PROFILE khớp trong Excel – Dừng script.")
+                        close_profile(provider, base_url, profile_input.get("id"))
+                        return  # DỪNG luôn nếu không có dòng nào trùng
+
+
+                else:  # mode == 'row'
                     for idx, row in df.iterrows():
                         if stop_flag.is_set():
                             logger(f"[{profile_input.get('name')}] ⛔ Dừng theo yêu cầu trong Excel block.")
                             return
-                        row_profile = str(row.get("PROFILE", "")).strip().lower()
-                        if row_profile != current_name:
-                            continue
+
+                        if row.dropna().empty:
+                            continue  # Bỏ qua dòng hoàn toàn trống
+
                         row_vars = row.to_dict()
                         row_vars["row_data"] = row_vars.copy()
+
                         for inner in inner_blocks:
                             if stop_flag.is_set():
                                 logger(f"[{profile_input.get('name')}] ⛔ Dừng giữa block Excel.")
                                 return
                             execute_block(inner, row_vars)
 
-                else:  # mode = row
-                    for idx, row in df.iterrows():
-                        if stop_flag.is_set():
-                            logger(f"[{profile_input.get('name')}] ⛔ Dừng theo yêu cầu trong Excel block.")
-                            return
-                        if row.dropna(how='all').empty:
-                            continue
-                        row_vars = row.to_dict()
-                        row_vars["row_data"] = row_vars.copy()
-                        for inner in inner_blocks:
-                            if stop_flag.is_set():
-                                logger(f"[{profile_input.get('name')}] ⛔ Dừng giữa block Excel.")
-                                return
-                            execute_block(inner, row_vars)
             except Exception as e:
                 logger(f"[EXCEL BLOCK] ❌ Lỗi đọc Excel: {e}")
             return
