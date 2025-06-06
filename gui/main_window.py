@@ -10,7 +10,7 @@ import pygetwindow as gw
 import pyautogui
 from qt_material import apply_stylesheet
 from PyQt5.QtWidgets import QFileDialog
-
+import pandas as pd
 class LogDialog(QDialog):
     def __init__(self, profile_name):
         super().__init__()
@@ -58,7 +58,24 @@ class ProfileLoaderThread(QThread):
         print(f"[Thread] Fetched {len(profiles)} profiles")
         self.profiles_loaded.emit(profiles)
 
+def load_excel_profiles(excel_path, mode):
+    df = pd.read_excel(excel_path)
+    profiles = []
 
+    if mode == "profile":
+        for _, row in df.iterrows():
+            row_data = row.to_dict()
+            name = str(row.iloc[0]).strip()
+            if name:
+                profiles.append({"name": name, "variables": row_data})
+
+    elif mode == "row":
+        for idx, row in df.iterrows():
+            if row.dropna(how='all').empty:
+                continue
+            profiles.append({"name": f"Row-{idx+1}", "id": f"row-{idx+1}", "variables": row.to_dict()})
+
+    return profiles
 class MainWindow(QMainWindow):
     def style_table(self):
         self.table.setStyleSheet("""
@@ -156,20 +173,6 @@ class MainWindow(QMainWindow):
         self.sort_combo.currentIndexChanged.connect(self.load_profiles)
         row1.addWidget(QLabel("Sort:"))
         row1.addWidget(self.sort_combo)
-
-        self.mode_combo = QComboBox()
-        self.mode_combo.addItems(["manual", "profile", "row"])
-        row1.addWidget(QLabel("Excel Mode:"))
-        row1.addWidget(self.mode_combo)
-
-        self.excel_input = QLineEdit()
-        self.excel_input.setPlaceholderText("File Excel (.xlsx)")
-        self.excel_input.setFixedWidth(150)
-        row1.addWidget(self.excel_input)
-
-        self.select_excel_btn = QPushButton("📂")
-        self.select_excel_btn.clicked.connect(self.browse_excel_file)
-        row1.addWidget(self.select_excel_btn)
 
         self.search_box = QLineEdit()
         self.search_box.setPlaceholderText("🔍 Search...")
@@ -389,28 +392,10 @@ class MainWindow(QMainWindow):
     def run_selected_profiles(self):
         selected_json = self.json_combo.currentText()
         provider = self.provider_combo.currentText()
-        base_url = base_url = self.get_base_url(provider)
-        excel_mode = self.mode_combo.currentText()
-        excel_path = self.excel_input.text().strip()
-        # 🔒 Bắt buộc phải chọn file Excel nếu ở chế độ 'profile'
-        if excel_mode == "profile" or excel_mode == "row" and not os.path.exists(excel_path):
-            QMessageBox.warning(self, "Lỗi Thiếu Excel", "Vui lòng chọn file Excel khi ở chế độ 'PROFILE'.")
-            return
-        
+        base_url = self.get_base_url(provider)
+
         selected_rows = self.table.selectionModel().selectedRows()
         selected_names = [self.table.item(r.row(), 0).text() for r in selected_rows]
-
-        # ✅ Nếu đang ở mode 'profile' → lọc trùng giữa UI và Excel
-        if excel_mode == "profile" and os.path.exists(excel_path):
-            try:
-                import pandas as pd
-                df = pd.read_excel(excel_path)
-                excel_names = df['PROFILE'].astype(str).str.strip().tolist()
-                selected_names = [name for name in selected_names if name in excel_names]
-            except Exception as e:
-                QMessageBox.critical(self, "Lỗi Excel", f"Không thể đọc file Excel:\n{e}")
-                return
-
         self.running_profiles = [p for p in self.profiles if p['name'] in selected_names]
 
         if not self.running_profiles:
@@ -428,16 +413,6 @@ class MainWindow(QMainWindow):
             t.start()
             self.threads.append(t)
 
-    def stop_all_threads(self):
-        self.stop_flag.set()
-        provider = self.provider_combo.currentText()  
-        base_url = self.get_base_url(provider)        
-        for profile in self.running_profiles:
-            close_profile(provider, base_url, profile['id'])
-        self.start_btn.setVisible(True)
-        self.stop_btn.setVisible(False)
-        print("🛑 All profiles were flagged to stop.")
-
     def run_profile(self, provider, base_url, profile, json_file, index):
         log_path = f"logs/{profile['name']}.log"
         os.makedirs("logs", exist_ok=True)
@@ -449,14 +424,12 @@ class MainWindow(QMainWindow):
         with open(log_path, 'w', encoding='utf-8') as f:
             f.write(f"[{profile['name']}] Start with {json_file}\n")
 
-              
         window_config = self.get_window_config()
-  
+
         profile_data = start_profile(provider, base_url, profile['id'], window_config)
         if not profile_data or not profile_data.get("debugger_address"):
             logger(f"{profile['name']} ❌ Không lấy được debugger_address.")
             return
-
 
         time.sleep(2)
         self.move_single_window(profile['name'], index)
@@ -466,17 +439,28 @@ class MainWindow(QMainWindow):
             close_profile(provider, base_url, profile['id'])
             return
 
+        # 🔥 Chạy block JSON duy nhất – JSON sẽ tự quyết định có dùng Excel hay không
         execute_blocks_from_json(
             f"actions/{json_file}",
             logger,
             profile_data.get('webdriver_path'),
             profile_data.get('debugger_address'),
-            profile, provider, base_url, self.stop_flag,
-            excel_mode=self.mode_combo.currentText(),
-            excel_path=self.excel_input.text() if self.excel_input.text() else None
+            profile,
+            provider, base_url, self.stop_flag
         )
 
         alive_threads = [t for t in self.threads if t.is_alive()]
         if not alive_threads:
             self.stop_btn.setVisible(False)
             self.start_btn.setVisible(True)
+
+    def stop_all_threads(self):
+        self.stop_flag.set()
+        provider = self.provider_combo.currentText()  
+        base_url = self.get_base_url(provider)        
+        for profile in self.running_profiles:
+            close_profile(provider, base_url, profile['id'])
+        self.start_btn.setVisible(True)
+        self.stop_btn.setVisible(False)
+        print("🛑 All profiles were flagged to stop.")
+

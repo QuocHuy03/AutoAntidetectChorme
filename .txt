@@ -1,109 +1,109 @@
-import json
-import time, os
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.keys import Keys
-import random
-import pandas as pd
-from core.api_bridge import close_profile
-import re
-
-def render(text, local_vars):
-    if not isinstance(text, str):
-        return text
-
-    combined_vars = {}
-    if "row_data" in local_vars:
-        combined_vars.update(local_vars["row_data"])
-    else:
-        combined_vars.update(local_vars)
-
-    for key, val in combined_vars.items():
-        if pd.notna(val):
-            text = text.replace(f"{{{{{key}}}}}", str(val))
-
-    return text
-
-def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, profile_input, provider, base_url, stop_flag,
-                             excel_mode='manual', excel_path=None):
-
-    with open(json_path, 'r', encoding='utf-8') as f:
-        blocks = json.load(f)
-
     def execute_block(block, local_vars):
         nonlocal variables, loop_flags
-
-        if not isinstance(block, dict):
-            logger(f"⚠️ Bỏ qua block không hợp lệ: {block}")
-            return
-        # nếu là excel
-
-
         action = block.get('action')
-        if action == 'excel':
-            excel_path = block.get('path')
-            mode = block.get('mode', 'row')
-            inner_blocks = block.get('do', [])
-
-            if not isinstance(inner_blocks, list):
-                logger(f"[EXCEL BLOCK] ❌ 'do' không phải danh sách: {inner_blocks}")
-                return
-
-            try:
-                df = pd.read_excel(excel_path)
-                if mode == 'profile':
-                    current_name = profile_input.get("name", "").strip().lower()
-                    for idx, row in df.iterrows():
-                        if stop_flag.is_set():
-                            logger(f"[{profile_input.get('name')}] ⛔ Dừng theo yêu cầu trong Excel block.")
-                            return
-                        row_profile = str(row.get("PROFILE", "")).strip().lower()
-                        if row_profile != current_name:
-                            continue
-                        row_vars = row.to_dict()
-                        row_vars["row_data"] = row_vars.copy()
-                        for inner in inner_blocks:
-                            if stop_flag.is_set():
-                                logger(f"[{profile_input.get('name')}] ⛔ Dừng giữa block Excel.")
-                                return
-                            execute_block(inner, row_vars)
-
-                else:  # mode = row
-                    for idx, row in df.iterrows():
-                        if stop_flag.is_set():
-                            logger(f"[{profile_input.get('name')}] ⛔ Dừng theo yêu cầu trong Excel block.")
-                            return
-                        if row.dropna(how='all').empty:
-                            continue
-                        row_vars = row.to_dict()
-                        row_vars["row_data"] = row_vars.copy()
-                        for inner in inner_blocks:
-                            if stop_flag.is_set():
-                                logger(f"[{profile_input.get('name')}] ⛔ Dừng giữa block Excel.")
-                                return
-                            execute_block(inner, row_vars)
-            except Exception as e:
-                logger(f"[EXCEL BLOCK] ❌ Lỗi đọc Excel: {e}")
-            return
-
-        
-        #   ///
-
-        
         xpath = render(block.get('xpath', ''), local_vars)
         value = render(block.get('value', ''), local_vars)
-
         try:
-                if action == 'log':
-                    logger(f"[{profile['name']}] 📝 {value}")
-
-                elif action == 'open_url':
+                if action == 'open_url':
                     driver.get(value)
                     logger(f"[{profile['name']}] → OPEN URL - {value}")
+
+                elif action == 'switch_tab_by_index':
+                        tab_index = int(value)
+                        tabs = driver.window_handles
+                        if 0 <= tab_index < len(tabs):
+                            driver.switch_to.window(tabs[tab_index])
+                            logger(f"[{profile['name']}] 🔄 Chuyển sang tab {tab_index + 1}")
+                        else:
+                            logger(f"[{profile['name']}] ❌ Tab chỉ số {tab_index} không hợp lệ")
+
+                elif action == 'switch_tab_next':
+                        tabs = driver.window_handles
+                        current_tab = driver.current_window_handle
+                        current_index = tabs.index(current_tab)
+                        next_index = (current_index + 1) % len(tabs)
+                        driver.switch_to.window(tabs[next_index])
+                        logger(f"[{profile['name']}] 🔄 Chuyển sang tab tiếp theo")
+
+                elif action == 'switch_tab_prev':
+                        tabs = driver.window_handles
+                        current_tab = driver.current_window_handle
+                        current_index = tabs.index(current_tab)
+                        prev_index = (current_index - 1) % len(tabs)  # Lùi lại một tab
+                        driver.switch_to.window(tabs[prev_index])
+                        logger(f"[{profile['name']}] 🔄 Chuyển sang tab trước đó")
+
+                elif action == 'navigate_back':
+                    driver.back()
+                    logger(f"[{profile['name']}] ⬅️ Quay lại trang trước")
+                
+                elif action == 'navigate_forward':
+                    driver.forward()
+                    logger(f"[{profile['name']}] ➡️ Tiến tới trang tiếp theo")
+                
+                elif action == 'refresh_page':
+                    driver.refresh()
+                    logger(f"[{profile['name']}] 🔄 Tải lại trang")
+
+                elif action == 'active_tab':
+                    driver.switch_to.window(driver.current_window_handle)
+                    logger(f"[{profile['name']}] 🔄 Kích hoạt tab hiện tại")
+
+                elif action == 'loop':
+                    count = int(block.get('count', 1))
+                    start = int(block.get('start', 0))
+                    var_name = block.get('variable', 'i')
+                    loop_blocks = block.get('do', [])
+                    for i in range(start, start + count):
+                        variables[var_name] = i  # Cập nhật biến toàn cục
+                        loop_vars = variables.copy()  # Thay vì local_vars.copy()
+                        loop_flags.append({'break': False, 'continue': False})
+                        for lb in loop_blocks:
+                            if loop_flags[-1]['break']:
+                                break
+                            if loop_flags[-1]['continue']:
+                                loop_flags[-1]['continue'] = False
+                                break
+                            execute_block(lb, loop_vars)
+                        loop_flags.pop()
+
+                elif action == 'while':
+                    condition = block.get('condition')
+                    var_name = block.get('variable', 'i')
+                    loop_blocks = block.get('do', [])
+                    while eval(condition, {}, variables):
+                        loop_vars = local_vars.copy()
+                        loop_vars.update(variables)
+                        loop_flags.append({'break': False, 'continue': False})
+                        for lb in loop_blocks:
+                            if loop_flags[-1]['break']:
+                                break
+                            if loop_flags[-1]['continue']:
+                                loop_flags[-1]['continue'] = False
+                                break
+                            execute_block(lb, loop_vars)
+                        loop_flags.pop()
+
+                elif action == 'break_loop':
+                    if loop_flags:
+                        loop_flags[-1]['break'] = True
+
+                elif action == 'next_loop':
+                    if loop_flags:
+                        loop_flags[-1]['continue'] = True
+
+                elif action == 'set_variable':
+                    variables[block['name']] = block['value']
+
+                elif action == 'increase_variable':
+                    name = block['name']
+                    by = int(block.get('by', 1))
+                    variables[name] = variables.get(name, 0) + by
+
+                elif action == 'decrease_variable':
+                    name = block['name']
+                    by = int(block.get('by', 1))
+                    variables[name] = variables.get(name, 0) - by
 
                 elif action == 'input_text':
                     elem = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
@@ -170,6 +170,25 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                     time.sleep(float(value))
                     logger(f"[{profile['name']}] 🕒 WAIT {value} giây")
 
+                elif action == 'switch_iframe':
+                    iframe_elem = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
+                    driver.switch_to.frame(iframe_elem)
+                    logger(f"[{profile['name']}] 🔄 Chuyển vào iframe với xpath: {xpath}")
+
+                elif action == 'switch_to_default_content':
+                    driver.switch_to.default_content()
+                    logger(f"[{profile['name']}] 🔄 Quay lại nội dung chính của trang")
+                
+                elif action == 'switch_popup_window':
+                    popup_window = driver.window_handles[-1]  # Chọn cửa sổ popup cuối cùng trong danh sách
+                    driver.switch_to.window(popup_window)
+                    logger(f"[{profile['name']}] 🔄 Chuyển sang cửa sổ popup")
+
+                elif action == 'close_popup_window':
+                    driver.close()  # Đóng cửa sổ popup hiện tại
+                    driver.switch_to.window(driver.window_handles[0])  # Quay lại cửa sổ chính
+                    logger(f"[{profile['name']}] 🔒 Đã đóng cửa sổ popup")
+                    
                 elif action == 'scroll':
                     if value == "down":
                         driver.execute_script("window.scrollBy(0, 300);")
@@ -216,88 +235,13 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                     except Exception as e:
                         logger(f"[{profile['name']}] ❌ eval_script lỗi: {e}")
 
-                elif action == 'loop':
-                    count = int(block.get('count', 1))
-                    start = int(block.get('start', 0))
-                    var_name = block.get('variable', 'i')
-                    loop_blocks = block.get('do', [])
-                    for i in range(start, start + count):
-                        variables[var_name] = i  # Cập nhật biến toàn cục
-                        loop_vars = variables.copy()  # Thay vì local_vars.copy()
-                        loop_flags.append({'break': False, 'continue': False})
-                        for lb in loop_blocks:
-                            if loop_flags[-1]['break']:
-                                break
-                            if loop_flags[-1]['continue']:
-                                loop_flags[-1]['continue'] = False
-                                break
-                            execute_block(lb, loop_vars)
-                        loop_flags.pop()
-
-                elif action == 'while':
-                    condition = block.get('condition')
-                    var_name = block.get('variable', 'i')
-                    loop_blocks = block.get('do', [])
-                    while eval(condition, {}, variables):
-                        loop_vars = local_vars.copy()
-                        loop_vars.update(variables)
-                        loop_flags.append({'break': False, 'continue': False})
-                        for lb in loop_blocks:
-                            if loop_flags[-1]['break']:
-                                break
-                            if loop_flags[-1]['continue']:
-                                loop_flags[-1]['continue'] = False
-                                break
-                            execute_block(lb, loop_vars)
-                        loop_flags.pop()
-
-                elif action == 'break_loop':
-                    if loop_flags:
-                        loop_flags[-1]['break'] = True
-
-                elif action == 'next_loop':
-                    if loop_flags:
-                        loop_flags[-1]['continue'] = True
-      
                 elif action == 'stop_script':
                     logger(f"[{profile['name']}] 🛑 SCRIPT DỪNG LẠI: {value or block.get('reason', 'Không có lý do cụ thể')}")
                     close_profile(provider, base_url, profile['id'])
                     driver.quit()
-                    return
+                    exit()
 
                 time.sleep(1)
 
         except Exception as e:
-            logger(f"[{profile['name']}] → ❌ {action} {xpath} => {e}")
-
-    profile = profile_input
-    variables = {}
-    loop_flags = []
-
-    try:
-        chrome_options = Options()
-        if isinstance(debugger_address, str):
-            chrome_options.debugger_address = debugger_address
-        else:
-            raise ValueError(f"⚠️ debugger_address không hợp lệ: {debugger_address}")
-
-        driver_dir = os.path.abspath("chromedriver")
-        driver_path = os.path.join(driver_dir, "chromedriver.exe")
-        service = Service(driver_path)
-        driver = webdriver.Chrome(service=service, options=chrome_options)
-    except Exception as e:
-        logger(f"[{profile['name']}] ❌ Không mở được trình duyệt: {e}")
-        return
-
-    for block in blocks:
-        if stop_flag.is_set():
-            logger(f"[{profile['name']}] ⛔ Đã nhấn STOP – dừng script ngay lập tức.")
-            if 'id' in profile:
-                close_profile(provider, base_url, profile['id'])
-            try:
-                driver.quit()
-            except Exception as e:
-                logger(f"[{profile['name']}] ⚠️ Lỗi khi đóng trình duyệt: {e}")
-            return
-        execute_block(block, variables)
-
+                logger(f"[{profile['name']}] → ❌ {action} {xpath} => {e}")

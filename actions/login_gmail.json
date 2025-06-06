@@ -1,79 +1,77 @@
 [
   {
-    "action": "open_url",
-    "xpath": "",
-    "value": "https://workspace.google.com/intl/en-US/gmail/"
-  },
-  {
-    "action": "wait",
-    "value": "1"
-  },
-  {
-    "action": "click",
-    "xpath": "//*[@id='root']/div[1]/header/div/div[5]/a[2]"
-  },
-  {
-    "action": "element_exists",
-    "xpath": "//input[@id='identifierId']",
-    "if_true": [
+    "action": "excel",
+    "mode": "profile",
+    "path": "data.xlsx",
+    "do": [
+      {
+        "action": "open_url",
+        "value": "https://workspace.google.com/intl/en-US/gmail/"
+      },
+      {
+        "action": "wait",
+        "value": "1"
+      },
       {
         "action": "click",
-        "xpath": "//input[@id='identifierId']"
+        "xpath": "//*[@id='root']/div[1]/header/div/div[5]/a[2]"
       },
       {
-        "action": "input_text",
+        "action": "element_exists",
         "xpath": "//input[@id='identifierId']",
-        "value": "{{MAIL}}"
+        "if_true": [
+          {
+            "action": "click",
+            "xpath": "//input[@id='identifierId']"
+          },
+          {
+            "action": "input_text",
+            "xpath": "//input[@id='identifierId']",
+            "value": "{{MAIL}}"
+          },
+          {
+            "action": "input_press_key",
+            "xpath": "//input[@id='identifierId']",
+            "value": "enter"
+          }
+        ],
+        "if_false": [
+          {
+            "action": "screenshot"
+          }
+        ],
+        "stop_on_fail": true
       },
       {
-        "action": "input_press_key",
-        "xpath": "//input[@id='identifierId']",
-        "value": "enter"
-      }
-    ],
-    "if_false": [
-      {
-        "action": "screenshot"
-      }
-    ],
-    "stop_on_fail": true
-  },
-  {
-    "action": "wait",
-    "value": "1"
-  },
-  {
-    "action": "element_exists",
-    "xpath": "//input[@name='Passwd']",
-    "if_true": [
-      {
-        "action": "click",
-        "xpath": "//input[@name='Passwd']"
+        "action": "wait",
+        "value": "1"
       },
       {
-        "action": "input_text",
+        "action": "element_exists",
         "xpath": "//input[@name='Passwd']",
-        "value": "{{PASS}}"
-      },
-      {
-        "action": "input_press_key",
-        "xpath": "//input[@name='Passwd']",
-        "value": "enter"
+        "if_true": [
+          {
+            "action": "click",
+            "xpath": "//input[@name='Passwd']"
+          },
+          {
+            "action": "input_text",
+            "xpath": "//input[@name='Passwd']",
+            "value": "{{PASS}}"
+          },
+          {
+            "action": "input_press_key",
+            "xpath": "//input[@name='Passwd']",
+            "value": "enter"
+          }
+        ],
+        "if_false": [
+          {
+            "action": "screenshot"
+          }
+        ],
+        "stop_on_fail": true
       }
-    ],
-    "if_false": [
-      {
-        "action": "screenshot"
-      }
-    ],
-    "stop_on_fail": true
-  },
-  {
-    "action": "wait",
-    "value": "5"
-  },
-  {
-    "action": "stop_script",
-    "value": "Dừng"
+    ]
   }
 ]
