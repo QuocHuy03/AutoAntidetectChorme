@@ -34,7 +34,7 @@ def start_profile(base_url, profile_id, window_config):
     try:
         additional_args = f"--disable-gpu --window-size={window_config['width']},{window_config['height']} --force-device-scale-factor={window_config['scale']}"
         json_data = {
-            "additional_args": additional_args
+            "params": additional_args
         }
         res = requests.post(
             f"{base_url}/profiles/start/{profile_id}",
@@ -44,8 +44,8 @@ def start_profile(base_url, profile_id, window_config):
         if res.status_code == 200:
             data = res.json().get("data", {})
             return {
-                "debugger_address": data.get("wsUrl"),
-                "webdriver_path": "chromedriver"
+                "debugger_address": '127.0.0.1:' + str(data.get("port")),
+                "webdriver_path": "chromedriver.exe"
             }
         else:
             print(f"[HMA start_profile] ⚠️ Status {res.status_code} - {res.text}")
