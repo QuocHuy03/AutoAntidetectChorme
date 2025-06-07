@@ -440,7 +440,6 @@ class MainWindow(QMainWindow):
         config = self.get_window_config()
         width = config["width"]
         height = config["height"]
-        scale = config["scale"]
 
         cols = max(1, screen_w // width)
         col = index % cols
@@ -448,18 +447,37 @@ class MainWindow(QMainWindow):
         x = col * width
         y = row * height
 
-        for _ in range(10):
-            windows = [w for w in gw.getWindowsWithTitle(profile_name) if w.visible and profile_name.lower() in w.title.lower()]
+        MAX_RETRY = 30
+        SLEEP_DELAY = 0.5
+
+        for attempt in range(MAX_RETRY):
+            windows = [
+                w for w in gw.getWindowsWithTitle(profile_name)
+                if w.visible
+                and profile_name.lower() in w.title.lower()
+                and "metamask" not in w.title.lower()
+                and "extension" not in w.title.lower()
+                and "popup" not in w.title.lower()
+                and "dialog" not in w.title.lower()
+                and "python" not in w.title.lower()
+            ]
+
             if windows:
                 try:
                     win = windows[0]
                     win.restore()
                     win.moveTo(x, y)
                     win.resizeTo(width, height)
+                    print(f"✅ Sắp xếp xong cửa sổ {profile_name} tại vị trí ({x},{y})")
                     return
                 except Exception as e:
-                    print(f"⚠️ Không thể sắp xếp cửa sổ {profile_name}: {e}")
-            time.sleep(0.5)
+                    print(f"⚠️ Lỗi khi di chuyển cửa sổ {profile_name}: {e}")
+            else:
+                print(f"⏳ [{attempt+1}/{MAX_RETRY}] Đợi cửa sổ {profile_name} hiển thị...")
+
+            time.sleep(SLEEP_DELAY)
+
+        print(f"❌ Không tìm được cửa sổ CHÍNH để sắp xếp cho {profile_name} sau {MAX_RETRY * SLEEP_DELAY} giây.")
 
     def handle_proxy_result(self, result):
         name = result['name']

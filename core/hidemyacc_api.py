@@ -39,7 +39,7 @@ def start_profile(base_url, profile_id, window_config):
         res = requests.post(
             f"{base_url}/profiles/start/{profile_id}",
             json=json_data,
-            timeout=10
+            timeout=20
         )
         if res.status_code == 200:
             data = res.json().get("data", {})
@@ -90,7 +90,7 @@ def close_profile(base_url, profile_id):
     try:
         res = requests.post(
             f"{base_url}/profiles/stop/{profile_id}",
-            timeout=10
+            timeout=20
         )
         if res.status_code == 200:
             return res.json()

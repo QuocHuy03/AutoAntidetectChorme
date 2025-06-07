@@ -1,0 +1,29 @@
+[
+  { "action": "open_url", "value": "https://discord.com/channels/@me" },
+  { "action": "wait", "value": 2 },
+  {
+    "action": "await_element",
+    "xpath": "//div[contains(@class, 'avatarWrapper')]",
+    "stop_on_fail": true
+  },
+  {
+    "action": "element_exists",
+    "xpath": "//div[contains(@class, 'avatarWrapper')]",
+    "if_true": [
+      { "action": "open_url", "value": "https://discord.gg/cdQgkBnfnn" },
+      { "action": "wait", "value": 2 },
+      {
+        "action": "element_exists",
+        "xpath": "//div[text()='Accept Invite']",
+        "if_true": [
+          { "action": "click", "xpath": "//div[text()='Accept Invite']" },
+          { "action": "wait", "value": 10 }
+        ],
+        "if_false": [{ "action": "screenshot" }],
+        "stop_on_false": true
+      }
+    ],
+    "if_false": [{ "action": "screenshot" }],
+    "stop_on_false": true
+  }
+]

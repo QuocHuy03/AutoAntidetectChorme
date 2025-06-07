@@ -113,6 +113,22 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                 if action == 'log':
                     logger(f"[{profile['name']}] 📝 {value}")
 
+                elif action == 'await_element':
+                    try:
+                        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
+                        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, xpath)))
+                        logger(f"[{profile['name']}] ⏳ AWAIT ELEMENT thành công: {xpath}")
+                    except Exception as e:
+                        logger(f"[{profile['name']}] ❌ AWAIT ELEMENT thất bại: {xpath} | Lỗi: {e}")
+                        if block.get("stop_on_fail", False):
+                            logger(f"[{profile['name']}] 🛑 DỪNG SCRIPT do 'await_element' thất bại và 'stop_on_fail: true'")
+                            close_profile(provider, base_url, profile['id'])
+                            try:
+                                driver.quit()
+                            except Exception as e:
+                                logger(f"❌ Lỗi khi đóng trình duyệt: {e}")
+                            exit()
+
                 elif action == 'open_url':
                     driver.get(value)
                     logger(f"[{profile['name']}] → OPEN URL - {value}")
