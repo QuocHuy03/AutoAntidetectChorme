@@ -76,6 +76,7 @@ def load_excel_profiles(excel_path, mode):
             profiles.append({"name": f"Row-{idx+1}", "id": f"row-{idx+1}", "variables": row.to_dict()})
 
     return profiles
+
 class MainWindow(QMainWindow):
     def style_table(self):
         self.table.setStyleSheet("""
@@ -144,64 +145,68 @@ class MainWindow(QMainWindow):
     def init_ui(self):
         layout = QVBoxLayout()
 
-        # === HÀNG 1: Cấu hình & tìm kiếm ===
+        # === HÀNG 1: Tất cả các control chung 1 hàng ===
         row1 = QHBoxLayout()
 
         self.refresh_btn = QPushButton("🔁 Refresh")
         self.refresh_btn.clicked.connect(self.load_profiles)
         row1.addWidget(self.refresh_btn)
 
+        # Provider Combo
         self.provider_combo = QComboBox()
+        self.provider_combo.addItem("🌐 Chọn Provider")
         provider_names = [cfg.get("provider", "unknown") for cfg in self.config_list]
         self.provider_combo.addItems(provider_names)
         self.provider_combo.currentIndexChanged.connect(self.load_groups)
-        row1.addWidget(QLabel("Provider:"))
         row1.addWidget(self.provider_combo)
 
+        # Group Combo
         self.group_combo = QComboBox()
+        self.group_combo.addItem("🧩 Chọn Group")
         self.group_combo.currentIndexChanged.connect(self.load_profiles)
-        row1.addWidget(QLabel("Group:"))
         row1.addWidget(self.group_combo)
 
+        # JSON Tasks Combo
         self.json_combo = QComboBox()
+        self.json_combo.addItem("📄 Chọn Task")
         self.load_json_files()
-        row1.addWidget(QLabel("Tasks:"))
         row1.addWidget(self.json_combo)
 
+        # Sort Combo
         self.sort_combo = QComboBox()
+        self.sort_combo.addItem("🔽 Chọn Sort")
         self.sort_combo.addItems(["Sort A-Z", "Sort Z-A"])
         self.sort_combo.currentIndexChanged.connect(self.load_profiles)
-        row1.addWidget(QLabel("Sort:"))
         row1.addWidget(self.sort_combo)
 
+        # Search Box
         self.search_box = QLineEdit()
-        self.search_box.setPlaceholderText("🔍 Search...")
+        self.search_box.setPlaceholderText("🔍 Search profile...")
         self.search_box.setFixedWidth(160)
         self.search_box.textChanged.connect(self.load_profiles)
         row1.addWidget(self.search_box)
 
+        # Width / Height / Scale inputs
+        self.width_input = QLineEdit()
+        self.width_input.setPlaceholderText("Width")
+        self.width_input.setFixedWidth(60)
+        row1.addWidget(self.width_input)
+
+        self.height_input = QLineEdit()
+        self.height_input.setPlaceholderText("Height")
+        self.height_input.setFixedWidth(60)
+        row1.addWidget(self.height_input)
+
+        self.scale_input = QLineEdit()
+        self.scale_input.setPlaceholderText("Scale")
+        self.scale_input.setFixedWidth(60)
+        row1.addWidget(self.scale_input)
+
         layout.addLayout(row1)
 
-        # === HÀNG 2: Window Config + Nút Start/Stop ===
+        # === HÀNG 2: Start & Stop Buttons ===
         row2 = QHBoxLayout()
-
-        row2.addWidget(QLabel("W:"))
-        self.width_input = QLineEdit("230")
-        self.width_input.setFixedWidth(50)
-        row2.addWidget(self.width_input)
-
-        row2.addWidget(QLabel("H:"))
-        self.height_input = QLineEdit("260")
-        self.height_input.setFixedWidth(50)
-        row2.addWidget(self.height_input)
-
-        row2.addWidget(QLabel("Scale:"))
-        self.scale_input = QLineEdit("0.4")
-        self.scale_input.setFixedWidth(50)
-        row2.addWidget(self.scale_input)
-
         row2.addStretch()
-
         self.start_btn = QPushButton("▶️ Start")
         self.start_btn.clicked.connect(self.run_selected_profiles)
         row2.addWidget(self.start_btn)
@@ -221,15 +226,17 @@ class MainWindow(QMainWindow):
         self.table.setSelectionBehavior(QTableWidget.SelectRows)
         self.table.setSelectionMode(QTableWidget.MultiSelection)
 
-        self.loading_overlay = QLabel("🔄 <b>Loading profiles...</b>", self.table)
+        # === Overlay loading phủ toàn bảng
+        self.loading_overlay = QLabel(self.table)
         self.loading_overlay.setAlignment(Qt.AlignCenter)
+        self.loading_overlay.setText("🔄 <b>Loading profiles...</b>")
         self.loading_overlay.setStyleSheet("""
-            background-color: rgba(255, 255, 255, 240);
-            border: 1px solid #ccc;
-            border-radius: 12px;
-            font-size: 16px;
-            padding: 20px;
-            color: #222;
+            QLabel {
+                background-color: rgba(255, 255, 255, 210);  /* Phủ mờ */
+                font-size: 20px;
+                font-weight: bold;
+                color: #333;
+            }
         """)
         self.loading_overlay.setVisible(False)
 
@@ -282,23 +289,27 @@ class MainWindow(QMainWindow):
 
     def load_json_files(self):
         self.json_combo.clear()
-        for file in os.listdir("actions") if os.path.exists("actions") else []:
-            if file.endswith(".json"):
-                self.json_combo.addItem(file)
+        self.json_combo.addItem("📄 Chọn Task")  # Placeholder
+        json_files = [f for f in os.listdir("actions") if f.endswith(".json")]
+        self.json_combo.addItems(json_files)
 
     def load_groups(self):
         provider = self.provider_combo.currentText()
-        base_url = base_url = self.get_base_url(provider)
+        base_url = self.get_base_url(provider)
         self.groups = get_groups(provider, base_url)
+
         self.group_combo.clear()
+        self.group_combo.addItem("🧩 Chọn Group", userData=None)  # Placeholder dòng đầu
+
         for group in self.groups:
             self.group_combo.addItem(group['name'], userData=group['id'])
 
+        # Đảm bảo combo luôn hiển thị dòng placeholder đầu tiên
+        self.group_combo.setCurrentIndex(0)
+
     def load_profiles(self):
-        self.loading_overlay.setFixedSize(300, 80)
-        x = (self.table.width() - self.loading_overlay.width()) // 2
-        y = (self.table.height() - self.loading_overlay.height()) // 2
-        self.loading_overlay.move(x, y)
+        self.loading_overlay.resize(self.table.size())  # Phủ toàn bảng
+        self.loading_overlay.move(0, 0)
         self.loading_overlay.show()
         QApplication.processEvents()
 
@@ -391,6 +402,17 @@ class MainWindow(QMainWindow):
 
     def run_selected_profiles(self):
         selected_json = self.json_combo.currentText()
+        if selected_json == "📄 Chọn Task":
+            msg = QMessageBox(self)
+            msg.setIcon(QMessageBox.Warning)
+            msg.setWindowTitle("🚫 Thiếu thông tin")
+            msg.setText("Boss ơi, mình chưa chọn file JSON để chạy rồi đó!")
+            msg.setInformativeText("Vui lòng chọn một tác vụ cụ thể trong mục 📄 Chọn Task.")
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec_()
+            return
+
+
         provider = self.provider_combo.currentText()
         base_url = self.get_base_url(provider)
 

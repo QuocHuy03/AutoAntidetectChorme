@@ -10,7 +10,6 @@ from selenium.webdriver.common.keys import Keys
 import random
 import pandas as pd
 from core.api_bridge import close_profile
-import re
 
 def render(text, local_vars):
     if not isinstance(text, str):
@@ -40,9 +39,9 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
         if not isinstance(block, dict):
             logger(f"⚠️ Bỏ qua block không hợp lệ: {block}")
             return
-        # nếu là excel
+        
 
-
+        # if excel
         action = block.get('action')
         if action == 'excel':
             excel_path = block.get('path')
@@ -84,7 +83,6 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                         close_profile(provider, base_url, profile_input.get("id"))
                         return  # DỪNG luôn nếu không có dòng nào trùng
 
-
                 else:  # mode == 'row'
                     df_valid = df[df.apply(lambda row: any(str(cell).strip() for cell in row), axis=1)]
                     logger(f"[{profile_input.get('name')}] 🧮 Tìm thấy {len(df_valid)} dòng có dữ liệu hợp lệ.")
@@ -105,8 +103,6 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
             except Exception as e:
                 logger(f"[EXCEL BLOCK] ❌ Lỗi đọc Excel: {e}")
             return
-
-        
         #   ///
 
         
