@@ -11,6 +11,11 @@ import pyautogui
 from qt_material import apply_stylesheet
 from PyQt5.QtWidgets import QFileDialog
 import pandas as pd
+import re
+import requests
+from threading import Lock
+
+
 class LogDialog(QDialog):
     def __init__(self, profile_name):
         super().__init__()
@@ -58,6 +63,22 @@ class ProfileLoaderThread(QThread):
         print(f"[Thread] Fetched {len(profiles)} profiles")
         self.profiles_loaded.emit(profiles)
 
+
+class ProxyCheckThread(QThread):
+    result_signal = pyqtSignal(dict)
+
+    def __init__(self, profile, check_func):
+        super().__init__()
+        self.profile = profile
+        self.check_func = check_func
+
+    def run(self):
+        name = self.profile['name']
+        proxy = self.profile.get("proxy", "").strip()
+        valid = self.check_func(proxy)
+        self.result_signal.emit({'name': name, 'valid': valid, 'proxy': proxy})
+
+
 def load_excel_profiles(excel_path, mode):
     df = pd.read_excel(excel_path)
     profiles = []
@@ -77,7 +98,53 @@ def load_excel_profiles(excel_path, mode):
 
     return profiles
 
+  # nhớ đảm bảo đầu file có import này
+
+
 class MainWindow(QMainWindow):
+
+    def get_logger(self, profile_name):
+        log_path = f"logs/{profile_name}.log"
+        os.makedirs("logs", exist_ok=True)
+        with open(log_path, 'w', encoding='utf-8') as f:
+            f.write(f"[{profile_name}] 🆕 Start new log session\n")
+        def logger(msg):
+            with open(log_path, 'a', encoding='utf-8') as f:
+                f.write(f"[{profile_name}] {msg}\n")
+            self.realtime_logs[profile_name] = f"[{profile_name}] {msg}"
+        return logger
+
+    def write_log(self, profile_name, content):
+        os.makedirs("logs", exist_ok=True)
+        log_file = os.path.join("logs", f"{profile_name}.log")
+        with open(log_file, "a", encoding="utf-8") as f:
+            f.write(content + "\n")
+
+    def check_proxy_alive(self, raw_proxy):
+        raw_proxy = raw_proxy.strip()
+        if not raw_proxy:
+            return True  # Không có proxy thì coi như hợp lệ
+
+        try:
+            proxy_type = "http"
+            addr = raw_proxy
+            match = re.match(r"^(socks5|socks4|http)://(.+)", addr)
+            if match:
+                proxy_type, addr = match.groups()
+            parts = addr.split(":")
+            if len(parts) == 4:
+                ip, port, user, pwd = parts
+                addr = f"{user}:{pwd}@{ip}:{port}"
+            elif "@" in addr:
+                userpass, ipport = addr.split("@")
+                addr = f"{userpass}@{ipport}"
+            full_proxy = f"{proxy_type}://{addr}"
+            proxies = {"http": full_proxy, "https": full_proxy}
+            r = requests.get("https://ipinfo.io/ip", proxies=proxies, timeout=5)
+            return r.status_code == 200
+        except:
+            return False
+
     def style_table(self):
         self.table.setStyleSheet("""
             QTableWidget::item:selected {
@@ -251,41 +318,35 @@ class MainWindow(QMainWindow):
     def update_log_column_runtime(self):
         for profile in self.running_profiles:
             name = profile['name']
-            log_path = f"logs/{name}.log"
+            last_line = self.realtime_logs.get(name, "⏳ Đang chạy...")
 
-            if os.path.exists(log_path):
-                try:
-                    with open(log_path, 'r', encoding='utf-8') as f:
-                        lines = f.readlines()
-                        last_line = lines[-1].strip() if lines else "⏳ Đang chạy..."
-                except Exception as e:
-                    last_line = f"⚠️ Lỗi đọc log: {e}"
+            # Loại bỏ tên profile khỏi log nếu có
+            prefix = f"[{name}]"
+            if last_line.startswith(prefix):
+                last_line = last_line[len(prefix):].strip()
 
-                # Loại bỏ tên profile khỏi log (ví dụ: "[Profile_01] ✅ DONE" -> "✅ DONE")
-                prefix = f"[{name}]"
-                if last_line.startswith(prefix):
-                    last_line = last_line[len(prefix):].strip()
+            # Cập nhật log nếu có sự thay đổi
+            if self.realtime_logs.get(name) != last_line:
+                row = self.profile_row_map.get(name)
+                if row is not None:
+                    # Hiển thị log vào cột
+                    item = QTableWidgetItem(last_line)
 
-                # Cập nhật log nếu có sự thay đổi
-                if self.realtime_logs.get(name) != last_line:
-                    row = self.profile_row_map.get(name)
-                    if row is not None:
-                        # Hiển thị thông báo log vào cột
-                        item = QTableWidgetItem(last_line)
-                        
-                        # Phân biệt màu sắc dựa trên trạng thái
-                        if "❌" in last_line:
-                            item.setForeground(Qt.red)
-                        elif "✅" in last_line or "Done" in last_line:
-                            item.setForeground(Qt.darkGreen)
-                        elif "⚠️" in last_line:
-                            item.setForeground(Qt.darkYellow)
-                        elif "⏳" in last_line:
-                            item.setForeground(Qt.blue)
-                        
-                        # Cập nhật vào bảng
-                        self.table.setItem(row, 4, item)
-                    self.realtime_logs[name] = last_line
+                    # Màu sắc theo trạng thái
+                    if "❌" in last_line:
+                        item.setForeground(Qt.red)
+                    elif "✅" in last_line or "Done" in last_line:
+                        item.setForeground(Qt.darkGreen)
+                    elif "⚠️" in last_line:
+                        item.setForeground(Qt.darkYellow)
+                    elif "⏳" in last_line:
+                        item.setForeground(Qt.blue)
+
+                    # Gán log vào bảng
+                    self.table.setItem(row, 4, item)
+
+                # Lưu log mới lại để so sánh vòng sau
+                self.realtime_logs[name] = last_line
 
     def load_json_files(self):
         self.json_combo.clear()
@@ -400,101 +461,121 @@ class MainWindow(QMainWindow):
                     print(f"⚠️ Không thể sắp xếp cửa sổ {profile_name}: {e}")
             time.sleep(0.5)
 
+    def handle_proxy_result(self, result):
+        name = result['name']
+        row = self.profile_row_map.get(name)
+        proxy = result['proxy']
+        valid = result['valid']
+        logger = self.get_logger(name)
+
+        if valid:
+            self.running_profiles.append(next(p for p in self.profiles if p['name'] == name))
+            logger(f"✅ Proxy hợp lệ: {proxy}")
+            self.table.setItem(row, 4, QTableWidgetItem(f"✅ Proxy hợp lệ: {proxy}"))
+        else:
+            self.invalid_profiles.append(name)
+            logger(f"❌ Proxy không hợp lệ: {proxy}")
+            self.table.setItem(row, 4, QTableWidgetItem(f"❌ Proxy không hợp lệ: {proxy}"))
+
+        self.checked_count += 1
+
+        # Khi đã xử lý hết kết quả proxy → bắt đầu chạy profile
+        if self.checked_count == self.total_to_check:
+            if not self.running_profiles:
+                self.write_log("system", "⚠️ Không có proxy hợp lệ.")
+                self.start_btn.setVisible(True)
+                self.stop_btn.setVisible(False)
+                return
+            self.start_profiles_after_check()
+
+    def start_profiles_after_check(self):
+        for idx, profile in enumerate(self.running_profiles):
+            t = threading.Thread(target=self.run_profile, args=(
+                self.provider, self.base_url, profile, self.selected_json, idx))
+            t.start()
+            self.threads.append(t)
+
     def run_selected_profiles(self):
         selected_json = self.json_combo.currentText()
         provider = self.provider_combo.currentText()
         base_url = self.get_base_url(provider)
         group_id = self.group_combo.currentData()
 
-        # === Kiểm tra: đã chọn Group chưa
+        # 1. Kiểm tra group
         if group_id is None:
-            msg = QMessageBox(self)
-            msg.setIcon(QMessageBox.Warning)
-            msg.setWindowTitle("🧩 Chưa chọn Group")
-            msg.setText("Boss ơi, mình chưa chọn Group nào hết.")
-            msg.setInformativeText("Vui lòng chọn một Group từ danh sách trước khi chạy.")
-            msg.setStandardButtons(QMessageBox.Ok)
-            msg.exec_()
+            QMessageBox.warning(self, "🧩 Chưa chọn Group", "Boss ơi, mình chưa chọn Group nào hết.")
             return
 
-        # === Kiểm tra: đã chọn JSON chưa
+        # 2. Kiểm tra file JSON
         if selected_json == "📄 Chọn Task":
-            msg = QMessageBox(self)
-            msg.setIcon(QMessageBox.Warning)
-            msg.setWindowTitle("🚫 Thiếu thông tin")
-            msg.setText("Boss ơi, mình chưa chọn file JSON để chạy rồi đó!")
-            msg.setInformativeText("Vui lòng chọn một tác vụ cụ thể trong mục 📄 Chọn Task.")
-            msg.setStandardButtons(QMessageBox.Ok)
-            msg.exec_()
+            QMessageBox.warning(self, "🚫 Thiếu thông tin", "Boss ơi, mình chưa chọn file JSON để chạy rồi đó!")
             return
 
-        # === Kiểm tra: đã chọn profile nào chưa
+        # 3. Kiểm tra profile đã chọn
         selected_rows = self.table.selectionModel().selectedRows()
         selected_names = [self.table.item(r.row(), 0).text() for r in selected_rows]
-        self.running_profiles = [p for p in self.profiles if p['name'] in selected_names]
-
-        if not self.running_profiles:
-            msg = QMessageBox(self)
-            msg.setIcon(QMessageBox.Information)
-            msg.setWindowTitle("📭 Không có profile")
-            msg.setText("Boss chưa chọn profile nào để chạy hết.")
-            msg.setInformativeText("Vui lòng chọn ít nhất một profile trong bảng.")
-            msg.setStandardButtons(QMessageBox.Ok)
-            msg.exec_()
+        if not selected_names:
+            QMessageBox.warning(self, "⚠️ Chưa chọn profile", "Boss chưa chọn profile nào để chạy.")
             return
-        
-        # === Nếu mọi thứ hợp lệ thì bắt đầu chạy
+
+        # 4. Reset trạng thái
+        self.running_profiles = []
+        self.invalid_profiles = []
+        self.proxy_threads = []
+        self.checked_count = 0
+        self.total_to_check = len(selected_names)
+        self.selected_json = selected_json
+        self.provider = provider
+        self.base_url = base_url
         self.stop_flag.clear()
+        self.threads.clear()
         self.start_btn.setVisible(False)
         self.stop_btn.setVisible(True)
-        self.threads.clear()
 
-        for idx, profile in enumerate(self.running_profiles):
-            t = threading.Thread(target=self.run_profile, args=(
-                provider, base_url, profile, selected_json, idx))
-            t.start()
-            self.threads.append(t)
+        # 5. Bắt đầu kiểm tra proxy
+        for p in self.profiles:
+            if p['name'] in selected_names:
+                row = self.profile_row_map.get(p['name'])
+                if row is not None:
+                    self.table.setItem(row, 4, QTableWidgetItem("🔍 Đang kiểm tra proxy..."))
+
+                thread = ProxyCheckThread(p, self.check_proxy_alive)
+                thread.result_signal.connect(self.handle_proxy_result)
+                thread.start()
+                self.proxy_threads.append(thread)
 
     def run_profile(self, provider, base_url, profile, json_file, index):
-        log_path = f"logs/{profile['name']}.log"
-        os.makedirs("logs", exist_ok=True)
+            logger = self.get_logger(profile['name'])
+            logger("⏳ Đang chạy...")
 
-        def logger(msg):
-            with open(log_path, 'a', encoding='utf-8') as f:
-                f.write(msg + "\n")
+            window_config = self.get_window_config()
 
-        with open(log_path, 'w', encoding='utf-8') as f:
-            f.write(f"[{profile['name']}] Start with {json_file}\n")
+            profile_data = start_profile(provider, base_url, profile['id'], window_config)
+            if not profile_data or not profile_data.get("debugger_address"):
+                logger("❌ Không lấy được debugger_address.")
+                return
 
-        window_config = self.get_window_config()
+            time.sleep(2)
+            self.move_single_window(profile['name'], index)
 
-        profile_data = start_profile(provider, base_url, profile['id'], window_config)
-        if not profile_data or not profile_data.get("debugger_address"):
-            logger(f"{profile['name']} ❌ Không lấy được debugger_address.")
-            return
+            if self.stop_flag.is_set():
+                logger("🚫 Dừng bởi người dùng.")
+                close_profile(provider, base_url, profile['id'])
+                return
 
-        time.sleep(2)
-        self.move_single_window(profile['name'], index)
+            execute_blocks_from_json(
+                f"actions/{json_file}",
+                logger,
+                profile_data.get('webdriver_path'),
+                profile_data.get('debugger_address'),
+                profile,
+                provider, base_url, self.stop_flag
+            )
 
-        if self.stop_flag.is_set():
-            logger(f"{profile['name']} 🚫 Dừng bởi người dùng.")
-            close_profile(provider, base_url, profile['id'])
-            return
-
-        # 🔥 Chạy block JSON duy nhất – JSON sẽ tự quyết định có dùng Excel hay không
-        execute_blocks_from_json(
-            f"actions/{json_file}",
-            logger,
-            profile_data.get('webdriver_path'),
-            profile_data.get('debugger_address'),
-            profile,
-            provider, base_url, self.stop_flag
-        )
-
-        alive_threads = [t for t in self.threads if t.is_alive()]
-        if not alive_threads:
-            self.stop_btn.setVisible(False)
-            self.start_btn.setVisible(True)
+            alive_threads = [t for t in self.threads if t.is_alive()]
+            if not alive_threads:
+                self.stop_btn.setVisible(False)
+                self.start_btn.setVisible(True)
 
     def stop_all_threads(self):
         self.stop_flag.set()
