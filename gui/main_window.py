@@ -402,6 +402,22 @@ class MainWindow(QMainWindow):
 
     def run_selected_profiles(self):
         selected_json = self.json_combo.currentText()
+        provider = self.provider_combo.currentText()
+        base_url = self.get_base_url(provider)
+        group_id = self.group_combo.currentData()
+
+        # === Kiểm tra: đã chọn Group chưa
+        if group_id is None:
+            msg = QMessageBox(self)
+            msg.setIcon(QMessageBox.Warning)
+            msg.setWindowTitle("🧩 Chưa chọn Group")
+            msg.setText("Boss ơi, mình chưa chọn Group nào hết.")
+            msg.setInformativeText("Vui lòng chọn một Group từ danh sách trước khi chạy.")
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec_()
+            return
+
+        # === Kiểm tra: đã chọn JSON chưa
         if selected_json == "📄 Chọn Task":
             msg = QMessageBox(self)
             msg.setIcon(QMessageBox.Warning)
@@ -412,18 +428,22 @@ class MainWindow(QMainWindow):
             msg.exec_()
             return
 
-
-        provider = self.provider_combo.currentText()
-        base_url = self.get_base_url(provider)
-
+        # === Kiểm tra: đã chọn profile nào chưa
         selected_rows = self.table.selectionModel().selectedRows()
         selected_names = [self.table.item(r.row(), 0).text() for r in selected_rows]
         self.running_profiles = [p for p in self.profiles if p['name'] in selected_names]
 
         if not self.running_profiles:
-            QMessageBox.information(self, "Thông báo", "Không có profile nào hợp lệ để chạy.")
+            msg = QMessageBox(self)
+            msg.setIcon(QMessageBox.Information)
+            msg.setWindowTitle("📭 Không có profile")
+            msg.setText("Boss chưa chọn profile nào để chạy hết.")
+            msg.setInformativeText("Vui lòng chọn ít nhất một profile trong bảng.")
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec_()
             return
-
+        
+        # === Nếu mọi thứ hợp lệ thì bắt đầu chạy
         self.stop_flag.clear()
         self.start_btn.setVisible(False)
         self.stop_btn.setVisible(True)
