@@ -1,115 +1,101 @@
 [
   {
-    "action": "excel",
-    "mode": "row",
-    "path": "PROFILE_NUOI_MAIL.xlsx",
-    "do": [
+    "action": "open_url",
+    "value": "https://mail.google.com/"
+  },
+  {
+    "action": "wait",
+    "value": "2"
+  },
+  {
+    "action": "element_exists",
+    "xpath": "//input[@name='q']",
+    "if_true": [
       {
         "action": "open_url",
-        "value": "https://mail.google.com/"
+        "value": "https://mail.google.com/mail/u/0/#inbox"
       },
       {
         "action": "wait",
-        "value": "2"
+        "value": "3"
+      },
+      {
+        "action": "loop",
+        "start": 1,
+        "count": "4",
+        "variable": "i",
+        "do": [
+          {
+            "action": "click",
+            "xpath": "(//tr[@jsmodel='nXDxbd'])[{{i}}]"
+          },
+          {
+            "action": "wait",
+            "value": "2"
+          },
+          {
+            "action": "navigate_back"
+          }
+        ]
+      },
+      {
+        "action": "open_url",
+        "value": "https://mail.google.com/mail"
+      },
+      {
+        "action": "wait",
+        "value": "3"
       },
       {
         "action": "element_exists",
-        "xpath": "//input[@name='q']",
+        "xpath": "//div[text()='Compose']",
         "if_true": [
           {
-            "action": "open_url",
-            "value": "https://mail.google.com/mail/u/0/#inbox"
+            "action": "click",
+            "xpath": "//div[text()='Compose']"
           },
           {
             "action": "wait",
-            "value": "3"
-          },
-          {
-            "action": "eval_script",
-            "value": "var xpath = \"//tr[@jsmodel='nXDxbd']\"; var result = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null); var length = result.snapshotLength + 1; return length;",
-            "store_as": "COUNT_MAIL"
-          },
-          {
-            "action": "loop",
-            "start": 1,
-            "count": "4",
-            "variable": "i",
-            "do": [
-              {
-                "action": "click",
-                "xpath": "(//tr[@jsmodel='nXDxbd'])[{{i}}]"
-              },
-              {
-                "action": "wait",
-                "value": "2"
-              },
-              {
-                "action": "navigate_back"
-              }
-            ]
-          },
-          {
-            "action": "open_url",
-            "value": "https://mail.google.com/mail"
-          },
-          {
-            "action": "wait",
-            "value": "3"
+            "value": "2"
           },
           {
             "action": "element_exists",
-            "xpath": "//div[text()='Compose']",
+            "xpath": "//div[@role='dialog']",
             "if_true": [
               {
-                "action": "click",
-                "xpath": "//div[text()='Compose']"
+                "action": "wait",
+                "value": "2"
+              },
+              {
+                "action": "input_text",
+                "xpath": "//input[@aria-label='To recipients']",
+                "value": "huyviafb2016@gmail.com"
               },
               {
                 "action": "wait",
                 "value": "2"
               },
               {
-                "action": "element_exists",
-                "xpath": "//div[@role='dialog']",
-                "if_true": [
-                  {
-                    "action": "wait",
-                    "value": "2"
-                  },
-                  {
-                    "action": "input_text",
-                    "xpath": "//input[@aria-label='To recipients']",
-                    "value": "huyviafb2016@gmail.com"
-                  },
-                  {
-                    "action": "wait",
-                    "value": "2"
-                  },
-                  {
-                    "action": "input_text",
-                    "xpath": "//input[@name='subjectbox']",
-                    "value": "hello"
-                  },
-                  {
-                    "action": "wait",
-                    "value": "2"
-                  },
-                  {
-                    "action": "click",
-                    "xpath": "//div[@aria-label='Message Body']"
-                  },
-                  {
-                    "action": "input_text",
-                    "xpath": "//div[@aria-label='Message Body']",
-                    "value": "Chào bạn"
-                  },
-                  {
-                    "action": "click",
-                    "xpath": "//div[text()='Send']"
-                  }
-                ],
-                "if_false": [],
-                "stop_on_false": false
+                "action": "input_text",
+                "xpath": "//input[@name='subjectbox']",
+                "value": "hello"
+              },
+              {
+                "action": "wait",
+                "value": "2"
+              },
+              {
+                "action": "click",
+                "xpath": "//div[@aria-label='Message Body']"
+              },
+              {
+                "action": "input_text",
+                "xpath": "//div[@aria-label='Message Body']",
+                "value": "Chào bạn"
+              },
+              {
+                "action": "click",
+                "xpath": "//div[text()='Send']"
               }
             ],
             "if_false": [],
@@ -117,12 +103,14 @@
           }
         ],
         "if_false": [],
-        "stop_on_false": true
-      },
-      {
-        "action": "wait",
-        "value": "5"
+        "stop_on_false": false
       }
-    ]
+    ],
+    "if_false": [],
+    "stop_on_false": true
+  },
+  {
+    "action": "wait",
+    "value": "5"
   }
 ]
