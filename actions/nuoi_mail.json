@@ -104,13 +104,122 @@
         ],
         "if_false": [],
         "stop_on_false": false
+      },
+      {
+        "action": "open_url",
+        "value": "https://www.youtube.com/"
+      },
+      {
+        "action": "wait",
+        "value": "3"
+      },
+      {
+        "action": "element_exists",
+        "xpath": "//input[@name='search_query']",
+        "if_true": [
+          {
+            "action": "click",
+            "xpath": "//input[@name='search_query']"
+          },
+          {
+            "action": "input_text",
+            "xpath": "//input[@name='search_query']",
+            "value": "interlink network"
+          },
+          {
+            "action": "input_press_key",
+            "xpath": "//input[@name='search_query']",
+            "value": "enter"
+          },
+          {
+            "action": "wait",
+            "value": "2"
+          },
+          {
+            "action": "scroll",
+            "value": "down"
+          },
+          {
+            "action": "scroll",
+            "value": "down"
+          },
+          {
+            "action": "scroll",
+            "value": "down"
+          },
+          {
+            "action": "open_url",
+            "value": "https://www.youtube.com/watch?v=-bu9_7MrCLc"
+          },
+          {
+            "action": "wait",
+            "value": "10"
+          },
+          {
+            "action": "element_exists",
+            "xpath": "//yt-button-shape[@id='subscribe-button-shape' and not(@invisible)]",
+            "if_true": [
+              {
+                "action": "scroll",
+                "value": "element",
+                "xpath": "//yt-button-shape[@id='subscribe-button-shape' and not(@invisible)]"
+              },
+              {
+                "action": "wait",
+                "value": "1"
+              },
+              {
+                "action": "click",
+                "xpath": "//yt-button-shape[@id='subscribe-button-shape' and not(@invisible)]"
+              }
+            ],
+            "if_false": [],
+            "stop_on_false": false
+          },
+          {
+            "action": "element_exists",
+            "xpath": "(//button[@title='I like this'])[1]",
+            "if_true": [
+              {
+                "action": "scroll",
+                "value": "element",
+                "xpath": "(//button[@title='I like this'])[1]"
+              },
+              {
+                "action": "wait",
+                "value": "1"
+              },
+              {
+                "action": "click",
+                "xpath": "(//button[@title='I like this'])[1]"
+              }
+            ],
+            "if_false": [],
+            "stop_on_false": false
+          },
+          {
+            "action": "wait",
+            "value": "2"
+          }
+        ],
+        "if_false": [],
+        "stop_on_false": false
       }
     ],
-    "if_false": [],
-    "stop_on_false": true
+    "if_false": [
+      {
+        "action": "stop_script",
+        "value": "Tôi thích dừng"
+      }
+    ],
+    "stop_on_false": false
   },
   {
     "action": "wait",
     "value": "5"
+  },
+  {
+    "action": "stop_script",
+    "value": "Tôi thích dừng"
   }
 ]

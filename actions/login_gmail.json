@@ -95,7 +95,7 @@
             "path": "LOGIN_GMAIL.xlsx",
             "profile_column": "PROFILE",
             "column_save": "STATUS",
-            "value": "tôi là cức",
+            "value": "false",
             "mode": "profile"
           }
         ]
