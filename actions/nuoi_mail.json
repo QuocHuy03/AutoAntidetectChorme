@@ -2,7 +2,7 @@
   {
     "action": "excel",
     "mode": "row",
-    "path": "PROFILE_YOUTUBE.xlsx",
+    "path": "PROFILE_NUOI_MAIL.xlsx",
     "do": [
       {
         "action": "open_url",
@@ -32,7 +32,7 @@
           {
             "action": "loop",
             "start": 1,
-            "count": "{{COUNT_MAIL}}",
+            "count": "4",
             "variable": "i",
             "do": [
               {
@@ -47,19 +47,81 @@
                 "action": "navigate_back"
               }
             ]
-          }
-        ],
-        "if_false": [
+          },
           {
-            "action": "eval_script",
-            "value": "const mt = document.createElement('div');\nmt.setAttribute('id', 'huydev');\nmt.style.cssText = `\n    position: fixed;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background: rgb(255 204 204 / 89%);\n    z-index: 20000;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 70pt;\n    color: #a00000;\n`;\n\nconst span = document.createElement('span');\nspan.style.animation = 'blink 1s infinite';\nspan.textContent = 'ERROR';\nmt.appendChild(span);\n\nconst style = document.createElement('style');\nstyle.innerHTML = `\n@keyframes blink {\n  0%, 100% { opacity: 1; }\n  50% { opacity: 0; }\n}`;\ndocument.head.appendChild(style);\ndocument.body.appendChild(mt);"
+            "action": "open_url",
+            "value": "https://mail.google.com/mail"
+          },
+          {
+            "action": "wait",
+            "value": "3"
+          },
+          {
+            "action": "element_exists",
+            "xpath": "//div[text()='Compose']",
+            "if_true": [
+              {
+                "action": "click",
+                "xpath": "//div[text()='Compose']"
+              },
+              {
+                "action": "wait",
+                "value": "2"
+              },
+              {
+                "action": "element_exists",
+                "xpath": "//div[@role='dialog']",
+                "if_true": [
+                  {
+                    "action": "wait",
+                    "value": "2"
+                  },
+                  {
+                    "action": "input_text",
+                    "xpath": "//input[@aria-label='To recipients']",
+                    "value": "huyviafb2016@gmail.com"
+                  },
+                  {
+                    "action": "wait",
+                    "value": "2"
+                  },
+                  {
+                    "action": "input_text",
+                    "xpath": "//input[@name='subjectbox']",
+                    "value": "hello"
+                  },
+                  {
+                    "action": "wait",
+                    "value": "2"
+                  },
+                  {
+                    "action": "click",
+                    "xpath": "//div[@aria-label='Message Body']"
+                  },
+                  {
+                    "action": "input_text",
+                    "xpath": "//div[@aria-label='Message Body']",
+                    "value": "Chào bạn"
+                  },
+                  {
+                    "action": "click",
+                    "xpath": "//div[text()='Send']"
+                  }
+                ],
+                "if_false": [],
+                "stop_on_false": false
+              }
+            ],
+            "if_false": [],
+            "stop_on_false": false
           }
         ],
+        "if_false": [],
         "stop_on_false": true
       },
       {
         "action": "wait",
-        "value": "1"
+        "value": "5"
       }
     ]
   }
