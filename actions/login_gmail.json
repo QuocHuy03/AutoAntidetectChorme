@@ -71,6 +71,38 @@
           }
         ],
         "stop_on_fail": true
+      },
+      {
+        "action": "wait",
+        "value": "2"
+      },
+      {
+        "action": "element_exists",
+        "xpath": "//div[@class='T-I J-J5-Ji T-I-KE L3']",
+        "if_true": [
+          {
+            "action": "save_to_excel",
+            "path": "LOGIN_GMAIL.xlsx",
+            "profile_column": "PROFILE",
+            "column_save": "STATUS",
+            "value": "success",
+            "mode": "profile"
+          }
+        ],
+        "if_false": [
+          {
+            "action": "save_to_excel",
+            "path": "LOGIN_GMAIL.xlsx",
+            "profile_column": "PROFILE",
+            "column_save": "STATUS",
+            "value": "tôi là cức",
+            "mode": "profile"
+          }
+        ]
+      },
+      {
+        "action": "stop_script",
+        "value": "Tôi thích dừng"
       }
     ]
   }

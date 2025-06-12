@@ -10,6 +10,7 @@ from selenium.webdriver.common.keys import Keys
 import random
 import pandas as pd
 from core.api_bridge import close_profile
+import openpyxl
 
 def render(text, local_vars):
     if not isinstance(text, str):
@@ -54,6 +55,7 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
 
             try:
                 df = pd.read_excel(excel_path)
+
                 if mode == 'profile':
                     current_name = profile_input.get("name", "").strip().lower()
                     matched = False
@@ -105,7 +107,66 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
             return
         #   ///
 
-        
+        elif action == 'save_to_excel':
+            excel_path = block.get('path')  # Đường dẫn đến file Excel
+            profile_column = block.get('profile_column', 'PROFILE')  # Cột PROFILE để tìm dòng
+            column_save = block.get('column_save', 'STATUS')  # Cột STATUS để lưu
+            value = block.get('value', '')  # Giá trị cần lưu vào cột STATUS
+            mode = block.get('mode', 'row')  # Chế độ 'profile' hoặc 'row'
+            
+            if not excel_path:
+                logger(f"[SAVE TO EXCEL] ❌ Không có đường dẫn đến Excel.")
+                return
+
+            try:
+                # Load workbook và lấy sheet
+                wb = openpyxl.load_workbook(excel_path)
+                ws = wb.active
+
+                # Tìm cột PROFILE và cột STATUS
+                profile_col_idx = None
+                status_col_idx = None
+
+                for header_cell in ws[1]:  # Row 1 chứa header
+                    if header_cell.value and header_cell.value.strip().lower() == profile_column.strip().lower():
+                        profile_col_idx = header_cell.column
+                    if header_cell.value and header_cell.value.strip().lower() == column_save.strip().lower():
+                        status_col_idx = header_cell.column
+
+                if profile_col_idx is None:
+                    logger(f"[{profile_input['name']}] ❌ Không tìm thấy cột {profile_column} trong Excel.")
+                    return
+
+                if status_col_idx is None:
+                    logger(f"[{profile_input['name']}] ❌ Không tìm thấy cột {column_save} trong Excel.")
+                    return
+
+                # Nếu mode là 'profile', tìm dòng của profile
+                current_name = profile_input.get("name", "").strip().lower()
+                matched = False
+
+                for row in ws.iter_rows(min_row=2, max_row=ws.max_row):  # Bắt đầu từ row 2 (bỏ qua header)
+                    profile_cell = row[profile_col_idx - 1].value  # Lấy giá trị cột PROFILE
+                    if profile_cell and profile_cell.strip().lower() == current_name:
+                        matched = True
+                        # Lưu giá trị vào cột STATUS
+                        row[status_col_idx - 1].value = value
+                        logger(f"[{profile_input['name']}] 💾 Lưu dữ liệu '{value}' vào cột '{column_save}' tại dòng profile {current_name}")
+                        break
+
+                if not matched:
+                    logger(f"[{profile_input['name']}] ❌ Không tìm thấy dòng PROFILE khớp trong Excel.")
+                    return
+
+                # Lưu workbook vào file
+                wb.save(excel_path)
+                logger(f"[{profile_input['name']}] ✔️ Đã lưu dữ liệu vào Excel tại {excel_path}")
+
+            except Exception as e:
+                logger(f"[SAVE TO EXCEL] ❌ Lỗi khi lưu dữ liệu vào Excel: {e}")
+            return
+
+
         xpath = render(block.get('xpath', ''), local_vars)
         value = render(block.get('value', ''), local_vars)
 
