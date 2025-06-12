@@ -4,17 +4,22 @@
 
 ```json
 {
-  "action": "while",
-  "condition": {
-    "variable": "count",
-    "operator": "<",
-    "value": 5
-  },
-  "do": [
-    { "action": "click", "xpath": "//button" },
-    { "action": "increase_variable", "variable": "count", "value": 1 }
-  ]
+    "action": "while",
+    "condition": "{{COUNT_MAIL}} > 0",  # Điều kiện vòng lặp
+    "variable": "i",
+    "do": [
+        {
+            "action": "log",
+            "value": "Lặp qua {{i}} với COUNT_MAIL={{COUNT_MAIL}}"
+        },
+        {
+            "action": "eval_script",
+            "value": "var result = {{i}} * 2; return result;",
+            "store_as": "result"
+        }
+    ]
 }
+
 ```
 
 **Tham số:**

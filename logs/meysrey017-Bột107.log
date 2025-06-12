@@ -1,0 +1,3300 @@
+[meysrey017-Bột107] 🆕 Start new log session
+[meysrey017-Bột107] ⏳ Đang chạy...
+[meysrey017-Bột107] [meysrey017-Bột107] 🧮 Tìm thấy 3 dòng có dữ liệu hợp lệ.
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {}
+[meysrey017-Bột107] → OPEN URL - https://mail.google.com/
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {}
+[meysrey017-Bột107] → ELEMENT TỒN TẠI => //input[@name='q']
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {}
+[meysrey017-Bột107] → OPEN URL - https://mail.google.com/mail/u/0/#inbox
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {}
+[meysrey017-Bột107] 🕒 WAIT 3 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {}
+[meysrey017-Bột107] ⚙️ Thực thi JS: var xpath = "//tr[@jsmodel='nXDxbd']"; var result = document.evaluate(xpath, document, null, XPathRe...
+[meysrey017-Bột107] 🧠 JS Eval → Lưu 'COUNT_MAIL' = 101
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101}
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 1}
+[meysrey017-Bột107] → CLICK => (//tr[@jsmodel='nXDxbd'])[1]
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 1}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 1}
+[meysrey017-Bột107] ⬅️ Quay lại trang trước
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 2}
+[meysrey017-Bột107] → CLICK => (//tr[@jsmodel='nXDxbd'])[2]
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 2}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 2}
+[meysrey017-Bột107] ⬅️ Quay lại trang trước
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 3}
+[meysrey017-Bột107] → CLICK => (//tr[@jsmodel='nXDxbd'])[3]
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 3}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 3}
+[meysrey017-Bột107] ⬅️ Quay lại trang trước
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 4}
+[meysrey017-Bột107] → CLICK => (//tr[@jsmodel='nXDxbd'])[4]
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 4}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 4}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=136.0.7103.49)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C59791BA]
+	(No symbol) [0x00007FF7C5964F25]
+	(No symbol) [0x00007FF7C5989EE4]
+	(No symbol) [0x00007FF7C59FEC8F]
+	(No symbol) [0x00007FF7C5A1EB12]
+	(No symbol) [0x00007FF7C59F6F33]
+	(No symbol) [0x00007FF7C59C0358]
+	(No symbol) [0x00007FF7C59C10C3]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	GetHandleVerifier [0x00007FF7C5BB9D94+110452]
+	GetHandleVerifier [0x00007FF7C5BB9F42+110882]
+	GetHandleVerifier [0x00007FF7C5BA0379+5465]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 5}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[5] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 5}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 5}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 6}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[6] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 6}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 6}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 7}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[7] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 7}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 7}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 8}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[8] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 8}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 8}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 9}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[9] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 9}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 9}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 10}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[10] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 10}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 10}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 11}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[11] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 11}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 11}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 12}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[12] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 12}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 12}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 13}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[13] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 13}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 13}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 14}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[14] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 14}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 14}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 15}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[15] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 15}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 15}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 16}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[16] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 16}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 16}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 17}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[17] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 17}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 17}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 18}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[18] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 18}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 18}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 19}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[19] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 19}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 19}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 20}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[20] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 20}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 20}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 21}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[21] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 21}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 21}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 22}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[22] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 22}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 22}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 23}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[23] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 23}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 23}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 24}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[24] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 24}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 24}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 25}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[25] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 25}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 25}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 26}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[26] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 26}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 26}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 27}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[27] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 27}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 27}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 28}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[28] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 28}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 28}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 29}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[29] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 29}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 29}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 30}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[30] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 30}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 30}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 31}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[31] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 31}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 31}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 32}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[32] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 32}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 32}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 33}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[33] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 33}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 33}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 34}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[34] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 34}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 34}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 35}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[35] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 35}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 35}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 36}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[36] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 36}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 36}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 37}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[37] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 37}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 37}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 38}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[38] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 38}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 38}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 39}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[39] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 39}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 39}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 40}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[40] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 40}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 40}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 41}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[41] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 41}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 41}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 42}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[42] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 42}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 42}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 43}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[43] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 43}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 43}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 44}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[44] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 44}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 44}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 45}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[45] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 45}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 45}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 46}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[46] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 46}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 46}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 47}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[47] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 47}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 47}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 48}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[48] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 48}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 48}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 49}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[49] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 49}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 49}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 50}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[50] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 50}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 50}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 51}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[51] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 51}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 51}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 52}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[52] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 52}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 52}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 53}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[53] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 53}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 53}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 54}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[54] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 54}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 54}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 55}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[55] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 55}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 55}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 56}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[56] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 56}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 56}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 57}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[57] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 57}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 57}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 58}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[58] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 58}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 58}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 59}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[59] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 59}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 59}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 60}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[60] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 60}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 60}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 61}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[61] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 61}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 61}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 62}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[62] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 62}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 62}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 63}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[63] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 63}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 63}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 64}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[64] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 64}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 64}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 65}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[65] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 65}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 65}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 66}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[66] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 66}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 66}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 67}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[67] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 67}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 67}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 68}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[68] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 68}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 68}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 69}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[69] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 69}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 69}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 70}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[70] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 70}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 70}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 71}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[71] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 71}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 71}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 72}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[72] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 72}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 72}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 73}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[73] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 73}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 73}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 74}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[74] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 74}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 74}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 75}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[75] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 75}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 75}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 76}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[76] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 76}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 76}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 77}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[77] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 77}
+[meysrey017-Bột107] 🕒 WAIT 2 giây
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 77}
+[meysrey017-Bột107] → ❌ navigate_back  => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 78}
+[meysrey017-Bột107] → ❌ click (//tr[@jsmodel='nXDxbd'])[78] => Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C5BB1F55+78133]
+	GetHandleVerifier [0x00007FF7C5BB1FB0+78224]
+	(No symbol) [0x00007FF7C5978FEC]
+	(No symbol) [0x00007FF7C59BF47F]
+	(No symbol) [0x00007FF7C59F7022]
+	(No symbol) [0x00007FF7C59F1A32]
+	(No symbol) [0x00007FF7C59F0AF9]
+	(No symbol) [0x00007FF7C5945AB5]
+	GetHandleVerifier [0x00007FF7C5E7BA8D+3001453]
+	GetHandleVerifier [0x00007FF7C5E75E72+2977874]
+	GetHandleVerifier [0x00007FF7C5E9497D+3103581]
+	GetHandleVerifier [0x00007FF7C5BCC7EA+186826]
+	GetHandleVerifier [0x00007FF7C5BD43FF+218591]
+	(No symbol) [0x00007FF7C5944B28]
+	GetHandleVerifier [0x00007FF7C5F85F28+4092168]
+	BaseThreadInitThunk [0x00007FFBCEBC7374+20]
+	RtlUserThreadStart [0x00007FFBCFFDCC91+33]
+
+[meysrey017-Bột107] 🧠 Giá trị của biến 'variables': {'COUNT_MAIL': 101, 'i': 78}
+[meysrey017-Bột107] 🕒 WAIT 2 giây

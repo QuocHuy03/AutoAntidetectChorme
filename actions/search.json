@@ -6,7 +6,6 @@
     "do": [
       {
         "action": "open_url",
-        "xpath": "",
         "value": "https://google.com"
       },
       {

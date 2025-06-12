@@ -1,0 +1,66 @@
+[
+  {
+    "action": "excel",
+    "mode": "row",
+    "path": "PROFILE_YOUTUBE.xlsx",
+    "do": [
+      {
+        "action": "open_url",
+        "value": "https://mail.google.com/"
+      },
+      {
+        "action": "wait",
+        "value": "2"
+      },
+      {
+        "action": "element_exists",
+        "xpath": "//input[@name='q']",
+        "if_true": [
+          {
+            "action": "open_url",
+            "value": "https://mail.google.com/mail/u/0/#inbox"
+          },
+          {
+            "action": "wait",
+            "value": "3"
+          },
+          {
+            "action": "eval_script",
+            "value": "var xpath = \"//tr[@jsmodel='nXDxbd']\"; var result = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null); var length = result.snapshotLength + 1; return length;",
+            "store_as": "COUNT_MAIL"
+          },
+          {
+            "action": "loop",
+            "start": 1,
+            "count": "{{COUNT_MAIL}}",
+            "variable": "i",
+            "do": [
+              {
+                "action": "click",
+                "xpath": "(//tr[@jsmodel='nXDxbd'])[{{i}}]"
+              },
+              {
+                "action": "wait",
+                "value": "2"
+              },
+              {
+                "action": "navigate_back"
+              }
+            ]
+          }
+        ],
+        "if_false": [
+          {
+            "action": "eval_script",
+            "value": "const mt = document.createElement('div');\nmt.setAttribute('id', 'huydev');\nmt.style.cssText = `\n    position: fixed;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background: rgb(255 204 204 / 89%);\n    z-index: 20000;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 70pt;\n    color: #a00000;\n`;\n\nconst span = document.createElement('span');\nspan.style.animation = 'blink 1s infinite';\nspan.textContent = 'ERROR';\nmt.appendChild(span);\n\nconst style = document.createElement('style');\nstyle.innerHTML = `\n@keyframes blink {\n  0%, 100% { opacity: 1; }\n  50% { opacity: 0; }\n}`;\ndocument.head.appendChild(style);\ndocument.body.appendChild(mt);"
+          }
+        ],
+        "stop_on_false": true
+      },
+      {
+        "action": "wait",
+        "value": "1"
+      }
+    ]
+  }
+]

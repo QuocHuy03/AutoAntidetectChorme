@@ -11,6 +11,7 @@ import random
 import pandas as pd
 from core.api_bridge import close_profile
 import openpyxl
+import re
 
 def render(text, local_vars):
     if not isinstance(text, str):
@@ -27,6 +28,10 @@ def render(text, local_vars):
             text = text.replace(f"{{{{{key}}}}}", str(val))
 
     return text
+
+# Hàm thay thế tất cả các biến động trong chuỗi
+def replace_variables_in_string(text, variables):
+    return re.sub(r'{{(.*?)}}', lambda match: str(variables.get(match.group(1), match.group(0))), text)
 
 def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, profile_input, provider, base_url, stop_flag,
                              excel_mode='manual', excel_path=None):
@@ -174,6 +179,8 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
         xpath = render(block.get('xpath', ''), local_vars)
         value = render(block.get('value', ''), local_vars)
 
+        logger(f"🧠 Giá trị của biến 'variables': {variables}")
+
         try:
                 if action == 'log':
                     logger(f"📝 {value}")
@@ -198,6 +205,14 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                     driver.get(value)
                     logger(f"→ OPEN URL - {value}")
 
+                elif action == 'navigate_back':
+                    driver.back()
+                    logger(f"⬅️ Quay lại trang trước")
+                
+                elif action == 'navigate_forward':
+                    driver.forward()
+                    logger(f"➡️ Tiến tới trang tiếp theo")
+                         
                 elif action == 'input_text':
                     elem = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
                     elem.clear()
@@ -299,25 +314,41 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                 
                 elif action == 'eval_script':
                     try:
+                        logger(f"⚙️ Thực thi JS: {value[:100]}{'...' if len(value) > 100 else ''}")
                         result = driver.execute_script(value)
+                        
                         if 'store_as' in block:
                             var_name = block['store_as']
                             variables[var_name] = result
                             logger(f"🧠 JS Eval → Lưu '{var_name}' = {result}")
                         else:
-                            logger(f"🧠 JS Eval → {result}")
+                            logger(f"🧠 JS Eval → Kết quả: {result}")
+                    
                     except Exception as e:
-                        logger(f"❌ eval_script lỗi: {e}")
+                        logger(f"❌ eval_script lỗi: {type(e).__name__} - {str(e)}")
+                        if "TrustedHTML" in str(e):
+                            logger("⚠️ Cảnh báo: Trình duyệt đang chặn innerHTML do chính sách bảo mật. Cần tránh dùng innerHTML!")
 
                 elif action == 'loop':
-                    count = int(block.get('count', 1))
+                    count_str = block.get('count', '1')  # Mặc định là 1 nếu không có count
+                    count_str = replace_variables_in_string(count_str, variables)  # Thay thế các biến động trong count
+                    logger(f"🧠 Giá trị của count sau khi thay thế: {count_str}")  # Log giá trị count đã thay thế
+                    try:
+                        count = int(count_str)  # Chuyển đổi thành số nguyên
+                    except ValueError:
+                        logger(f"❌ Lỗi chuyển đổi count sang int: {count_str}")
+                        return
+
                     start = int(block.get('start', 0))
                     var_name = block.get('variable', 'i')
                     loop_blocks = block.get('do', [])
-                    for i in range(start, start + count):
-                        variables[var_name] = i  # Cập nhật biến toàn cục
+                    
+                    for i in range(start, start + count):  # Chạy vòng lặp từ start đến start + count
+                        logger(f"🧠 Vòng lặp {i} - Cập nhật biến '{var_name}' = {i}")  # Log giá trị của biến i trong vòng lặp
+                        variables[var_name] = i  # Cập nhật biến vòng lặp
                         loop_vars = variables.copy()  # Thay vì local_vars.copy()
                         loop_flags.append({'break': False, 'continue': False})
+
                         for lb in loop_blocks:
                             if loop_flags[-1]['break']:
                                 break
@@ -325,12 +356,18 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                                 loop_flags[-1]['continue'] = False
                                 break
                             execute_block(lb, loop_vars)
+
                         loop_flags.pop()
 
                 elif action == 'while':
                     condition = block.get('condition')
                     var_name = block.get('variable', 'i')
                     loop_blocks = block.get('do', [])
+
+                    condition = replace_variables_in_string(condition, variables)  # Thay thế các biến động trong điều kiện
+                    logger(f"🧠 Điều kiện của while: {condition}")
+
+
                     while eval(condition, {}, variables):
                         loop_vars = local_vars.copy()
                         loop_vars.update(variables)
@@ -341,6 +378,11 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                             if loop_flags[-1]['continue']:
                                 loop_flags[-1]['continue'] = False
                                 break
+                            # Thay thế các biến trong mỗi block trước khi thực thi
+                            lb['xpath'] = replace_variables_in_string(lb.get('xpath', ''), variables)
+                            lb['value'] = replace_variables_in_string(lb.get('value', ''), variables)
+                            logger(f"🧠 Đã thay thế trong block: {lb}")  # Log các khối lệnh đã thay thế
+                            
                             execute_block(lb, loop_vars)
                         loop_flags.pop()
 
