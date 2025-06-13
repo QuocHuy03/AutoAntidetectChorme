@@ -119,6 +119,26 @@
             "value": "3"
           },
           {
+            "action": "scroll",
+            "value": "down"
+          },
+          {
+            "action": "scroll",
+            "value": "down"
+          },
+          {
+            "action": "scroll",
+            "value": "down"
+          },
+          {
+            "action": "open_url",
+            "value": "https://www.youtube.com/"
+          },
+          {
+            "action": "wait",
+            "value": "3"
+          },
+          {
             "action": "element_exists",
             "xpath": "//input[@name='search_query']",
             "if_true": [

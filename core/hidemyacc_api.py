@@ -32,7 +32,7 @@ def get_profiles(base_url, group_id=None):
 
 def start_profile(base_url, profile_id, window_config):
     try:
-        additional_args = f"--disable-gpu --window-size={window_config['width']},{window_config['height']} --force-device-scale-factor={window_config['scale']}"
+        additional_args = f"--disable-gpu --window-size={window_config['width']},{window_config['height']} --force-device-scale-factor={window_config['scale']} --lang=en"
         json_data = {
             "params": additional_args
         }

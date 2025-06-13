@@ -1,0 +1,32 @@
+[
+  {
+    "action": "excel",
+    "mode": "row",
+    "path": "PROFILE_GET2FA.xlsx",
+    "do": [
+      {
+        "action": "open_url",
+        "value": "https://myaccount.google.com/two-step-verification/authenticator"
+      },
+      {
+        "action": "element_exists",
+        "xpath": "//span[text()='Set up authenticator']",
+        "if_true": [
+          {
+            "action": "click",
+            "xpath": "//span[text()='Set up authenticator']"
+          },
+          {
+            "action": "input_press_key",
+            "xpath": "//*[@id='APjFqb']",
+            "value": "enter"
+          }
+        ],
+        "if_false": [{ "action": "screenshot" }],
+        "stop_on_false": true
+      },
+      { "action": "wait", "value": "1" },
+      { "action": "scroll", "value": "random" }
+    ]
+  }
+]
