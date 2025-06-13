@@ -1,15 +1,117 @@
 [
-  { "action": "open_url", "value": "https://example.com" },
+  {
+    "action": "open_url",
+    "value": "https://www.youtube.com/"
+  },
+  {
+    "action": "wait",
+    "value": "3"
+  },
   {
     "action": "element_exists",
-    "xpath": "//div[@id='popup']",
+    "xpath": "//input[@name='search_query']",
     "if_true": [
-      { "action": "click", "xpath": "//button[text()='Close']" }
+      {
+        "action": "click",
+        "xpath": "//input[@name='search_query']"
+      },
+      {
+        "action": "input_text",
+        "xpath": "//input[@name='search_query']",
+        "value": "tien dien tu"
+      },
+      {
+        "action": "input_press_key",
+        "xpath": "//input[@name='search_query']",
+        "value": "enter"
+      },
+      {
+        "action": "wait",
+        "value": "2"
+      },
+      {
+        "action": "scroll",
+        "value": "down"
+      },
+      {
+        "action": "scroll",
+        "value": "down"
+      },
+      {
+        "action": "scroll",
+        "value": "down"
+      },
+      {
+        "action": "random_number",
+        "var_name": "random_youtube",
+        "min": 2,
+        "max": 5
+      },
+      {
+        "action": "scroll",
+        "value": "element",
+        "xpath": "(//ytd-video-renderer)[{{random_youtube}}]"
+      },
+      {
+        "action": "log",
+        "value": "Sẽ click vào video thứ {{random_youtube}}"
+      },
+      {
+        "action": "click",
+        "xpath": "(//ytd-video-renderer)[{{random_youtube}}]//a[@id='thumbnail']"
+      },
+      {
+        "action": "wait",
+        "value": "10"
+      },
+      {
+        "action": "element_exists",
+        "xpath": "//yt-button-shape[@id='subscribe-button-shape' and not(@invisible)]",
+        "if_true": [
+          {
+            "action": "scroll",
+            "value": "element",
+            "xpath": "//yt-button-shape[@id='subscribe-button-shape' and not(@invisible)]"
+          },
+          {
+            "action": "wait",
+            "value": "1"
+          },
+          {
+            "action": "click",
+            "xpath": "//yt-button-shape[@id='subscribe-button-shape' and not(@invisible)]"
+          }
+        ],
+        "if_false": [],
+        "stop_on_false": false
+      },
+      {
+        "action": "element_exists",
+        "xpath": "(//button[@title='I like this'])[1]",
+        "if_true": [
+          {
+            "action": "scroll",
+            "value": "element",
+            "xpath": "(//button[@title='I like this'])[1]"
+          },
+          {
+            "action": "wait",
+            "value": "1"
+          },
+          {
+            "action": "click",
+            "xpath": "(//button[@title='I like this'])[1]"
+          }
+        ],
+        "if_false": [],
+        "stop_on_false": false
+      },
+      {
+        "action": "wait",
+        "value": "2"
+      }
     ],
-    "if_false": [
-      { "action": "screenshot" }
-    ],
-    "stop_on_false": true
-  },
-  { "action": "click", "xpath": "//a[@id='start']" }
+    "if_false": [],
+    "stop_on_false": false
+  }
 ]

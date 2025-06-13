@@ -1,168 +1,326 @@
 [
   {
-    "action": "open_url",
-    "value": "https://mail.google.com/"
-  },
-  {
-    "action": "wait",
-    "value": "2"
-  },
-  {
-    "action": "element_exists",
-    "xpath": "//input[@name='q']",
-    "if_true": [
+    "action": "excel",
+    "mode": "profile",
+    "path": "PROFILE_NUOI_MAIL.xlsx",
+    "do": [
       {
         "action": "open_url",
-        "value": "https://mail.google.com/mail/u/0/#inbox"
+        "value": "https://mail.google.com/"
       },
       {
         "action": "wait",
-        "value": "3"
-      },
-      {
-        "action": "loop",
-        "start": 1,
-        "count": "4",
-        "variable": "i",
-        "do": [
-          {
-            "action": "click",
-            "xpath": "(//tr[@jsmodel='nXDxbd'])[{{i}}]"
-          },
-          {
-            "action": "wait",
-            "value": "2"
-          },
-          {
-            "action": "navigate_back"
-          }
-        ]
-      },
-      {
-        "action": "open_url",
-        "value": "https://mail.google.com/mail"
-      },
-      {
-        "action": "wait",
-        "value": "3"
+        "value": "2"
       },
       {
         "action": "element_exists",
-        "xpath": "//div[text()='Compose']",
+        "xpath": "//input[@name='q']",
         "if_true": [
           {
-            "action": "click",
-            "xpath": "//div[text()='Compose']"
+            "action": "open_url",
+            "value": "https://mail.google.com/mail/u/0/#inbox"
           },
           {
             "action": "wait",
-            "value": "2"
+            "value": "3"
           },
           {
-            "action": "element_exists",
-            "xpath": "//div[@role='dialog']",
-            "if_true": [
-              {
-                "action": "wait",
-                "value": "2"
-              },
-              {
-                "action": "input_text",
-                "xpath": "//input[@aria-label='To recipients']",
-                "value": "huyviafb2016@gmail.com"
-              },
-              {
-                "action": "wait",
-                "value": "2"
-              },
-              {
-                "action": "input_text",
-                "xpath": "//input[@name='subjectbox']",
-                "value": "hello"
-              },
-              {
-                "action": "wait",
-                "value": "2"
-              },
+            "action": "loop",
+            "start": 1,
+            "count": "4",
+            "variable": "i",
+            "do": [
               {
                 "action": "click",
-                "xpath": "//div[@aria-label='Message Body']"
+                "xpath": "(//tr[@jsmodel='nXDxbd'])[{{i}}]"
               },
               {
-                "action": "input_text",
-                "xpath": "//div[@aria-label='Message Body']",
-                "value": "Chào bạn"
+                "action": "wait",
+                "value": "2"
               },
               {
-                "action": "click",
-                "xpath": "//div[text()='Send']"
+                "action": "navigate_back"
               }
-            ],
-            "if_false": [],
-            "stop_on_false": false
-          }
-        ],
-        "if_false": [],
-        "stop_on_false": false
-      },
-      {
-        "action": "open_url",
-        "value": "https://www.youtube.com/"
-      },
-      {
-        "action": "wait",
-        "value": "3"
-      },
-      {
-        "action": "element_exists",
-        "xpath": "//input[@name='search_query']",
-        "if_true": [
-          {
-            "action": "click",
-            "xpath": "//input[@name='search_query']"
-          },
-          {
-            "action": "input_text",
-            "xpath": "//input[@name='search_query']",
-            "value": "interlink network"
-          },
-          {
-            "action": "input_press_key",
-            "xpath": "//input[@name='search_query']",
-            "value": "enter"
-          },
-          {
-            "action": "wait",
-            "value": "2"
-          },
-          {
-            "action": "scroll",
-            "value": "down"
-          },
-          {
-            "action": "scroll",
-            "value": "down"
-          },
-          {
-            "action": "scroll",
-            "value": "down"
+            ]
           },
           {
             "action": "open_url",
-            "value": "https://www.youtube.com/watch?v=-bu9_7MrCLc"
+            "value": "https://mail.google.com/mail"
           },
           {
             "action": "wait",
-            "value": "10"
+            "value": "3"
           },
           {
             "action": "element_exists",
-            "xpath": "//yt-button-shape[@id='subscribe-button-shape' and not(@invisible)]",
+            "xpath": "//div[text()='Compose']",
             "if_true": [
+              {
+                "action": "click",
+                "xpath": "//div[text()='Compose']"
+              },
+              {
+                "action": "wait",
+                "value": "2"
+              },
+              {
+                "action": "element_exists",
+                "xpath": "//div[@role='dialog']",
+                "if_true": [
+                  {
+                    "action": "wait",
+                    "value": "2"
+                  },
+                  {
+                    "action": "input_text",
+                    "xpath": "//input[@aria-label='To recipients']",
+                    "value": "{{SEND_MAIL}}"
+                  },
+                  {
+                    "action": "wait",
+                    "value": "2"
+                  },
+                  {
+                    "action": "input_text",
+                    "xpath": "//input[@name='subjectbox']",
+                    "value": "{{SUBJECT}}"
+                  },
+                  {
+                    "action": "wait",
+                    "value": "2"
+                  },
+                  {
+                    "action": "click",
+                    "xpath": "//div[@aria-label='Message Body']"
+                  },
+                  {
+                    "action": "input_text",
+                    "xpath": "//div[@aria-label='Message Body']",
+                    "value": "{{CONTENT}}"
+                  },
+                  {
+                    "action": "click",
+                    "xpath": "//div[text()='Send']"
+                  }
+                ],
+                "if_false": [],
+                "stop_on_false": false
+              }
+            ],
+            "if_false": [],
+            "stop_on_false": false
+          },
+          {
+            "action": "open_url",
+            "value": "https://www.youtube.com/"
+          },
+          {
+            "action": "wait",
+            "value": "3"
+          },
+          {
+            "action": "element_exists",
+            "xpath": "//input[@name='search_query']",
+            "if_true": [
+              {
+                "action": "click",
+                "xpath": "//input[@name='search_query']"
+              },
+              {
+                "action": "input_text",
+                "xpath": "//input[@name='search_query']",
+                "value": "{{YOUTUBE}}"
+              },
+              {
+                "action": "input_press_key",
+                "xpath": "//input[@name='search_query']",
+                "value": "enter"
+              },
+              {
+                "action": "wait",
+                "value": "2"
+              },
+              {
+                "action": "scroll",
+                "value": "down"
+              },
+              {
+                "action": "scroll",
+                "value": "down"
+              },
+              {
+                "action": "scroll",
+                "value": "down"
+              },
+              {
+                "action": "random_number",
+                "var_name": "random_youtube",
+                "min": 2,
+                "max": 5
+              },
               {
                 "action": "scroll",
                 "value": "element",
-                "xpath": "//yt-button-shape[@id='subscribe-button-shape' and not(@invisible)]"
+                "xpath": "(//ytd-video-renderer)[{{random_youtube}}]"
+              },
+              {
+                "action": "log",
+                "value": "Sẽ click vào video thứ {{random_youtube}}"
+              },
+              {
+                "action": "click",
+                "xpath": "(//ytd-video-renderer)[{{random_youtube}}]//a[@id='thumbnail']"
+              },
+              {
+                "action": "wait",
+                "value": "10"
+              },
+              {
+                "action": "element_exists",
+                "xpath": "//yt-button-shape[@id='subscribe-button-shape' and not(@invisible)]",
+                "if_true": [
+                  {
+                    "action": "scroll",
+                    "value": "element",
+                    "xpath": "//yt-button-shape[@id='subscribe-button-shape' and not(@invisible)]"
+                  },
+                  {
+                    "action": "wait",
+                    "value": "1"
+                  },
+                  {
+                    "action": "click",
+                    "xpath": "//yt-button-shape[@id='subscribe-button-shape' and not(@invisible)]"
+                  }
+                ],
+                "if_false": [],
+                "stop_on_false": false
+              },
+              {
+                "action": "element_exists",
+                "xpath": "(//button[@title='I like this'])[1]",
+                "if_true": [
+                  {
+                    "action": "scroll",
+                    "value": "element",
+                    "xpath": "(//button[@title='I like this'])[1]"
+                  },
+                  {
+                    "action": "wait",
+                    "value": "1"
+                  },
+                  {
+                    "action": "click",
+                    "xpath": "(//button[@title='I like this'])[1]"
+                  }
+                ],
+                "if_false": [],
+                "stop_on_false": false
+              },
+              {
+                "action": "wait",
+                "value": "2"
+              }
+            ],
+            "if_false": [],
+            "stop_on_false": false
+          },
+          {
+            "action": "open_url",
+            "value": "https://www.google.com/"
+          },
+          {
+            "action": "wait",
+            "value": "3"
+          },
+          {
+            "action": "element_exists",
+            "xpath": "//*[@id='APjFqb']",
+            "if_true": [
+              {
+                "action": "input_text",
+                "xpath": "//*[@id='APjFqb']",
+                "value": "{{GOOGLE}}"
+              },
+              {
+                "action": "input_press_key",
+                "xpath": "//*[@id='APjFqb']",
+                "value": "enter"
+              },
+              {
+                "action": "wait",
+                "value": "2"
+              },
+              {
+                "action": "scroll",
+                "value": "down"
+              },
+              {
+                "action": "scroll",
+                "value": "down"
+              },
+              {
+                "action": "scroll",
+                "value": "down"
+              },
+              {
+                "action": "scroll",
+                "value": "down"
+              },
+              {
+                "action": "random_number",
+                "var_name": "random_web",
+                "min": 3,
+                "max": 5
+              },
+              {
+                "action": "scroll",
+                "value": "element",
+                "xpath": "(//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[{{random_web}}]"
+              },
+              {
+                "action": "log",
+                "value": "Sẽ click vào link thứ {{random_web}}"
+              },
+              {
+                "action": "click",
+                "xpath": "(//*[contains(@jscontroller, 'SC7lYd')]//a[@jsname='UWckNb'])[{{random_web}}]"
+              },
+              {
+                "action": "wait",
+                "value": "2"
+              },
+              {
+                "action": "scroll",
+                "value": "down"
+              },
+              {
+                "action": "scroll",
+                "value": "down"
+              },
+              {
+                "action": "wait",
+                "value": "2"
+              }
+            ],
+            "if_false": [],
+            "stop_on_false": false
+          },
+          {
+            "action": "open_url",
+            "value": "https://drive.google.com/drive/home"
+          },
+          {
+            "action": "wait",
+            "value": "1"
+          },
+          {
+            "action": "element_exists",
+            "xpath": "(//button//span[text()='New'])[1]",
+            "if_true": [
+              {
+                "action": "click",
+                "xpath": "(//button//span[text()='New'])[1]"
               },
               {
                 "action": "wait",
@@ -170,56 +328,63 @@
               },
               {
                 "action": "click",
-                "xpath": "//yt-button-shape[@id='subscribe-button-shape' and not(@invisible)]"
-              }
-            ],
-            "if_false": [],
-            "stop_on_false": false
-          },
-          {
-            "action": "element_exists",
-            "xpath": "(//button[@title='I like this'])[1]",
-            "if_true": [
-              {
-                "action": "scroll",
-                "value": "element",
-                "xpath": "(//button[@title='I like this'])[1]"
+                "xpath": "//div[@role='menu']//div[text()='Google Docs']"
               },
               {
                 "action": "wait",
                 "value": "1"
               },
               {
+                "action": "switch_tab_by_index",
+                "value": 1
+              },
+              {
+                "action": "scroll",
+                "value": "down"
+              },
+              {
                 "action": "click",
-                "xpath": "(//button[@title='I like this'])[1]"
+                "xpath": "//input[@aria-label='Rename']"
+              },
+              {
+                "action": "wait",
+                "value": "1"
+              },
+              {
+                "action": "input_text",
+                "xpath": "//input[@aria-label='Rename']",
+                "value": "Dự án aidrop"
+              },
+              {
+                "action": "input_press_key",
+                "xpath": "//input[@aria-label='Rename']",
+                "value": "enter"
+              },
+              {
+                "action": "wait",
+                "value": "2"
               }
             ],
             "if_false": [],
             "stop_on_false": false
-          },
-          {
-            "action": "wait",
-            "value": "2"
           }
         ],
-        "if_false": [],
+        "if_false": [
+          {
+            "action": "stop_script",
+            "value": "Tôi thích dừng"
+          }
+        ],
         "stop_on_false": false
-      }
-    ],
-    "if_false": [
+      },
+      {
+        "action": "wait",
+        "value": "5"
+      },
       {
         "action": "stop_script",
         "value": "Tôi thích dừng"
       }
-    ],
-    "stop_on_false": false
-  },
-  {
-    "action": "wait",
-    "value": "5"
-  },
-  {
-    "action": "stop_script",
-    "value": "Tôi thích dừng"
+    ]
   }
 ]

@@ -13,21 +13,29 @@ from core.api_bridge import close_profile
 import openpyxl
 import re
 
-def render(text, local_vars):
+def render(text, local_vars, global_vars=None):
     if not isinstance(text, str):
         return text
 
     combined_vars = {}
-    if "row_data" in local_vars:
-        combined_vars.update(local_vars["row_data"])
-    else:
+
+    # Ưu tiên row_data nếu có
+    if isinstance(local_vars, dict):
+        if "row_data" in local_vars:
+            combined_vars.update(local_vars["row_data"])
         combined_vars.update(local_vars)
 
+    # Gộp thêm biến toàn cục như 'random_number'...
+    if global_vars:
+        combined_vars.update(global_vars)
+
+    # Thay thế biến trong chuỗi
     for key, val in combined_vars.items():
         if pd.notna(val):
             text = text.replace(f"{{{{{key}}}}}", str(val))
 
     return text
+
 
 # Hàm thay thế tất cả các biến động trong chuỗi
 def replace_variables_in_string(text, variables):
@@ -176,10 +184,10 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
         
         # end excel
 
-        xpath = render(block.get('xpath', ''), local_vars)
-        value = render(block.get('value', ''), local_vars)
-
-        logger(f"🧠 Giá trị của biến 'variables': {variables}")
+        xpath = render(block.get('xpath', ''), local_vars, variables)
+        value = render(block.get('value', ''), local_vars, variables)
+        logger(f"[DEBUG] XPath sau khi render: {xpath}")
+        logger(f"[DEBUG] Giá trị của biến 'variables': {variables}")
 
         try:
                 if action == 'log':
@@ -201,6 +209,19 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                                 logger(f"❌ Lỗi khi đóng trình duyệt: {e}")
                             exit()
 
+                elif action == 'random_number':
+                    var_name = block.get("var_name")
+                    min_val = int(block.get("min", 0))
+                    max_val = int(block.get("max", 100))
+
+                    if not var_name:
+                        logger("⚠️ Block random_number thiếu 'var_name'")
+                        return
+
+                    random_result = random.randint(min_val, max_val)
+                    variables[var_name] = random_result
+                    logger(f"🎲 Tạo số ngẫu nhiên {random_result} lưu vào biến '{var_name}'")
+
                 elif action == 'open_url':
                     driver.get(value)
                     logger(f"→ OPEN URL - {value}")
@@ -213,6 +234,31 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                     driver.forward()
                     logger(f"➡️ Tiến tới trang tiếp theo")
                          
+                elif action == 'switch_tab_by_index':
+                        tab_index = int(value)
+                        tabs = driver.window_handles
+                        if 0 <= tab_index < len(tabs):
+                            driver.switch_to.window(tabs[tab_index])
+                            logger(f"🔄 Chuyển sang tab {tab_index + 1}")
+                        else:
+                            logger(f"❌ Tab chỉ số {tab_index} không hợp lệ")
+
+                elif action == 'switch_tab_next':
+                        tabs = driver.window_handles
+                        current_tab = driver.current_window_handle
+                        current_index = tabs.index(current_tab)
+                        next_index = (current_index + 1) % len(tabs)
+                        driver.switch_to.window(tabs[next_index])
+                        logger(f"🔄 Chuyển sang tab tiếp theo")
+
+                elif action == 'switch_tab_prev':
+                        tabs = driver.window_handles
+                        current_tab = driver.current_window_handle
+                        current_index = tabs.index(current_tab)
+                        prev_index = (current_index - 1) % len(tabs)  # Lùi lại một tab
+                        driver.switch_to.window(tabs[prev_index])
+                        logger(f"🔄 Chuyển sang tab trước đó")
+
                 elif action == 'input_text':
                     elem = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
                     elem.clear()

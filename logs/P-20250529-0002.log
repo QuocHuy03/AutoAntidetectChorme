@@ -1,6 +1,0 @@
-[P-20250529-0002] 🆕 Start new log session
-[P-20250529-0002] ⏳ Đang chạy...
-[P-20250529-0002] ❌ Không mở được trình duyệt: Message: session not created: cannot connect to chrome at 127.0.0.1:51746
-from session not created: This version of ChromeDriver only supports Chrome version 135
-Current browser version is 134.0.6998.89
-
