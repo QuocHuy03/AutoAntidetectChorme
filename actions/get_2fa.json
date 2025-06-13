@@ -17,16 +17,123 @@
             "xpath": "//span[text()='Set up authenticator']"
           },
           {
-            "action": "input_press_key",
-            "xpath": "//*[@id='APjFqb']",
-            "value": "enter"
+            "action": "wait",
+            "value": "1"
+          },
+          {
+            "action": "click",
+            "xpath": "//span[text()='Can’t scan it?']"
+          },
+          {
+            "action": "get_text",
+            "xpath": "(//ol/li)[2]//strong",
+            "var_name": "code_2fa"
+          },
+          {
+            "action": "save_to_excel",
+            "path": "LOGIN_GMAIL.xlsx",
+            "profile_column": "PROFILE",
+            "column_save": "CODE_2FA",
+            "value": "{{code_2fa}}",
+            "mode": "profile"
+          },
+          {
+            "action": "eval_script",
+            "value": "const raw = \"{{code_2fa}}\";\nconst cleaned = raw.replace(/\\s+/g, '');\nreturn cleaned;",
+            "store_as": "convert_2fa"
+          },
+          {
+            "action": "click",
+            "xpath": "(//div[@role='dialog']//span[text()='Next'])[2]"
+          },
+          {
+            "action": "wait",
+            "value": "1"
+          },
+          {
+            "action": "http",
+            "method": "GET",
+            "url": "https://2fa.live/tok/{{convert_2fa}}",
+            "store_as": "res_2fa"
+          },
+          {
+            "action": "input_text",
+            "xpath": "//input[@type='text']",
+            "value": "{{res_2fa.token}}"
+          },
+          {
+            "action": "wait",
+            "value": "1"
+          },
+          {
+            "action": "click",
+            "xpath": "(//span[text()='Verify'])[2]"
+          },
+          {
+            "action": "wait",
+            "value": "1"
+          },
+          {
+            "action": "open_url",
+            "value": "https://myaccount.google.com/signinoptions/twosv"
+          },
+          {
+            "action": "wait",
+            "value": "1"
+          },
+          {
+            "action": "element_exists",
+            "xpath": "//span[text()='Turn on 2-Step Verification']",
+            "if_true": [
+              {
+                "action": "click",
+                "xpath": "//span[text()='Turn on 2-Step Verification']"
+              },
+              {
+                "action": "wait",
+                "value": "1"
+              },
+              {
+                "action": "click",
+                "xpath": "//button[@aria-label='Done']"
+              },
+              {
+                "action": "save_to_excel",
+                "path": "LOGIN_GMAIL.xlsx",
+                "profile_column": "PROFILE",
+                "column_save": "STATUS",
+                "value": "CÀI 2FA THÀNH CÔNG",
+                "mode": "profile"
+              }
+            ],
+            "if_false": [
+              {
+                "action": "save_to_excel",
+                "path": "LOGIN_GMAIL.xlsx",
+                "profile_column": "PROFILE",
+                "column_save": "STATUS",
+                "value": "CÀI 2FA THẤT BẠI",
+                "mode": "profile"
+              }
+            ],
+            "stop_on_fail": true
           }
         ],
-        "if_false": [{ "action": "screenshot" }],
+        "if_false": [
+          {
+            "action": "screenshot"
+          }
+        ],
         "stop_on_false": true
       },
-      { "action": "wait", "value": "1" },
-      { "action": "scroll", "value": "random" }
+      {
+        "action": "wait",
+        "value": "1"
+      },
+      {
+        "action": "scroll",
+        "value": "random"
+      }
     ]
   }
 ]

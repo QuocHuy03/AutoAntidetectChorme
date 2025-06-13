@@ -12,6 +12,19 @@ import pandas as pd
 from core.api_bridge import close_profile
 import openpyxl
 import re
+import requests
+
+def jslite_to_python(js_code, store_as=None):
+    js_code = js_code.replace("const ", "").replace("let ", "")
+    js_code = re.sub(r'(\w+)\.replace\(/\\s\+\/g,\s*[\'"](.*?)[\'"]\)', r're.sub(r"\s+", "\2", \1)', js_code)
+    js_code = js_code.replace(".toUpperCase()", ".upper()")
+    js_code = js_code.replace(".toLowerCase()", ".lower()")
+    js_code = js_code.replace(".trim()", ".strip()")
+
+    if store_as:
+        js_code = re.sub(r'return (.+);?', f'variables["{store_as}"] = \\1', js_code)
+
+    return js_code
 
 def render(text, local_vars, global_vars=None):
     if not isinstance(text, str):
@@ -40,6 +53,7 @@ def render(text, local_vars, global_vars=None):
 # Hàm thay thế tất cả các biến động trong chuỗi
 def replace_variables_in_string(text, variables):
     return re.sub(r'{{(.*?)}}', lambda match: str(variables.get(match.group(1), match.group(0))), text)
+
 
 def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, profile_input, provider, base_url, stop_flag,
                              excel_mode='manual', excel_path=None):
@@ -125,14 +139,21 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
 
         elif action == 'save_to_excel':
             excel_path = block.get('path')  # Đường dẫn đến file Excel
-            profile_column = block.get('profile_column', 'PROFILE')  # Cột PROFILE để tìm dòng
-            column_save = block.get('column_save', 'STATUS')  # Cột STATUS để lưu
-            value = block.get('value', '')  # Giá trị cần lưu vào cột STATUS
-            mode = block.get('mode', 'row')  # Chế độ 'profile' hoặc 'row'
-            
             if not excel_path:
                 logger(f"[SAVE TO EXCEL] ❌ Không có đường dẫn đến Excel.")
                 return
+            
+            column_save = render(block.get('column_save', ''), local_vars, variables)
+            profile_column = render(block.get('profile_column', 'PROFILE'), local_vars, variables)
+
+            # Kiểm tra đầu vào
+            if not column_save:
+                logger(f"[SAVE TO EXCEL] ❌ Thiếu 'column_save' – không biết ghi vào cột nào.")
+                return
+            
+            value = render(block.get('value', ''), local_vars, variables)
+            mode = block.get('mode', 'row')  # Chế độ 'profile' hoặc 'row'
+            
 
             try:
                 # Load workbook và lấy sheet
@@ -314,7 +335,22 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                             logger(f"❌ Lỗi khi đóng trình duyệt: {e}")
                         
                         exit()  # Dừng script hoàn toàn
-                
+
+                elif action == 'get_text':
+                    var_name = block.get('var_name')
+
+                    if not xpath or not var_name:
+                        logger("⚠️ Thiếu 'xpath' hoặc 'var_name' trong block get_text.")
+                        return
+
+                    try:
+                        element = driver.find_element(By.XPATH, xpath)
+                        text_value = element.text.strip()
+                        variables[var_name] = text_value
+                        logger(f"🔍 Đã lấy text từ {xpath} → Gán vào biến '{var_name}': {text_value}")
+                    except Exception as e:
+                        logger(f"❌ Không thể lấy text từ {xpath} → Lỗi: {e}")
+
                 elif action == 'upload_file':
                     file_input = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
                     file_input.send_keys(value)
@@ -359,22 +395,30 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                     logger(f"📸 Screenshot lưu tại: {path}")
                 
                 elif action == 'eval_script':
-                    try:
-                        logger(f"⚙️ Thực thi JS: {value[:100]}{'...' if len(value) > 100 else ''}")
-                        result = driver.execute_script(value)
-                        
-                        if 'store_as' in block:
-                            var_name = block['store_as']
-                            variables[var_name] = result
-                            logger(f"🧠 JS Eval → Lưu '{var_name}' = {result}")
-                        else:
-                            logger(f"🧠 JS Eval → Kết quả: {result}")
-                    
-                    except Exception as e:
-                        logger(f"❌ eval_script lỗi: {type(e).__name__} - {str(e)}")
-                        if "TrustedHTML" in str(e):
-                            logger("⚠️ Cảnh báo: Trình duyệt đang chặn innerHTML do chính sách bảo mật. Cần tránh dùng innerHTML!")
+                    raw_code = block.get('value')
+                    store_as = block.get('store_as')  # optional
 
+                    if not raw_code:
+                        logger("⚠️ eval_script thiếu 'value'.")
+                        return
+
+                    try:
+                        code = render(raw_code, local_vars, variables)
+                        py_code = jslite_to_python(code, store_as)
+
+                        exec_env = {
+                            'variables': variables,
+                            'logger': logger,
+                            're': re,
+                            'pd': pd
+                        }
+
+                        exec(py_code, exec_env)
+                        logger(f"⚙️ eval_script đã chạy. {'Lưu vào ' + store_as if store_as else 'Không lưu biến.'}")
+
+                    except Exception as e:
+                        logger(f"❌ eval_script lỗi: {e}\n📄 Code lỗi:\n{py_code}")
+  
                 elif action == 'loop':
                     count_str = block.get('count', '1')  # Mặc định là 1 nếu không có count
                     count_str = replace_variables_in_string(count_str, variables)  # Thay thế các biến động trong count
@@ -440,6 +484,43 @@ def execute_blocks_from_json(json_path, logger, driver_path, debugger_address, p
                     if loop_flags:
                         loop_flags[-1]['continue'] = True
       
+                elif action == 'http':
+                    url = render(block.get('url', ''), local_vars, variables)
+                    method = block.get('method', 'GET').upper()
+                    headers = block.get('headers', {})
+                    store_as = block.get('store_as')
+
+                    # Render headers nếu có chứa biến
+                    headers = {k: render(v, local_vars, variables) for k, v in headers.items()}
+
+                    if not url:
+                        logger("⚠️ Block HTTP thiếu 'url'")
+                        return
+
+                    try:
+                        if method == 'GET':
+                            res = requests.get(url, headers=headers)
+                        elif method == 'POST':
+                            payload = block.get('body', {})
+                            # Render biến trong body nếu có
+                            if isinstance(payload, dict):
+                                payload = {k: render(v, local_vars, variables) for k, v in payload.items()}
+                            res = requests.post(url, headers=headers, json=payload)
+                        else:
+                            logger(f"⚠️ Phương thức HTTP không hỗ trợ: {method}")
+                            return
+
+                        if res.status_code >= 200 and res.status_code < 300:
+                            data = res.json()
+                            if store_as:
+                                variables[store_as] = data
+                                logger(f"🌐 HTTP {method} thành công → Lưu kết quả vào '{store_as}'")
+                        else:
+                            logger(f"❌ HTTP {method} thất bại: {res.status_code} - {res.text}")
+
+                    except Exception as e:
+                        logger(f"❌ HTTP request lỗi: {e}")
+
                 elif action == 'stop_script':
                     logger(f"🛑 SCRIPT DỪNG LẠI: {value or block.get('reason', 'Không có lý do cụ thể')}")
                     close_profile(provider, base_url, profile['id'])
